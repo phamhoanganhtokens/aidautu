@@ -3,218 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Trading Pro v3.0.1 - Báo Cáo Chiến Thuật BTC/USD</title>
+    <title>AI Đầu Tư - Phạm Hoàng Anh Tokens</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            navy: '#004080',
-                            charcoal: '#333333',
-                            bg: '#F8F8F8',
-                            accent: '#28A745',
-                            border: '#E0E0E0'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif'],
-                        serif: ['"Times New Roman"', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8fafc;
+            --accent-blue: #0f172a;
+            --text-main: #1a1a1a;
+            --text-muted: #4a5568;
+            --border-color: #e2e8f0;
+        }
+
         body {
-            background-color: #F8F8F8;
-            color: #333333;
-        }
-        .report-container {
-            max-width: 850px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .serif-content {
-            font-family: 'Times New Roman', serif;
-            text-align: justify;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
             line-height: 1.8;
-            font-size: 1.1rem;
+            -webkit-font-smoothing: antialiased;
         }
-        .section-title {
-            font-family: 'Times New Roman', serif;
-            font-weight: bold;
-            font-size: 1.25rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #004080;
-            border-bottom: 1px solid #E0E0E0;
-            padding-bottom: 0.5rem;
-            text-transform: uppercase;
+
+        .justify-text {
+            text-align: justify;
+            text-justify: inter-word;
         }
+
         .glass-header {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 64, 128, 0.1);
+            border-bottom: 1px solid var(--border-color);
         }
-        .data-badge {
-            background: rgba(0, 64, 128, 0.05);
-            border-left: 4px solid #004080;
-            padding: 1rem;
-            margin: 1.5rem 0;
+
+        .section-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
         }
-        .confidence-meter {
-            height: 8px;
+
+        .premium-border {
+            position: relative;
+        }
+
+        .premium-border::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-blue);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            color: var(--accent-blue);
+            line-height: 1.3;
+        }
+
+        table {
             width: 100%;
-            background: #E0E0E0;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 8px;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
         }
-        .confidence-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #28A745, #1e7e34);
-            width: 92%;
+
+        th {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--secondary-bg);
+        }
+
+        .ai-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-right: 4px;
+            color: #334155;
+        }
+
+        /* Responsive refinements */
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
-<body class="antialiased font-sans">
+<body class="min-h-screen flex flex-col">
 
     <!-- Header Section -->
-    <header class="glass-header sticky top-0 z-50 py-4 px-6 mb-8">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <header class="glass-header sticky top-0 z-50 py-6 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 header-content">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center text-white font-bold text-xl">AI</div>
-                <div>
-                    <h1 class="font-display font-bold text-xl text-brand-navy leading-none">AI Trading pro v3.0.1</h1>
-                    <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Advanced Quantitative Analysis</p>
+                <div class="w-10 h-10 bg-slate-900 flex items-center justify-center rounded-lg shadow-lg">
+                    <span class="text-white font-bold text-xl">AI</span>
                 </div>
+                <h1 class="text-3xl md:text-4xl tracking-tight">AI Đầu Tư</h1>
             </div>
-            <a href="www.phamhoanganhtokens.com" target="_blank" class="text-brand-navy hover:text-blue-700 font-semibold transition-colors text-sm border-b border-brand-navy/20">
-                www.phamhoanganhtokens.com
-            </a>
+            <div class="text-slate-500 font-medium tracking-widest text-sm uppercase">
+                <a href="www.phamhoanganhtokens.com" target="_blank" class="hover:text-slate-900 transition-colors">www.phamhoanganhtokens.com</a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="px-4 pb-20">
-        <article class="report-container mx-auto bg-white p-8 md:p-16 rounded-sm border border-gray-100">
-            
-            <!-- Document Heading -->
-            <div class="mb-10 text-center md:text-left">
-                <h2 class="serif-content font-bold text-2xl md:text-3xl mb-2 text-gray-900">
-                    BÁO CÁO CHIẾN THUẬT GIAO DỊCH BTC/USD
-                </h2>
-                <div class="h-1 w-24 bg-brand-navy mx-auto md:mx-0 mb-4"></div>
-                <p class="text-gray-500 font-sans text-sm uppercase tracking-tighter">HỆ THỐNG AI TRADING PRO V3.0.1 • OFFICIAL DOCUMENT</p>
-            </div>
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto w-full px-4 md:px-8 py-12 space-y-16">
 
-            <div class="serif-content">
-                <div class="section-title">1. THÔNG TIN CHUNG VÀ THỜI GIAN THỰC</div>
-                <ul class="list-none space-y-2 mb-6">
-                    <li><strong>Ngày/Giờ báo cáo:</strong> 18 tháng 04, 2026 | 09:33 AM.</li>
-                    <li><strong>Cặp tiền tệ:</strong> BTC/USD.</li>
-                    <li><strong>Số dư tài khoản (Balance):</strong> 200.00 USD.</li>
-                    <li><strong>Mức rủi ro thiết lập:</strong> 20% (Tương đương rủi ro 40.00 USD trên vốn).</li>
-                </ul>
-
-                <div class="section-title">2. THÔNG SỐ GIAO DỊCH KHUYẾN NGHỊ</div>
-                <div class="data-badge font-sans">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8">
-                        <div class="flex justify-between border-b border-gray-200 pb-1">
-                            <span class="text-gray-600">Điểm vào lệnh (Entry):</span>
-                            <span class="font-bold text-brand-navy">77,400.00 USD</span>
-                        </div>
-                        <div class="flex justify-between border-b border-gray-200 pb-1">
-                            <span class="text-gray-600">Chốt lời 1 (TP1):</span>
-                            <span class="font-bold text-brand-accent">79,500.00 USD</span>
-                        </div>
-                        <div class="flex justify-between border-b border-gray-200 pb-1">
-                            <span class="text-gray-600">Chốt lời 2 (TP2):</span>
-                            <span class="font-bold text-brand-accent">82,200.00 USD</span>
-                        </div>
-                        <div class="flex justify-between border-b border-gray-200 pb-1">
-                            <span class="text-gray-600">Dừng lỗ (Stop Loss):</span>
-                            <span class="font-bold text-red-600">74,800.00 USD</span>
-                        </div>
-                        <div class="flex justify-between border-b border-gray-200 pb-1">
-                            <span class="text-gray-600">Khối lượng (Lot Size):</span>
-                            <span class="font-bold">0.015</span>
-                        </div>
-                        <div class="flex justify-between border-b border-gray-200 pb-1">
-                            <span class="text-gray-600">Tỷ lệ R:R:</span>
-                            <span class="font-bold">1 : 1.85</span>
-                        </div>
+        <!-- Section 1: Introduction -->
+        <section class="section-card p-8 md:p-12">
+            <h2 class="text-2xl md:text-3xl mb-8 premium-border">Hệ thống AI Đầu Tư - Google Opal</h2>
+            <div class="space-y-6 text-lg justify-text">
+                <p>
+                    Hệ thống AI Đầu Tư - Google Opal được thiết kế như một trung tâm trí tuệ nhân tạo cấp cao, với sứ mệnh tối ưu hóa hiệu quả đầu tư thông qua việc xử lý dữ liệu lớn và phân tích đa chiều. Hệ thống vận hành dưới sự giám sát chiến lược của CEO (Con người), đảm bảo sự kết hợp hoàn hảo giữa tính toán máy học và nhạy bén kinh doanh.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <div>
+                        <h3 class="text-xl mb-4">1. Vai trò của CEO (Con người)</h3>
+                        <p>CEO đóng vai trò là người ra quyết định cuối cùng, thiết lập các mục tiêu chiến lược và quản trị rủi ro cấp cao. Mọi đề xuất từ AI đều được đối soát với tầm nhìn dài hạn và đạo đức đầu tư của tổ chức.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl mb-4">2. Cấu trúc Đại lý AI (Agent)</h3>
+                        <p>Hệ thống bao gồm 4 bộ phận chuyên trách với 12 đại lý AI độc lập, từ phân tích kỹ thuật, cơ bản đến theo dõi dòng tiền và tâm lý thị trường, tạo nên một mạng lưới kiểm chứng chéo chặt chẽ.</p>
                     </div>
                 </div>
-
-                <div class="section-title">3. PHÂN TÍCH CHI TIẾT THEO VAI TRÒ TÁC TÁC (WORKFLOW RATIONALE)</div>
-                
-                <p class="mb-4">
-                    <strong>[Real-time Data Fetcher & Market Scanner]:</strong> Dữ liệu mới nhất cho thấy Bitcoin đã chính thức thoát khỏi vùng tích lũy kéo dài, phá vỡ mốc 75,000 USD với khối lượng lớn. Giá hiện tại đang duy trì ổn định quanh mức 77,425 USD. Chỉ số RSI (14) đạt mức 70, cho thấy lực mua đang áp đảo hoàn toàn.
-                </p>
-
-                <p class="mb-4">
-                    <strong>[Advanced Analyst]:</strong> Phân tích kỹ thuật xác nhận cấu trúc tăng giá vững chắc. Đường trung bình động MA 50 đã cắt lên trên MA 200 (Golden Cross), trong khi MACD trên khung đồ thị ngày chuyển sang trạng thái dương rõ rệt. Về mặt tin tức, sự hạ nhiệt căng thẳng tại Trung Đông (Eo biển Hormuz hoạt động trở lại) đã khiến giá dầu giảm mạnh, đẩy dòng tiền quay trở lại các tài sản rủi ro như Bitcoin. Dòng tiền từ các quỹ ETF (BlackRock, MicroStrategy) tiếp tục ghi nhận mức kỷ lục.
-                </p>
-
-                <p class="mb-4">
-                    <strong>[Risk Manager]:</strong> Với mục tiêu rủi ro 20% trên tài khoản 200 USD, hệ thống đã tính toán khoảng cách dừng lỗ 2,600 giá (từ 77,400 về 74,800). Khối lượng 0.015 lot được lựa chọn để đảm bảo tổng thiệt hại nếu chạm SL không vượt quá 40 USD, đồng thời tối ưu hóa lợi nhuận tại các vùng kháng cự phía trên.
-                </p>
-
-                <p class="mb-4">
-                    <strong>[Entry Advisor]:</strong> Điểm vào 77,400 USD được thiết lập dựa trên vùng hỗ trợ mới hình thành sau khi phá vỡ (Breakout-Retest). TP1 tại 79,500 USD nhằm mục đích thu lợi nhuận ngắn hạn trước ngưỡng kháng cự tâm lý 80,000 USD. TP2 tại 82,200 USD hướng tới mục tiêu kỹ thuật trung hạn của mô hình Bull Flag.
-                </p>
-
-                <p class="mb-8">
-                    <strong>[Psychology Guard]:</strong> Tâm lý thị trường đang chuyển dịch từ "Sợ hãi" sang "Lạc quan". Tuy nhiên, để tránh bẫy tâm lý FOMO tại các mức giá cao hơn, hệ thống thực thi chiến thuật chia nhỏ các điểm chốt lời. Việc duy trì R:R > 1:1.8 đảm bảo tính bền vững cho tài khoản nhỏ trong điều kiện thị trường biến động mạnh.
-                </p>
-
-                <div class="section-title">4. ĐIỂM TIN CẬY (CONFIDENCE SCORE)</div>
-                <div class="bg-gray-50 p-6 rounded-lg mb-6">
-                    <div class="flex justify-between items-end mb-2">
-                        <span class="font-bold text-lg">Mức độ tin cậy:</span>
-                        <span class="font-bold text-2xl text-brand-accent">92%</span>
-                    </div>
-                    <div class="confidence-meter">
-                        <div class="confidence-fill"></div>
-                    </div>
-                    <p class="mt-4 italic">
-                        <strong>Nhận định cuối cùng:</strong> Lệnh MUA (BUY) có xác suất thắng cao nhờ sự đồng thuận giữa phân tích dòng tiền vĩ mô và các chỉ báo kỹ thuật động lượng.
-                    </p>
-                </div>
-
-                <div class="mt-12 pt-8 border-t border-gray-100 text-sm text-gray-500 italic">
-                    Báo cáo được tạo tự động bởi AI Trading Pro v3.0.1.
+                <div class="mt-6">
+                    <h3 class="text-xl mb-4">3. Quy trình vận hành & KPI</h3>
+                    <p>Hệ thống hoạt động theo chu kỳ Daily (Hàng ngày), Weekly (Hàng tuần), và Quarterly (Hàng quý). Mọi hoạt động đều được đo lường qua hệ thống KPI nghiêm ngặt về tỷ suất sinh lời điều chỉnh theo rủi ro (Sharpe Ratio) và độ sụt giảm tài sản tối đa (Maximum Drawdown).</p>
                 </div>
             </div>
-        </article>
+        </section>
+
+        <!-- Section 2: AI Response -->
+        <section class="section-card p-8 md:p-12 border-l-4 border-slate-900">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="bg-slate-100 text-slate-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Trực tiếp từ AI</span>
+                <h2 class="text-2xl md:text-3xl">Phản hồi từ AI Đầu Tư</h2>
+            </div>
+
+            <div class="justify-text text-lg space-y-6">
+                <p>
+                    Dựa trên dữ liệu tổng hợp từ các hệ thống thành phần vào ngày 18/04/2026, AI Dau Tu đề xuất chiến lược đầu tư và danh mục 10 mã cổ phiếu hàng đầu với sự phối hợp chặt chẽ từ các đại lý chuyên biệt:
+                </p>
+
+                <h3 class="text-xl text-center font-bold my-8 uppercase tracking-widest text-slate-800">DANH MỤC CHIẾN LƯỢC QUÝ II/2026</h3>
+
+                <div class="overflow-hidden rounded-lg border border-slate-200">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 5%">STT</th>
+                                <th style="width: 15%">Mã CP</th>
+                                <th style="width: 20%">Ngành</th>
+                                <th style="width: 60%">Điểm nhấn từ Hệ thống Điều phối</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="font-bold text-blue-900 text-xl">FPT</td>
+                                <td>Công nghệ</td>
+                                <td><span class="ai-badge">AI-VPR</span> Tiên phong trong lĩnh vực AI và bán dẫn. <br><span class="ai-badge">AI-VPP</span> Tăng trưởng lợi nhuận duy trì ở mức hai con số liên tục nhiều năm.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="font-bold text-blue-900 text-xl">HPG</td>
+                                <td>Công nghiệp</td>
+                                <td><span class="ai-badge">AI-VPR</span> Dự án Dung Quất 2 tối ưu hóa sản lượng thép chất lượng cao. <br><span class="ai-badge">AI-VRM</span> Vị thế tài chính vững mạnh, thanh khoản dẫn đầu thị trường.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="font-bold text-blue-900 text-xl">VCB</td>
+                                <td>Ngân hàng</td>
+                                <td><span class="ai-badge">AI-VPP</span> "Ngân hàng chuẩn mực" với chất lượng tài sản vượt trội. <br><span class="ai-badge">AI-VPO</span> Trụ cột điều tiết và giữ nhịp cho toàn bộ danh mục.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td class="font-bold text-blue-900 text-xl">MWG</td>
+                                <td>Bán lẻ</td>
+                                <td><span class="ai-badge">AI-VPR</span> Sự bùng nổ của mảng tiêu dùng thực phẩm (Bách Hóa Xanh). <br><span class="ai-badge">AI-VRM</span> Khả năng quản trị chuỗi cung ứng linh hoạt trong mọi điều kiện kinh tế.</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="font-bold text-blue-900 text-xl">GMD</td>
+                                <td>Logistics</td>
+                                <td><span class="ai-badge">AI-VPR</span> Đón đầu lưu lượng hàng hóa FDI kỷ lục qua các cụm cảng nước sâu Gemalink.</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td class="font-bold text-blue-900 text-xl">TCB</td>
+                                <td>Ngân hàng</td>
+                                <td><span class="ai-badge">AI-VPP</span> Hiệu quả sinh lời (ROE) top đầu ngành nhờ chiến lược số hóa toàn diện và CASA cao.</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="font-bold text-blue-900 text-xl">KBC</td>
+                                <td>BĐS KCN</td>
+                                <td><span class="ai-badge">AI-VPR</span> Hưởng lợi trực tiếp từ làn sóng dịch chuyển chuỗi cung ứng công nghệ cao toàn cầu vào Việt Nam.</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td class="font-bold text-blue-900 text-xl">PVS</td>
+                                <td>Dầu khí</td>
+                                <td><span class="ai-badge">AI-VPP</span> Khối lượng công việc lớn từ các dự án năng lượng tái tạo ngoài khơi và chuỗi dự án khí điện Lô B.</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td class="font-bold text-blue-900 text-xl">REE</td>
+                                <td>Năng lượng</td>
+                                <td><span class="ai-badge">AI-VPR</span> Cơ cấu tài sản bền vững giữa năng lượng sạch và bất động sản văn phòng cho thuê.</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td class="font-bold text-blue-900 text-xl">VNM</td>
+                                <td>Tiêu dùng</td>
+                                <td><span class="ai-badge">AI-VRM</span> Vai trò cổ phiếu phòng vệ (Defensive stock) với tỷ suất cổ tức ổn định, giúp giảm thiểu rủi ro cho danh mục.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="my-12 border-slate-200">
+
+                <h3 class="text-xl font-bold mb-6">PHÂN TÍCH CHIẾN LƯỢC TỔNG HỢP</h3>
+
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2">1. Phân tích Vĩ mô & Xu hướng Ngành (AI-VPR):</h4>
+                        <p>Tại thời điểm tháng 4/2026, thị trường Việt Nam đang tận dụng tốt chu kỳ tăng trưởng của kinh tế số và chuyển đổi xanh. Chiến lược của chúng tôi tập trung vào 3 trục chính: Công nghệ lõi, Hạ tầng sản xuất/Logistics và Tài chính bền vững. Đây là những ngành có dư địa tăng trưởng cao nhất trong bối cảnh vĩ mô 2026.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2">2. Lựa chọn Tài sản & Hiệu suất (AI-VPP):</h4>
+                        <p>Mười mã cổ phiếu trên được lựa chọn dựa trên bộ lọc về chất lượng lợi nhuận (Earnings Quality) và lợi thế cạnh tranh bền vững (Moat). AI-VPP đánh giá đây là những doanh nghiệp có khả năng duy trì mức tăng trưởng EPS bình quân trên 20% trong giai đoạn 2026-2027.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2">3. Quản trị Rủi ro & Thanh khoản (AI-VRM):</h4>
+                        <p>Danh mục được cấu trúc để chịu đựng các cú sốc thị trường bằng cách kết hợp giữa các mã tăng trưởng mạnh (Growth) và các mã phòng vệ (Value/Defensive). Mức độ biến động (Volatility) của danh mục được tối ưu hóa thông qua các chỉ số thanh khoản, đảm bảo khả năng cơ cấu lại tài sản trong vòng 1-2 phiên giao dịch.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-2">4. Tối ưu hóa Thực thi (AI-VPO):</h4>
+                        <p>Dựa trên các thuật toán tối ưu hóa, tỷ trọng khuyến nghị được phân bổ: 40% cho nhóm Tài chính, 30% Công nghệ & Sản xuất, 20% Hạ tầng năng lượng và 10% Tiêu dùng. Thời điểm giải ngân tốt nhất là các nhịp điều chỉnh tích lũy sau mùa báo cáo KQKD Quý I để tối ưu hóa giá vốn.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 p-6 bg-slate-50 border border-slate-200 rounded-lg italic text-slate-700">
+                    Hệ thống AI Dau Tu khẳng định danh mục này được thiết kế nhằm mục tiêu tối đa hóa mức lợi nhuận điều chỉnh theo rủi ro (Risk-adjusted return) phù hợp với định hướng chiến lược dài hạn của công ty.
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script>
-        // Micro-animations for the layout components
-        document.addEventListener('DOMContentLoaded', () => {
-            const report = document.querySelector('.report-container');
-            report.style.opacity = '0';
-            report.style.transform = 'translateY(20px)';
-            report.style.transition = 'all 0.8s ease-out';
-            
-            setTimeout(() => {
-                report.style.opacity = '1';
-                report.style.transform = 'translateY(0)';
-            }, 100);
+    <!-- Footer -->
+    <footer class="py-10 px-8 border-t border-slate-100 bg-white">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 opacity-60 hover:opacity-100 transition-opacity">
+            <div class="text-sm">
+                © 2026 AI Đầu Tư. Được phát triển bởi hệ thống Google Opal.
+            </div>
+            <div class="text-sm font-medium">
+                Sản phẩm của <span class="font-bold">www.phamhoanganhtokens.com</span>
+            </div>
+        </div>
+    </footer>
 
-            // Animate confidence bar
-            const fill = document.querySelector('.confidence-fill');
-            fill.style.width = '0%';
-            setTimeout(() => {
-                fill.style.transition = 'width 1.5s cubic-bezier(0.65, 0, 0.35, 1)';
-                fill.style.width = '92%';
-            }, 800);
+    <script>
+        // Micro-interaction for hover effects on table rows
+        const rows = document.querySelectorAll('tr');
+        rows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transition = 'all 0.2s ease';
+                if (!row.querySelector('th')) {
+                    row.style.backgroundColor = '#f1f5f9';
+                }
+            });
+            row.addEventListener('mouseleave', () => {
+                if (!row.querySelector('th')) {
+                    row.style.backgroundColor = '';
+                }
+            });
         });
     </script>
 </body>
