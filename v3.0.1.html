@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Trading Pro v3.0.1 - BTC/USD Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#F8F8F8',
+                            dark: '#333333',
+                            accent: '#0056B3',
+                            buy: '#28A745',
+                            sell: '#DC3545',
+                            box: '#F0F8FF'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8F8F8;
+            font-family: 'Times New Roman', serif;
+            color: #333333;
+            line-height: 1.6;
+        }
+        .report-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 3rem;
+        }
+        @media (max-width: 640px) {
+            .report-container {
+                padding: 1.5rem;
+                margin: 0.5rem;
+            }
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .copy-box {
+            background-color: #F0F8FF;
+            border-left: 4px solid #0056B3;
+            transition: all 0.3s ease;
+        }
+        .copy-box:hover {
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.1);
+            transform: translateY(-2px);
+        }
+        .header-gradient {
+            border-bottom: 2px solid #0056B3;
+        }
+        .label {
+            font-weight: bold;
+            min-width: 160px;
+            display: inline-block;
+        }
+        .value-buy {
+            color: #28A745;
+            font-weight: bold;
+        }
+        /* Custom selection color */
+        ::selection {
+            background: #0056B3;
+            color: white;
+        }
+    </style>
+</head>
+<body class="py-8 md:py-12 px-4">
+
+    <!-- Header Section -->
+    <header class="max-w-[850px] mx-auto mb-10 text-center">
+        <div class="header-gradient pb-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-brand-accent uppercase tracking-tight">AI TRADING PRO V3.0.1</h1>
+            <div class="mt-2 flex flex-col md:flex-row justify-center items-center gap-2 md:gap-8 text-sm md:text-base text-gray-600">
+                <span class="font-bold">AI Design</span>
+                <span class="hidden md:inline">|</span>
+                <a href="www.phamhoanganhtokens.com" target="_blank" class="hover:text-brand-accent transition-colors underline decoration-brand-accent/30">www.phamhoanganhtokens.com</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Report Content -->
+    <main class="report-container">
+        
+        <!-- Introduction -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold mb-6 border-b pb-2">BẢN TIN CHIẾN LƯỢC GIAO DỊCH BTC/USD</h2>
+            <p class="justified-text text-lg leading-relaxed">
+                Bitcoin hiện đang thể hiện đà tăng giá mạnh mẽ sau khi thoát khỏi giai đoạn tích lũy dài hạn và vượt lên trên các đường trung bình động quan trọng. Với sự hỗ trợ từ dòng vốn tổ chức và các yếu tố vĩ mô thuận lợi, xu hướng tăng đang được củng cố để hướng tới các mốc cao mới.
+            </p>
+        </section>
+
+        <!-- 1-Click Copy Box -->
+        <section class="mb-12">
+            <div class="relative group">
+                <div class="absolute -top-4 left-4 bg-brand-accent text-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded">
+                    Tín Hiệu Giao Dịch - Sao Chép Nhanh
+                </div>
+                <div class="copy-box p-6 md:p-8 rounded-r-lg">
+                    <div class="space-y-3 text-lg">
+                        <div><span class="label">Cặp giao dịch:</span> BTC/USD</div>
+                        <div><span class="label">Loại lệnh:</span> <span class="value-buy">MUA (BUY LIMIT/MARKET)</span></div>
+                        <div><span class="label">Điểm vào lệnh:</span> 76,500</div>
+                        <div><span class="label">Chốt lời 1 (TP1):</span> 79,000</div>
+                        <div><span class="label">Chốt lời 2 (TP2):</span> 81,000</div>
+                        <div><span class="label">Chốt lời 3 (TP3):</span> 83,400</div>
+                        <div><span class="label">Dừng lỗ (SL):</span> 74,250</div>
+                        <div><span class="label">Kích thước lô:</span> 0.01</div>
+                        <div><span class="label">Tỷ lệ R/R:</span> 1:2.0</div>
+                        <div><span class="label">Mức độ tin cậy:</span> 88%</div>
+                        <div class="pt-4 mt-4 border-t border-blue-100">
+                            <span class="label">Khuyến nghị:</span> 
+                            <span class="value-buy uppercase text-xl">MUA MẠNH</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="copySignal()" class="mt-4 text-xs font-bold text-brand-accent hover:text-blue-800 transition-colors flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="Ref-8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                    </svg>
+                    NHẤN ĐỂ SAO CHÉP TOÀN BỘ TÍN HIỆU
+                </button>
+            </div>
+        </section>
+
+        <!-- Detailed Analysis -->
+        <section class="space-y-10">
+            <h3 class="text-2xl font-bold text-brand-dark border-l-4 border-brand-accent pl-4">PHÂN TÍCH CHI TIẾT ĐẦY ĐỦ</h3>
+
+            <div>
+                <h4 class="text-xl font-bold mb-3 italic">1. Quét thị trường và Xu hướng:</h4>
+                <p class="justified-text text-lg">
+                    Giá BTC hiện đạt mức 77,359 USD, nằm trên đường MA 100 ngày (74,924 USD), xác nhận xu hướng tăng ngắn và trung hạn. Chỉ số biến động ATR 14 hiện tại đạt 2,252 USD, cho thấy thị trường có biên độ dao động đủ lớn để đạt được các mục tiêu lợi nhuận đã đề ra. Ngưỡng hỗ trợ tâm lý quan trọng được xác định tại 75,000 USD, trong khi kháng cự gần nhất nằm ở vùng 78,240 USD.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-bold mb-3 italic">2. Chỉ số kỹ thuật và Mô hình:</h4>
+                <p class="justified-text text-lg">
+                    Chỉ số RSI ở mức 60 cho thấy thị trường đang trong vùng tăng trưởng tích cực nhưng chưa rơi vào trạng thái quá mua, tạo dư địa cho các lệnh mở vị thế mới. Sự giao cắt của các đường trung bình động và việc trụ vững trên mốc 75,000 USD củng cố kịch bản tăng giá.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-bold mb-3 italic">3. Yếu tố cơ bản:</h4>
+                <p class="justified-text text-lg">
+                    Dòng vốn từ các quỹ ETF như Morgan Stanley và thông tin về việc dự trữ Bitcoin chiến lược của Mỹ đang là động lực chính thúc đẩy tâm lý lạc quan. Ngoài ra, việc giảm áp lực lạm phát toàn cầu do giá dầu hạ nhiệt cũng góp phần chuyển dịch dòng tiền vào các tài sản rủi ro như tiền điện tử.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-bold mb-3 italic">4. Quản trị rủi ro và Tính toán Lot:</h4>
+                <p class="justified-text text-lg">
+                    Với số dư tài khoản 200 USD và giới hạn rủi ro 20% (tương đương 40 USD), kích thước lô được tính toán chính xác là 0.01. Mức dừng lỗ tại 74,250 USD giúp bảo vệ tài khoản trước các đợt điều chỉnh bất ngờ, đồng thời đảm bảo tỷ lệ R/R tối ưu cho chiến lược này.
+                </p>
+            </div>
+
+            <div class="bg-gray-50 p-6 border-t border-b border-gray-100">
+                <h4 class="text-xl font-bold mb-3 italic">5. Hệ thống bảo vệ tâm lý (Psychology Guard System):</h4>
+                <p class="justified-text text-lg">
+                    Trạng thái hệ thống: <span class="font-bold text-brand-accent">BÌNH THƯỜNG (NORMAL)</span>. 
+                    Không phát hiện dấu hiệu rủi ro tâm lý hệ thống (CRITICAL) hoặc vi phạm hạn mức giao dịch (DAILY_LIMIT). Giao dịch được phép thực hiện theo kế hoạch.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function copySignal() {
+            const signalText = `BẢN TIN CHIẾN LƯỢC GIAO DỊCH BTC/USD - AI TRADING PRO V3.0.1
+------------------------------------------
+Cặp giao dịch: BTC/USD
+Loại lệnh: MUA (BUY LIMIT/MARKET)
+Điểm vào lệnh: 76,500
+Chốt lời 1 (TP1): 79,000
+Chốt lời 2 (TP2): 81,000
+Chốt lời 3 (TP3): 83,400
+Dừng lỗ (SL): 74,250
+Kích thước lô (Lot size): 0.01
+Tỷ lệ Rủi ro/Lợi nhuận (RR): 1:2.0
+Mức độ tin cậy: 88%
+Khuyến nghị: MUA MẠNH
+------------------------------------------`;
+            
+            navigator.clipboard.writeText(signalText).then(() => {
+                alert("Đã sao chép tín hiệu vào bộ nhớ tạm!");
+            });
+        }
+    </script>
+</body>
+</html>
