@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVDA Stock Analysis | AI Đầu Tư</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;900&family=Roboto+Mono&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': '#0A0A0B',
+                        'card-bg': '#141416',
+                        'accent-blue': '#1E3A8A',
+                        'accent-green': '#10B981',
+                        'accent-gold': '#FBBF24',
+                        'glass-border': 'rgba(255, 255, 255, 0.1)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        serif```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Đầu Tư | NVDA Analysis Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&family=Montserrat:wght@700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0A0A0B',
+                            card: '#16161A',
+                            accent: '#10B981', // Vibrant Green
+                            gold: '#FBBF24',   // Gold/Orange
+                            blue: '#1E3A8A',   // Dark Blue
+                            border: 'rgba(255, 255, 255, 0.1)',
+                            text: '#E0E0E0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        serif: ['Times New Roman', 'serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0B;
+            color: #E0E0E0;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(22, 22, 26, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+        .report-body {
+            font-family: 'Times New Roman', serif;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.15rem;
+        }
+        .glow-green {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #FBBF24 0%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .circuit-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .copy-block {
+            scrollbar-width: thin;
+            scrollbar-color: #10B981 #16161A;
+        }
+        @keyframes pulse-gold {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-gold {
+            animation: pulse-gold 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .header-blur {
+            background: linear-gradient(to bottom, rgba(30, 58, 138, 0.2), transparent);
+        }
+    </style>
+</head>
+<body class="circuit-bg min-h-screen font-sans selection:bg-brand-accent selection:text-black">
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="relative w-12 h-12 flex items-center justify-center">
+                    <!-- Hexagonal Logo Concept -->
+                    <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full text-brand-gold animate-pulse-gold">
+                        <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M35 65 L50 35 L65 65 M42 55 L58 55" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M50 35 L50 20 M50 20 L45 25 M50 20 L55 25" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-display text-2xl font-black tracking-tighter text-white">AI ĐẦU TƯ</h1>
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-brand-accent font-bold">Leading the future</p>
+                </div>
+            </div>
+            <div class="hidden md:block text-right">
+                <div class="text-xs text-gray-500 font-mono">MARKET STATUS: <span class="text-brand-accent">ACTIVE</span></div>
+                <div class="text-brand-gold font-bold tracking-widest text-sm">NVDA: $204.12 (+2.4%)</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-8 py-12">
+        <!-- Title Hero -->
+        <div class="mb-16 text-center space-y-4">
+            <div class="inline-block px-4 py-1 rounded-full border border-brand-accent/30 bg-brand-accent/10 text-brand-accent text-xs font-bold uppercase tracking-widest mb-4">
+                Exclusive Market Insight
+            </div>
+            <h2 class="text-4xl md:text-6xl font-display font-black text-white leading-tight">
+                STOCK ANALYSIS REPORT: <br>
+                <span class="gradient-text uppercase">NVIDIA CORPORATION (NVDA)</span>
+            </h2>
+            <div class="flex flex-wrap justify-center gap-6 text-sm font-mono text-gray-400 pt-4">
+                <span>DATE: April 21, 2026</span>
+                <span class="text-brand-gold">RATING: ACCUMULATE</span>
+                <span>AUTH: AI ĐẦU TƯ EXPERT TEAM</span>
+            </div>
+        </div>
+
+        <!-- Future Trading Room Concept Visuals -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-brand-accent hover:translate-y-[-5px] transition-all duration-300">
+                <div class="mb-4 text-brand-accent">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h4 class="font-display text-sm font-bold text-white mb-2 uppercase tracking-wider">Holographic 3D AI Agents</h4>
+                <p class="text-xs text-gray-400 leading-relaxed italic">Central agents continuously analyze global sentiment via social media and international news feeds.</p>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-brand-gold hover:translate-y-[-5px] transition-all duration-300">
+                <div class="mb-4 text-brand-gold">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h4 class="font-display text-sm font-bold text-white mb-2 uppercase tracking-wider">OLED Heatmaps</h4>
+                <p class="text-xs text-gray-400 leading-relaxed italic">Massive curved screens showcase semiconductor supply chain diagrams and global money flow heatmaps.</p>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-brand-blue hover:translate-y-[-5px] transition-all duration-300">
+                <div class="mb-4 text-blue-400">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h4 class="font-display text-sm font-bold text-white mb-2 uppercase tracking-wider">Assistant Robotics</h4>
+                <p class="text-xs text-gray-400 leading-relaxed italic">Discreet robots provide detailed reports and facilitate a high-efficiency collaborative environment.</p>
+            </div>
+        </div>
+
+        <!-- Main Report Content -->
+        <article class="glass-panel rounded-3xl p-8 md:p-12 space-y-12 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent opacity-[0.03] rounded-full blur-3xl -mr-32 -mt-32"></div>
+            
+            <!-- Section I -->
+            <section>
+                <h2 class="font-display text-2xl font-bold text-brand-accent border-b border-brand-border pb-2 mb-6 uppercase tracking-widest flex items-center gap-3">
+                    <span class="text-brand-gold">I.</span> Research Phase
+                </h2>
+                <div class="report-body text-gray-300 space-y-4">
+                    <p>The global semiconductor market in 2026 has entered the "Inference Era," shifting focus from model building to practical deployment. NVIDIA, with its Blackwell architecture and upcoming Rubin (R100), is positioned as the "Chief Architect" of global AI infrastructure.</p>
+                    <p>The acquisition of Groq strengthens NVDA's lead in low-latency inference, despite competition from custom silicon developed by major partners like Amazon and Microsoft.</p>
+                </div>
+            </section>
+
+            <!-- Section II -->
+            <section>
+                <h2 class="font-display text-2xl font-bold text-brand-accent border-b border-brand-border pb-2 mb-6 uppercase tracking-widest flex items-center gap-3">
+                    <span class="text-brand-gold">II.</span> Detailed Analysis
+                </h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-display text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div> 1. Fundamental Analysis
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-black/40 p-4 rounded-xl border border-brand-border">
+                                <span class="text-xs text-gray-500 uppercase block mb-1">FY2026 Est. Revenue</span>
+                                <span class="text-xl font-mono text-brand-accent font-bold">$215B – $230B</span>
+                            </div>
+                            <div class="bg-black/40 p-4 rounded-xl border border-brand-border">
+                                <span class="text-xs text-gray-500 uppercase block mb-1">Gross Margin</span>
+                                <span class="text-xl font-mono text-brand-accent font-bold">75.2%</span>
+                            </div>
+                        </div>
+                        <div class="report-body text-gray-300 space-y-4">
+                            <p>Q4/2026 revenue reached $68.13 billion (73% YoY increase). Financial indicators show strong pricing power remains intact. Valuation-wise, the P/E Trailing is at 41.2x, significantly lower than the 5-year average of 70x, suggesting earnings are finally catching up to the explosive stock price growth.</p>
+                            <p><strong>Intrinsic Valuation (DCF):</strong> Income-based model suggests a fair value of ~$147.81; Free Cash Flow (FCF) based model suggests ~$123.28. This indicates a significant market premium for future growth expectations.</p>
+                            <p>The Rubin platform (H2/2026) with HBM4 memory promises a 10x reduction in inference costs, creating a substantial barrier to entry for AMD and Intel.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-display text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div> 2. Technical Analysis
+                        </h3>
+                        <div class="report-body text-gray-300 space-y-4">
+                            <p>Trend: Strong Bullish trend, trading above MA50 ($183.83) and MA200 ($178.28).</p>
+                            <div class="bg-orange-500/10 border border-orange-500/30 p-4 rounded-xl mb-4">
+                                <p class="text-orange-400 font-bold mb-1 uppercase text-xs">Momentum Warning</p>
+                                <p>RSI at 90.9 – indicating <strong>Extreme Overbought</strong> conditions, signaling a potential short-term technical correction of 5-10%.</p>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-sm">
+                                <div class="p-3 border border-brand-border rounded-lg bg-black/20">
+                                    <span class="block text-gray-500 text-[10px]">Resistance</span>
+                                    <span class="text-white font-bold">$210.00</span>
+                                </div>
+                                <div class="p-3 border border-brand-border rounded-lg bg-black/20">
+                                    <span class="block text-gray-500 text-[10px]">Direct Support</span>
+                                    <span class="text-brand-accent font-bold">$195.00</span>
+                                </div>
+                                <div class="p-3 border border-brand-border rounded-lg bg-black/20">
+                                    <span class="block text-gray-500 text-[10px]">Safety Buffer</span>
+                                    <span class="text-brand-gold font-bold">$180.60</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section III -->
+            <section>
+                <h2 class="font-display text-2xl font-bold text-brand-accent border-b border-brand-border pb-2 mb-6 uppercase tracking-widest flex items-center gap-3">
+                    <span class="text-brand-gold">III.</span> Trading & Execution
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="report-body text-gray-300">
+                        <p class="mb-4"><strong class="text-brand-accent">Recommendation:</strong> ACCUMULATE on price corrections. Avoid chasing at current prices due to high RSI.</p>
+                        <p><strong class="text-brand-gold">Stop Loss:</strong> Below $175.00 (Break of long-term trendline).</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10">
+                            <span class="text-xs uppercase text-gray-400">Target Buy Range</span>
+                            <span class="font-mono text-white">$185.00 – $192.00</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 rounded-lg bg-brand-accent/10 border border-brand-accent/20">
+                            <span class="text-xs uppercase text-brand-accent font-bold">12M Target Price</span>
+                            <span class="font-mono text-brand-accent font-bold text-lg">$268.61</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section IV -->
+            <section>
+                <h2 class="font-display text-2xl font-bold text-brand-accent border-b border-brand-border pb-2 mb-6 uppercase tracking-widest flex items-center gap-3">
+                    <span class="text-brand-gold">IV.</span> Risk & Compliance
+                </h2>
+                <div class="report-body text-gray-300 space-y-4">
+                    <p><strong>Geopolitical Risk:</strong> Export controls on Blackwell chips to non-US-aligned countries remain a factor to monitor. </p>
+                    <p><strong>Vietnam Compliance:</strong> Individual investors must note personal income tax obligations (0.1% on sale value) and dividend tax (typically 30% for US stocks). FTSE Russell's upgrade of Vietnam in Sept 2026 will facilitate capital flow, but investors must adhere to foreign exchange regulations.</p>
+                </div>
+            </section>
+
+            <!-- Section V -->
+            <section>
+                <div class="bg-brand-accent/5 rounded-2xl p-8 border border-brand-accent/20">
+                    <h2 class="font-display text-2xl font-bold text-white mb-4 uppercase tracking-widest">
+                        V. Conclusion
+                    </h2>
+                    <div class="report-body text-gray-300">
+                        <p>NVIDIA remains the #1 strategic growth stock in the 2026 AI portfolio. Despite high valuation risk and short-term technical pressure, its strong financial foundation and the upcoming Rubin architecture make any correction an opportunity to increase holdings. NVDA is expected to continue leading the Nasdaq to new milestones.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- One Click Copy Block -->
+            <div class="mt-12">
+                <div class="flex justify-between items-center mb-2 px-1">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brand-gold">Raw Analysis Data (MD Format)</span>
+                    <button onclick="copyToClipboard()" class="text-[10px] uppercase font-bold text-brand-accent hover:text-white transition-colors">Copy Data</button>
+                </div>
+                <div class="copy-block bg-black p-6 rounded-xl border border-brand-border font-mono text-xs text-brand-accent/80 overflow-x-auto max-h-48 whitespace-pre"># NVDA ANALYSIS REPORT 2026
+Ticker: NVDA
+Status: Accumulate
+Price Target: $268.61
+Support: $195.00
+Stop Loss: $175.00
+RSI: 90.9 (Overbought)
+Rev Est: $215B-$230B
+Architecture: Rubin/Blackwell</div>
+            </div>
+        </article>
+
+        <!-- Room Description -->
+        <div class="mt-20 opacity-80">
+            <h3 class="font-display text-center text-sm font-bold text-gray-500 uppercase tracking-[0.4em] mb-12">Environment Context</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="report-body text-gray-400 text-sm leading-relaxed italic">
+                    Entering AI Đầu Tư's "Future Trading Room" is like stepping into a sci-fi space with smart glass walls displaying real-time data feeds from New York, London, and Tokyo exchanges. Central holographic 3D AI Agents continuously analyze global market sentiment via social media and international news.
+                </div>
+                <div class="report-body text-gray-400 text-sm leading-relaxed italic">
+                    Massive curved OLED screens surrounding the room showcase semiconductor supply chain diagrams and money flow heatmaps. Minimalist workstations are interspersed with discreetly moving assistant robots, providing detailed reports to experts or preparing coffee on demand, fostering a perfect collaborative environment.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-12 border-t border-brand-border bg-black/50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <p class="text-brand-accent font-display font-black text-xl mb-1">AI ĐẦU TƯ</p>
+                <a href="www.phamhoanganhtokens.com" target="_blank" class="text-brand-gold hover:underline font-mono text-sm">www.phamhoanganhtokens.com</a>
+            </div>
+            
+            <div class="max-w-md">
+                <p class="text-[10px] text-gray-600 leading-relaxed text-center md:text-right uppercase tracking-wider">
+                    Disclaimer: This report is for reference only, based on market analysis and forecasts. Stock investment inherently involves risks. Investors should carefully consider and are solely responsible for their financial decisions. AI Đầu Tư is not liable for any losses arising from the use of information in this report.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard() {
+            const text = document.querySelector('.copy-block').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Analysis data copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Đầu Tư | NVDA Analysis Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&family=Montserrat:wght@700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0A0A0B',
+                            card: '#16161A',
+                            accent: '#10B981', // Vibrant Green
+                            gold: '#FBBF24',   // Gold/Orange
+                            blue: '#1E3A8A',   // Dark Blue
+                            border: 'rgba(255, 255, 255, 0.1)',
+                            text: '#E0E0E0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        serif: ['Times New Roman', 'serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0B;
+            color: #E0E0E0;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(22, 22, 26, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+        .report-body {
+            font-family: 'Times New Roman', serif;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.15rem;
+        }
+        .glow-green {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #FBBF24 0%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .circuit-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .copy-block {
+            scrollbar-width: thin;
+            scrollbar-color: #10B981 #16161A;
+        }
+        @keyframes pulse-gold {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-gold {
+            animation: pulse-gold 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .header-blur {
+            background: linear-gradient(to bottom, rgba(30, 58, 138, 0.2), transparent);
+        }
+    </style>
+</head>
+<body class="circuit-bg min-h-screen font-sans selection:bg-brand-accent selection:text-black">
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="relative w-12 h-12 flex items-center justify-center">
+                    <!-- Hexagonal Logo Concept -->
+                    <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full text-brand-gold animate-pulse-gold">
+                        <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M35 65 L50 35 L65 65 M42 55 L58 55" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M50 35 L50 20 M50 20 L45 25 M50 20 L55 25" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-display text-2xl font-black tracking-tighter text-white">AI ĐẦU TƯ</h1>
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-brand-accent font-bold">Leading the future</p>
+                </div>
+            </div>
+            <div class="hidden md:block text-right">
+                <div class="text-xs text-gray-500 font-mono">MARKET STATUS: <span class="text-brand-accent">ACTIVE</span></div>
+                <div class="text-brand-gold font-bold tracking-widest text-sm">NVDA: $204.12 (+2.4%)</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-8 py-12">
+        <!-- Title Hero -->
+        <div class="mb-16 text-center space-y-4">
+            <div class="inline-block px-4 py-1 rounded-full border border-brand-accent/30 bg-brand-accent/10 text-brand-accent text-xs font-bold uppercase tracking-widest mb-4">
+                Exclusive Market Insight
+            </div>
+            <h2 class="text-4xl md:text-6xl font-display font-black text-white leading-tight">
+                STOCK ANALYSIS REPORT: <br>
+                <span class="gradient-text uppercase">NVIDIA CORPORATION (NVDA)</span>
+            </h2>
+            <div class="flex flex-wrap justify-center gap-6 text-sm font-mono text-gray-400 pt-4">
+                <span>DATE: April 21, 2026</span>
+                <span class="text-brand-gold">RATING: ACCUMULATE</span>
+                <span>AUTH: AI ĐẦU TƯ EXPERT TEAM</span>
+            </div>
+        </div>
+
+        <!-- Future Trading Room Concept Visuals -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-brand-accent hover:translate-y-[-5px] transition-all duration-300">
+                <div class="mb-4 text-brand-accent">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h4 class="font-display text-sm font-bold text-white mb-2 uppercase tracking-wider">Holographic 3D AI Agents</h4>
+                <p class="text-xs text-gray-400 leading-relaxed italic">Central agents continuously analyze global sentiment via social media and international news feeds.</p>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-brand-gold hover:translate-y-[-5px] transition-all duration-300">
+                <div class="mb-4 text-brand-gold">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h4 class="font-display text-sm font-bold text-white mb-2 uppercase tracking-wider">OLED Heatmaps</h4>
+                <p class="text-xs text-gray-400 leading-relaxed italic">Massive curved screens showcase semiconductor supply chain diagrams and global money flow heatmaps.</p>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-brand-blue hover:translate-y-[-5px] transition-all duration-300">
+                <div class="mb-4 text-blue-400">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h4 class="font-display text-sm font-bold text-white mb-2 uppercase tracking-wider">Assistant Robotics</h4>
+                <p class="text-xs text-gray-400 leading-relaxed italic">Discreet robots provide detailed reports and facilitate a high-efficiency collaborative environment.</p>
+            </div>
+        </div>
+
+        <!-- Main Report Content -->
+        <article class="glass-panel rounded-3xl p-8 md:p-12 space-y-12 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent opacity-[0.03] rounded-full blur-3xl -mr-32 -mt-32"></div>
+            
+            <!-- Section I -->
+            <section>
+                <h2 class="font-display text-2xl font-bold text-brand-accent border-b border-brand-border pb-2 mb-6 uppercase tracking-widest flex items-center gap-3">
+                    <span class="text-brand-gold">I.</span> Research Phase
+                </h2>
+                <div class="report-body text-gray-300 space-y-4">
+                    <p>The global semiconductor market in 2026 has entered the "Inference Era," shifting focus from model building to practical deployment. NVIDIA, with its Blackwell architecture and upcoming Rubin (R100), is positioned as the "Chief Architect" of global AI infrastructure.</p>
+                    <p>The acquisition of Groq strengthens NVDA's lead in low-latency inference, despite competition from custom silicon developed by major partners like Amazon and Microsoft.</p>
+                </div>
+            </section>
+
+            <!-- Section II -->
+            <section>
+                <h2 class="font-display text-2xl font-bold text-brand-accent border-b border-brand-border pb-2 mb-6 uppercase tracking-widest flex items-center gap-3">
+                    <span class="text-brand-gold">II.</span> Detailed Analysis
+                </h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-display text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div> 1. Fundamental Analysis
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-black/40 p-4 rounded-xl border border-brand-border">
+                                <span class="text-xs text-gray-500 uppercase block mb-1">FY2026 Est. Revenue</span>
+                                <span class="text-xl font-mono text-brand-accent font-bold">$215B – $230B</span>
+                            </div>
+                            <div class="bg-black/40 p-4 rounded-xl border border-brand-border">
+                                <span class="text-xs text-gray-500 uppercase block mb-1">Gross Margin</span>
+                                <span class="text-xl font-mono text-brand-accent font-bold">75.2%</span>
+                            </div>
+                        </div>
+                        <div class="report-body text-gray-300 space-y-4">
+                            <p>Q4/2026 revenue reached $68.13 billion (73% YoY increase). Financial indicators show strong pricing power remains intact. Valuation-wise, the P/E Trailing is at 41.2x, significantly lower than the 5-year average of 70x, suggesting earnings are finally catching up to the explosive stock price growth.</p>
+                            <p><strong>Intrinsic Valuation (DCF):</strong> Income-based model suggests a fair value of ~$147.81; Free Cash Flow (FCF) based model suggests ~$123.28. This indicates a significant market premium for future growth expectations.</p>
+                            <p>The Rubin platform (H2/2026) with HBM4 memory promises a 10x reduction in inference costs, creating a substantial barrier to entry for AMD and Intel.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-display text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                            <div class="w-2 h-2 bg-brand-gold rounded-full"></div> 2. Technical Analysis
+                        </h3>
+                        <div class="report-body text-gray-300 space-y-4">
+                            <p>Trend: Strong Bullish trend, trading above MA50 ($183.83) and MA200 ($178.28).</p>
+                            <div class="bg-orange-500/10 border border-orange-500/30 p-4 rounded-xl mb-4">
+                                <p class="text-orange-400 font-bold mb-1 uppercase text-xs">Momentum Warning</p>
+                                <p>RSI at 90.9 – indicating <strong>Extreme Overbought</strong> conditions, signaling a potential short-term technical correction of 5-10%.</p>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-sm">
+                                <div class="p-3 border border-brand-border rounded-lg bg-black/20">
+                                    <span class="block text-gray-500 text-[10px]">Resistance</span>
+                                    <span class="text-white font-bold">$210.00</span>
+                                </div>
+                                <div class="p-3 border border-brand-border rounded-lg bg-black/20">
+                                    <span class="block text-gray-500 text-[10px]">Direct Support</span>
+                                    <span class="text-brand-accent font-bold">$195.00</span>
+                                </div>
+                                <div class="p-3 border border-brand-border rounded-lg bg-black/20">
+                                    <span class="block text-gray-500 text-[10px]">Safety Buffer</span>
+                                    <span class="text-brand-gold font-bold">$180.60</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section III -->
+            <section>
+                <h2 class="font-display text-2xl font-bold text-brand-accent border-b border-brand-border pb-2 mb-6 uppercase tracking-widest flex items-center gap-3">
+                    <span class="text-brand-gold">III.</span> Trading & Execution
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="report-body text-gray-300">
+                        <p class="mb-4"><strong class="text-brand-accent">Recommendation:</strong> ACCUMULATE on price corrections. Avoid chasing at current prices due to high RSI.</p>
+                        <p><strong class="text-brand-gold">Stop Loss:</strong> Below $175.00 (Break of long-term trendline).</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 rounded-lg bg-white/5 border border-white/10">
+                            <span class="text-xs uppercase text-gray-400">Target Buy Range</span>
+                            <span class="font-mono text-white">$185.00 – $192.00</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 rounded-lg bg-brand-accent/10 border border-brand-accent/20">
+                            <span class="text-xs uppercase text-brand-accent font-bold">12M Target Price</span>
+                            <span class="font-mono text-brand-accent font-bold text-lg">$268.61</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section IV -->
+            <section>
+                <h2 class="font-display text-2xl font-bold text-brand-accent border-b border-brand-border pb-2 mb-6 uppercase tracking-widest flex items-center gap-3">
+                    <span class="text-brand-gold">IV.</span> Risk & Compliance
+                </h2>
+                <div class="report-body text-gray-300 space-y-4">
+                    <p><strong>Geopolitical Risk:</strong> Export controls on Blackwell chips to non-US-aligned countries remain a factor to monitor. </p>
+                    <p><strong>Vietnam Compliance:</strong> Individual investors must note personal income tax obligations (0.1% on sale value) and dividend tax (typically 30% for US stocks). FTSE Russell's upgrade of Vietnam in Sept 2026 will facilitate capital flow, but investors must adhere to foreign exchange regulations.</p>
+                </div>
+            </section>
+
+            <!-- Section V -->
+            <section>
+                <div class="bg-brand-accent/5 rounded-2xl p-8 border border-brand-accent/20">
+                    <h2 class="font-display text-2xl font-bold text-white mb-4 uppercase tracking-widest">
+                        V. Conclusion
+                    </h2>
+                    <div class="report-body text-gray-300">
+                        <p>NVIDIA remains the #1 strategic growth stock in the 2026 AI portfolio. Despite high valuation risk and short-term technical pressure, its strong financial foundation and the upcoming Rubin architecture make any correction an opportunity to increase holdings. NVDA is expected to continue leading the Nasdaq to new milestones.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- One Click Copy Block -->
+            <div class="mt-12">
+                <div class="flex justify-between items-center mb-2 px-1">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brand-gold">Raw Analysis Data (MD Format)</span>
+                    <button onclick="copyToClipboard()" class="text-[10px] uppercase font-bold text-brand-accent hover:text-white transition-colors">Copy Data</button>
+                </div>
+                <div class="copy-block bg-black p-6 rounded-xl border border-brand-border font-mono text-xs text-brand-accent/80 overflow-x-auto max-h-48 whitespace-pre"># NVDA ANALYSIS REPORT 2026
+Ticker: NVDA
+Status: Accumulate
+Price Target: $268.61
+Support: $195.00
+Stop Loss: $175.00
+RSI: 90.9 (Overbought)
+Rev Est: $215B-$230B
+Architecture: Rubin/Blackwell</div>
+            </div>
+        </article>
+
+        <!-- Room Description -->
+        <div class="mt-20 opacity-80">
+            <h3 class="font-display text-center text-sm font-bold text-gray-500 uppercase tracking-[0.4em] mb-12">Environment Context</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="report-body text-gray-400 text-sm leading-relaxed italic">
+                    Entering AI Đầu Tư's "Future Trading Room" is like stepping into a sci-fi space with smart glass walls displaying real-time data feeds from New York, London, and Tokyo exchanges. Central holographic 3D AI Agents continuously analyze global market sentiment via social media and international news.
+                </div>
+                <div class="report-body text-gray-400 text-sm leading-relaxed italic">
+                    Massive curved OLED screens surrounding the room showcase semiconductor supply chain diagrams and money flow heatmaps. Minimalist workstations are interspersed with discreetly moving assistant robots, providing detailed reports to experts or preparing coffee on demand, fostering a perfect collaborative environment.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-12 border-t border-brand-border bg-black/50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <p class="text-brand-accent font-display font-black text-xl mb-1">AI ĐẦU TƯ</p>
+                <a href="www.phamhoanganhtokens.com" target="_blank" class="text-brand-gold hover:underline font-mono text-sm">www.phamhoanganhtokens.com</a>
+            </div>
+            
+            <div class="max-w-md">
+                <p class="text-[10px] text-gray-600 leading-relaxed text-center md:text-right uppercase tracking-wider">
+                    Disclaimer: This report is for reference only, based on market analysis and forecasts. Stock investment inherently involves risks. Investors should carefully consider and are solely responsible for their financial decisions. AI Đầu Tư is not liable for any losses arising from the use of information in this report.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard() {
+            const text = document.querySelector('.copy-block').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Analysis data copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
