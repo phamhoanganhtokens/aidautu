@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Đầu Tư | HAG Stock Analysis Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;900&family=Fira+Code:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            deep: '#0A0A0B',
+                            charcoal: '#1A1A1A',
+                            accent: '#1E3A8A',
+                            glow: '#3B82F6',
+                            success: '#10B981',
+                            gold: '#FBBF24',
+                            orange: '#F59E0B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        serif: ['Times New Roman', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0B;
+            color: #E0E0E0;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+        .neon-border {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .copy-block {
+            scrollbar-width: thin;
+            scrollbar-color: #3B82F6 #1A1A1A;
+        }
+        .report-body {
+            line-height: 1.8;
+            font-size: 1.125rem;
+        }
+        .cyber-grid {
+            background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .hero-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 400px;
+            background: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.4) 0%, transparent 70%);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <div class="cyber-grid fixed inset-0 z-[-2]"></div>
+    <div class="hero-glow"></div>
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 w-full glass-panel border-b border-white/10 px-6 py-4 mb-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+                <!-- Logo Concept Design -->
+                <div class="relative w-12 h-12 flex items-center justify-center">
+                    <div class="absolute inset-0 bg-brand-glow blur-md opacity-30 animate-pulse"></div>
+                    <div class="relative w-10 h-10 border-2 border-brand-glow rounded-lg rotate-45 flex items-center justify-center bg-brand-deep">
+                        <span class="text-brand-gold text-xs font-bold -rotate-45">AI</span>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black font-display tracking-tight text-white">AI ĐẦU TƯ</h1>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-brand-glow font-bold">Tinh hoa trí tuệ, dẫn dắt thành công</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-400">
+                    <a href="#" class="hover:text-brand-glow transition-colors">THỊ TRƯỜNG</a>
+                    <a href="#" class="hover:text-brand-glow transition-colors">PHÂN TÍCH</a>
+                    <a href="#" class="hover:text-brand-glow transition-colors">CHIẾN LƯỢC</a>
+                </nav>
+                <div class="px-4 py-1.5 rounded-full bg-brand-accent/30 border border-brand-glow/50 text-brand-glow text-xs font-mono">
+                    LIVE: HAG @ 13,850 VNĐ <span class="text-brand-success">▲ 2.4%</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 md:px-8 pb-20">
+        <!-- Report Title Area -->
+        <section class="text-center mb-16">
+            <div class="inline-block px-4 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">
+                Phân tích chiến lược 2024 - 2026
+            </div>
+            <h2 class="text-4xl md:text-6xl font-black font-display text-white mb-6 leading-tight">
+                HAG: PHƯỢNG HOÀNG <br><span class="gradient-text">TỪ ĐỐNG TRO TÀN</span>
+            </h2>
+            <p class="text-gray-400 font-medium max-w-2xl mx-auto italic">
+                Báo cáo cập nhật Chu kỳ Q1/2024 - Tầm nhìn tái cấu trúc toàn diện và bứt phá lợi nhuận từ mô hình "1 Cây - 1 Con".
+            </p>
+        </section>
+
+        <!-- Visual Highlight 1: The Future Room -->
+        <div class="glass-panel p-8 mb-16 border-l-4 border-brand-glow relative overflow-hidden group">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>
+            </div>
+            <h4 class="text-brand-glow font-bold uppercase text-xs tracking-widest mb-4">Concept: Future Trading Room</h4>
+            <p class="text-gray-300 italic report-body">
+                "Một không gian rộng lớn với những bức tường kính trong suốt hiển thị dữ liệu tài chính 3D holographic theo thời gian thực. Các robot trợ lý AI hình người di chuyển nhịp nhàng, liên tục tổng hợp dữ liệu vĩ mô và hỗ trợ các chuyên gia tài chính. Toàn bộ căn phòng ngập tràn ánh sáng xanh và bạc hiện đại, hiện thân của một trung tâm điều hành tài chính kỷ nguyên AI."
+            </p>
+        </div>
+
+        <!-- Main Content Grid -->
+        <article class="space-y-12">
+            
+            <!-- Part 1 -->
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-10 h-10 rounded bg-brand-accent flex items-center justify-center font-bold text-white font-display">01</span>
+                    <h3 class="text-2xl font-bold font-display text-white">GIAI ĐOẠN NGHIÊN CỨU (RESEARCH PHASE)</h3>
+                </div>
+                <div class="report-body font-serif text-justify text-gray-300 space-y-4 px-2 md:px-14">
+                    <h4 class="text-brand-gold font-bold font-sans text-lg italic">1.1. Tổng quan thị trường nông nghiệp (2024 - 2026)</h4>
+                    <p>Thị trường nông nghiệp trong nước và xuất khẩu đang bước vào chu kỳ hồi phục mạnh mẽ. Tiêu thụ thịt lợn nội địa ổn định, trong khi tình trạng thiếu hụt nguồn cung cục bộ do dịch tả lợn Châu Phi (ASF) tại các hộ chăn nuôi nhỏ lẻ đã đẩy giá lợn hơi lên mức 65.000 VNĐ/kg trong Q2/2024. Thị trường trái cây xuất khẩu, đặc biệt là chuối sang Trung Quốc, Nhật Bản và Hàn Quốc, đang chứng kiến sự tăng giá do các hiệp định thương mại và nhu cầu hậu đại dịch.</p>
+                    
+                    <h4 class="text-brand-gold font-bold font-sans text-lg italic">1.2. Vị thế của HAGL trong chuỗi giá trị</h4>
+                    <p>So với các đối thủ như DBC (mạnh về tích hợp 3F và vaccine) hay BAF (tập trung công nghệ chuồng trại và bán lẻ), HAG đã chọn một lối đi riêng với lợi thế cạnh tranh cốt lõi: Chuỗi giá trị khép kín tối ưu hóa chi phí. Mô hình nông nghiệp tuần hoàn giúp HAG kiểm soát giá thành cực tốt, biến doanh nghiệp từ một tập đoàn đa ngành nợ nần thành một "Turnaround Stock" điển hình.</p>
+                </div>
+            </section>
+
+            <!-- Part 2: Analysis -->
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="w-10 h-10 rounded bg-brand-accent flex items-center justify-center font-bold text-white font-display">02</span>
+                    <h3 class="text-2xl font-bold font-display text-white">PHÂN TÍCH CHI TIẾT (DETAILED ANALYSIS)</h3>
+                </div>
+                <div class="report-body font-serif text-justify text-gray-300 space-y-8 px-2 md:px-14">
+                    <div class="space-y-4">
+                        <h4 class="text-brand-gold font-bold font-sans text-lg italic underline decoration-brand-gold/30">2.1. Phân tích cơ bản (Fundamental)</h4>
+                        <ul class="list-disc list-outside ml-6 space-y-4">
+                            <li><strong class="text-white font-sans">Hệ sinh thái "1 Cây - 1 Con":</strong> 
+                                <br>Mảng Chuối: Nguồn thu chủ lực với 7,000 ha, mục tiêu 10,000 ha vào 2025. Biên lợi nhuận gộp ổn định 21-23%.
+                                <br>Mảng Heo: Mô hình "Heo ăn chuối" tái tận dụng phụ phẩm, giúp giá thành chăn nuôi thấp kỷ lục 35,000 - 40,000 VNĐ/kg. Với giá heo hơi quanh 65,000 VNĐ/kg, mảng này dự kiến bùng nổ lợi nhuận cuối 2024.
+                            </li>
+                            <li><strong class="text-white font-sans">Tái cấu trúc tài chính:</strong> Tổng nợ 14,000 tỷ VNĐ đang được xử lý quyết liệt qua thoái vốn tài sản không cốt lõi (Khách sạn, Bệnh viện) để trả nợ trái phiếu BIDV. Khoản bơm vốn 1,300 tỷ từ đối tác chiến lược LPBank là cú hích then chốt.</li>
+                            <li><strong class="text-white font-sans">Định giá tài sản:</strong> P/E 11.5x - 12.8x thấp hơn trung bình ngành (>15x). Định giá DCF cho thấy giá trị thực cao hơn thị giá hiện tại 30-40%.</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-brand-gold font-bold font-sans text-lg italic underline decoration-brand-gold/30">2.2. Phân tích kỹ thuật (Technical)</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-sans text-sm">
+                            <div class="glass-panel p-4 border-t-2 border-brand-glow">
+                                <p class="text-gray-500 uppercase font-bold mb-1">Price Action</p>
+                                <p class="text-white">Tích lũy chặt chẽ vùng 12,000 - 14,500 VNĐ/cp.</p>
+                            </div>
+                            <div class="glass-panel p-4 border-t-2 border-brand-glow">
+                                <p class="text-gray-500 uppercase font-bold mb-1">RSI (14)</p>
+                                <p class="text-white">Vùng 52 - 58, trạng thái trung tính, nén chờ bùng nổ.</p>
+                            </div>
+                            <div class="glass-panel p-4 border-t-2 border-brand-glow">
+                                <p class="text-gray-500 uppercase font-bold mb-1">MA Trend</p>
+                                <p class="text-white">Giao dịch ổn định trên MA200, xác nhận xu hướng tăng dài hạn.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Copyable Section -->
+            <section class="relative">
+                <div class="absolute -top-4 right-8 bg-brand-accent text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Quick Copy Summary</div>
+                <div class="glass-panel p-6 border-brand-glow/40 neon-border bg-brand-deep/80">
+                    <pre class="font-mono text-sm text-brand-success overflow-x-auto copy-block leading-relaxed">
+[HAG REPORT SUMMARY]
+- Ticker: HAG (Hoang Anh Gia Lai)
+- Outlook: Strategic Turnaround 2025
+- Core: Closed-loop Agriculture (Pig & Banana)
+- Key Catalyst: Debt resolution via LPBank injection
+- Technical: Testing MA200 support | Target 18k-20k
+- Rating: ACCUMULATE / STRONG BUY
+                    </pre>
+                </div>
+            </section>
+
+            <!-- Part 3: Trading Strategy -->
+            <section class="glass-panel p-8 bg-gradient-to-br from-brand-charcoal to-brand-deep border-brand-orange/20">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="w-10 h-10 rounded bg-brand-orange flex items-center justify-center font-bold text-white font-display">03</span>
+                    <h3 class="text-2xl font-bold font-display text-white italic">GIAO DỊCH & THỰC THI</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-end border-b border-white/10 pb-2">
+                            <span class="text-gray-400 font-bold">Khuyến nghị</span>
+                            <span class="text-brand-success font-black text-xl">MUA & NẮM GIỮ</span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-white/10 pb-2">
+                            <span class="text-gray-400 font-bold">Vùng mua</span>
+                            <span class="text-white font-mono">12,000 - 12,500</span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-white/10 pb-2">
+                            <span class="text-gray-400 font-bold">Dừng lỗ (Closing)</span>
+                            <span class="text-red-500 font-mono">&lt; 11,000</span>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-4 flex flex-col justify-center">
+                        <p class="text-brand-gold font-bold mb-2">MỤC TIÊU GIÁ (TARGETS):</p>
+                        <div class="space-y-2">
+                            <p class="flex justify-between"><span class="text-gray-400">Ngắn hạn:</span> <span class="font-bold">15,000 VNĐ</span></p>
+                            <p class="flex justify-between"><span class="text-gray-400">Trung hạn (2025):</span> <span class="font-bold text-brand-gold text-lg">18,000 - 20,000 VNĐ</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 4 & 5 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <section class="p-6 glass-panel border-red-900/20">
+                    <h4 class="text-red-400 font-bold font-display mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                        QUẢN TRỊ RỦI RO
+                    </h4>
+                    <ul class="text-sm text-gray-400 space-y-2 font-serif">
+                        <li>• Biến động giá lợn hơi dưới 50.000 VNĐ/kg.</li>
+                        <li>• Tiến độ thanh toán nợ trái phiếu BIDV bị chậm.</li>
+                        <li>• Chính sách nhập khẩu của thị trường Trung Quốc.</li>
+                    </ul>
+                </section>
+                <section class="p-6 glass-panel border-brand-glow/20">
+                    <h4 class="text-brand-glow font-bold font-display mb-4">KẾT LUẬN</h4>
+                    <p class="text-sm text-gray-300 font-serif italic">
+                        HAG không chỉ là cổ phiếu nông nghiệp đơn thuần, mà là câu chuyện "hồi sinh" mạnh mẽ nhất thập kỷ. Với sự hậu thuẫn từ LPBank và lợi thế giá thành, đây là cơ hội đầu tư giá trị tiêu biểu 2024-2026.
+                    </p>
+                </section>
+            </div>
+        </article>
+
+        <!-- Compliance Section -->
+        <div class="mt-20 pt-8 border-t border-white/5 text-[10px] text-gray-600 text-center uppercase tracking-widest leading-relaxed">
+            Tuân thủ Luật Chứng khoán Việt Nam 2019 • Mọi phân tích dựa trên tính minh bạch và khách quan.
+        </div>
+    </main>
+
+    <!-- Global Website Bar (Bottom) -->
+    <div class="w-full bg-brand-deep border-t border-white/10 py-6 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col items-center md:items-start">
+                <a href="www.phamhoanganhtokens.com" target="_blank" class="text-brand-glow font-mono text-sm hover:underline">www.phamhoanganhtokens.com</a>
+                <p class="text-[9px] text-gray-500 mt-1">Hệ thống AI Phân tích Dữ liệu Tài chính Cao cấp</p>
+            </div>
+            <div class="max-w-md">
+                <p class="text-[9px] text-gray-500 text-center md:text-right leading-normal italic">
+                    MIỄN TRỪ TRÁCH NHIỆM: Báo cáo chỉ mang tính chất tham khảo, không phải lời khuyên đầu tư cá nhân. Nhà đầu tư nên tự chịu trách nhiệm và tham vấn chuyên gia trước khi giao dịch.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
