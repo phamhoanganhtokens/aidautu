@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI ĐẦU TƯ - Báo Cáo Phân Tích & Kế Hoạch Đầu Tư Chuyên Sâu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+        /* Explicit use of Times New Roman as requested */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f5;
+            color: #1a1a1a;
+            line-height: 1.7;
+        }
+
+        .premium-header {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #1e3a8a, transparent);
+            margin: 3rem 0;
+            opacity: 0.2;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 8px;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #1e3a8a; /* Deep Corporate Blue */
+            color: white;
+            text-align: left;
+            padding: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.95rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 2px solid #1e3a8a;
+        }
+
+        .accent-text {
+            color: #1e3a8a;
+        }
+
+        h1, h2, h3, h4 {
+            color: #0f172a;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corporate: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="sticky-nav shadow-sm px-6 py-4">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="text-center md:text-left">
+                <h1 class="text-2xl font-bold tracking-tighter premium-header accent-text">AI ĐẦU TƯ</h1>
+                <p class="text-xs font-mono text-gray-500 uppercase tracking-widest">www.phamhoanganhtokens.com</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p id="current-datetime" class="text-sm font-medium text-gray-700"></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        
+        <article class="glass-card rounded-2xl p-8 md:p-16">
+            
+            <!-- Title Section -->
+            <section class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl mb-4 leading-tight">BÁO CÁO PHÂN TÍCH VÀ KẾ HOẠCH ĐẦU TƯ CHUYÊN SÂU</h1>
+                <div class="flex flex-col items-center justify-center gap-2">
+                    <span class="px-4 py-1 bg-corporate-100 text-corporate-900 rounded-full text-sm font-bold">NGÀY LẬP: 04/05/2026</span>
+                    <p class="text-gray-600 italic">Chuyên gia điều hành: <span class="font-bold">MASTER AI AGENT</span></p>
+                </div>
+            </section>
+
+            <!-- Overview -->
+            <section class="mb-12">
+                <h2 class="text-2xl border-b-2 border-corporate-900 inline-block mb-6 pb-1">TỔNG QUAN THỊ TRƯỜNG VÀ DỮ LIỆU ĐẦU VÀO</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-corporate-900">
+                        <ul class="space-y-3">
+                            <li><strong>Vốn đầu tư:</strong> 500.000 USD (Tương đương 13.190.000.000 VND)</li>
+                            <li><strong>Tỷ giá hối đoái:</strong> 26.380 VND/USD</li>
+                            <li><strong>Lãi suất thị trường:</strong> 6.5% - 7.2%/năm</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-corporate-900">
+                        <ul class="space-y-3">
+                            <li><strong>Lạm phát kỳ vọng (VN):</strong> ~4%</li>
+                            <li><strong>VN-Index:</strong> 1450 - 1520</li>
+                            <li><strong>S&P 500:</strong> 5600 - 5800</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Agent Analysis -->
+            <section class="mb-12">
+                <h2 class="text-2xl mb-8 accent-text">PHÂN TÍCH CHUYÊN SÂU TỪ CÁC AGENT THÀNH VIÊN</h2>
+                
+                <div class="space-y-8">
+                    <div class="group">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="w-8 h-8 rounded-full bg-corporate-900 text-white flex items-center justify-center mr-3 text-sm">1</span>
+                            AGENT TIẾT KIỆM VÀ TRÁI PHIẾU
+                        </h3>
+                        <p class="justified-text text-gray-700 pl-11">
+                            Với lãi suất thực dương ở mức 2.5-3.2% sau khi trừ lạm phát, đây là kênh trú ẩn an toàn. Trái phiếu doanh nghiệp xếp hạng AA trở lên đang có mức sinh lời hấp dẫn, phù hợp cho việc duy trì dòng tiền ổn định trong bối cảnh thị trường biến động.
+                        </p>
+                    </div>
+
+                    <div class="group">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="w-8 h-8 rounded-full bg-corporate-900 text-white flex items-center justify-center mr-3 text-sm">2</span>
+                            AGENT CHỨNG KHOÁN VÀ ETF
+                        </h3>
+                        <p class="justified-text text-gray-700 pl-11">
+                            VN-Index và S&P 500 đang ở vùng đỉnh lịch sử. Cảnh báo rủi ro điều chỉnh ngắn hạn nhưng triển vọng dài hạn vẫn tích cực nhờ sự phát triển của công nghệ AI và bán dẫn. Khuyến nghị tập trung vào các nhóm ngành dẫn dắt và các quỹ ETF mô phỏng chỉ số.
+                        </p>
+                    </div>
+
+                    <div class="group">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="w-8 h-8 rounded-full bg-corporate-900 text-white flex items-center justify-center mr-3 text-sm">3</span>
+                            AGENT BẤT ĐỘNG SẢN
+                        </h3>
+                        <p class="justified-text text-gray-700 pl-11">
+                            Thị trường đang hồi phục mạnh. Với ngân sách khoảng 13 tỷ VND, nhà đầu tư có thể tiếp cận phân khúc chung cư cao cấp tại các đô thị lớn hoặc đất nền vùng ven có pháp lý sạch và tiềm năng tăng trưởng hạ tầng rõ rệt.
+                        </p>
+                    </div>
+
+                    <div class="group">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="w-8 h-8 rounded-full bg-corporate-900 text-white flex items-center justify-center mr-3 text-sm">4</span>
+                            AGENT VÀNG VÀ NGOẠI TỆ
+                        </h3>
+                        <p class="justified-text text-gray-700 pl-11">
+                            Vàng đóng vai trò phòng vệ trước các biến động địa chính trị toàn cầu. USD tiếp tục duy trì sức mạnh do chênh lệch lãi suất và vị thế đồng tiền dự trữ, tuy nhiên cần theo dõi sát các chính sách của ngân hàng trung ương.
+                        </p>
+                    </div>
+
+                    <div class="group">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="w-8 h-8 rounded-full bg-corporate-900 text-white flex items-center justify-center mr-3 text-sm">5</span>
+                            AGENT QUỸ ĐẦU TƯ VÀ TÀI SẢN THAY THẾ
+                        </h3>
+                        <p class="justified-text text-gray-700 pl-11">
+                            Tập trung vào các quỹ Private Equity hoặc tài sản số (Crypto/Digital Assets) để tối đa hóa lợi nhuận đột biến. Đây là phân khúc dành cho phần vốn mạo hiểm với kỳ vọng tăng trưởng theo cấp số nhân.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Risk Profiles -->
+            <section class="mb-12 bg-corporate-50 p-8 rounded-xl border border-corporate-100">
+                <h2 class="text-2xl mb-6 accent-text">PHÂN TÍCH THEO HỒ SƠ RỦI RO</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="font-bold min-w-[180px] text-corporate-900">— Hồ sơ rủi ro Thấp:</span>
+                        <span class="justified-text italic">Ưu tiên bảo toàn vốn, tập trung 70% vào thu nhập cố định.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-bold min-w-[180px] text-corporate-900">— Hồ sơ rủi ro Trung bình:</span>
+                        <span class="justified-text italic">Cân bằng giữa tăng trưởng và an toàn, tỷ lệ 50/50.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-bold min-w-[180px] text-corporate-900">— Hồ sơ rủi ro Cao:</span>
+                        <span class="justified-text italic">Tập trung 70-80% vào tài sản có biến động mạnh để tìm kiếm lợi nhuận đột phá.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Scenario 1 -->
+            <section class="mb-16">
+                <div class="flex items-center gap-4 mb-6">
+                    <h2 class="text-2xl accent-text uppercase tracking-tight">Kịch bản 1: Chiến lược Bảo thủ (Conservative)</h2>
+                </div>
+                <p class="mb-6 italic text-gray-600">Mục tiêu: Bảo toàn vốn và tạo dòng tiền ổn định cao hơn lạm phát.</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hạng Mục</th>
+                                <th>Tỷ Lệ</th>
+                                <th>Số Tiền (VND)</th>
+                                <th>Lý Do Đầu Tư</th>
+                                <th>Rủi Ro Chính</th>
+                                <th>LN Kỳ Vọng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold">Tiết kiệm/Trái phiếu</td>
+                                <td>45%</td>
+                                <td>5.935.500.000</td>
+                                <td>Tận dụng lãi suất thực dương</td>
+                                <td>Tái cấu trúc doanh nghiệp</td>
+                                <td class="accent-text font-bold">6.8 - 7.5%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Bất động sản</td>
+                                <td>30%</td>
+                                <td>3.957.000.000</td>
+                                <td>Tài sản thực, chống lạm phát</td>
+                                <td>Tính thanh khoản thấp</td>
+                                <td class="accent-text font-bold">8.0 - 10%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Vàng và Ngoại tệ</td>
+                                <td>15%</td>
+                                <td>1.978.500.000</td>
+                                <td>Phòng vệ biến động kinh tế</td>
+                                <td>Giá vàng quốc tế giảm</td>
+                                <td class="accent-text font-bold">5.0 - 7.0%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Chứng khoán/ETF</td>
+                                <td>10%</td>
+                                <td>1.319.000.000</td>
+                                <td>Duy trì sự hiện diện thị trường</td>
+                                <td>Thị trường điều chỉnh</td>
+                                <td class="accent-text font-bold">10 - 12%</td>
+                            </tr>
+                            <tr class="bg-corporate-900/5 font-bold">
+                                <td colspan="3" class="text-right uppercase">Tổng cộng</td>
+                                <td colspan="2">100% (13.190.000.000 VND)</td>
+                                <td class="text-corporate-900 text-lg">7.5 - 8.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Scenario 2 -->
+            <section class="mb-16">
+                <div class="flex items-center gap-4 mb-6">
+                    <h2 class="text-2xl accent-text uppercase tracking-tight">Kịch bản 2: Chiến lược Tăng trưởng (Growth)</h2>
+                </div>
+                <p class="mb-6 italic text-gray-600">Mục tiêu: Tối ưu hóa lợi nhuận bằng cách tận dụng các nhịp tăng trưởng của thị trường tài sản.</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hạng Mục</th>
+                                <th>Tỷ Lệ</th>
+                                <th>Số Tiền (VND)</th>
+                                <th>Lý Do Đầu Tư</th>
+                                <th>Rủi Ro Chính</th>
+                                <th>LN Kỳ Vọng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold">Chứng khoán/ETF</td>
+                                <td>40%</td>
+                                <td>5.276.000.000</td>
+                                <td>Kỳ vọng S&P 500 và VN-Index</td>
+                                <td>Biến động thị trường cao</td>
+                                <td class="accent-text font-bold">15 - 20%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Bất động sản</td>
+                                <td>25%</td>
+                                <td>3.297.500.000</td>
+                                <td>Gia tăng giá trị dài hạn</td>
+                                <td>Pháp lý và thanh khoản</td>
+                                <td class="accent-text font-bold">12 - 15%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Tài sản thay thế</td>
+                                <td>15%</td>
+                                <td>1.978.500.000</td>
+                                <td>Lợi nhuận đột biến Crypto/AI</td>
+                                <td>Biến động cực độ</td>
+                                <td class="accent-text font-bold">30 - 50%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Tiết kiệm/Trái phiếu</td>
+                                <td>10%</td>
+                                <td>1.319.000.000</td>
+                                <td>Dự phòng thanh khoản khẩn cấp</td>
+                                <td>Lãi suất giảm</td>
+                                <td class="accent-text font-bold">6.5 - 7.0%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Vàng và Ngoại tệ</td>
+                                <td>10%</td>
+                                <td>1.319.000.000</td>
+                                <td>Giảm thiểu rủi ro tỷ giá</td>
+                                <td>Giá vàng đi ngang</td>
+                                <td class="accent-text font-bold">5.0 - 6.0%</td>
+                            </tr>
+                            <tr class="bg-corporate-900/5 font-bold">
+                                <td colspan="3" class="text-right uppercase">Tổng cộng</td>
+                                <td colspan="2">100% (13.190.000.000 VND)</td>
+                                <td class="text-corporate-900 text-lg">14 - 18%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Conclusion -->
+            <section class="mb-12">
+                <h2 class="text-3xl mb-6 accent-text">KẾT LUẬN VÀ KHUYẾN NGHỊ CHIẾN LƯỢC</h2>
+                <div class="space-y-6 text-lg">
+                    <p class="justified-text">
+                        Dựa trên bộ tham số hiện tại, <span class="font-bold italic">Master Agent</span> nhận thấy thị trường đang ở giai đoạn cẩn trọng. Với số vốn 500.000 USD, chiến lược tối ưu nhất là kết hợp giữa thu nhập cố định (để đảm bảo chi phí cơ hội) và chứng khoán ETF (để hưởng lợi từ xu thế công nghệ).
+                    </p>
+                    
+                    <div class="bg-white border-2 border-corporate-900 p-8 rounded-lg shadow-inner">
+                        <h4 class="text-xl font-bold mb-4 uppercase tracking-wider underline">Khuyến nghị cụ thể:</h4>
+                        <ul class="space-y-4 list-none">
+                            <li class="flex items-start">
+                                <span class="text-corporate-900 mr-3 text-xl">▪</span>
+                                <div>
+                                    <strong>Giải ngân từng phần:</strong> Không nên đổ hết vốn vào một thời điểm, đặc biệt là với chứng khoán và bất động sản khi chỉ số đang ở vùng cao.
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-corporate-900 mr-3 text-xl">▪</span>
+                                <div>
+                                    <strong>Ưu tiên thanh khoản:</strong> Giữ ít nhất 10% tài sản ở dạng tiền mặt hoặc tương đương tiền để sẵn sàng bắt đáy khi có nhịp điều chỉnh mạnh (15-20%).
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-corporate-900 mr-3 text-xl">▪</span>
+                                <div>
+                                    <strong>Theo dõi sát tỷ giá:</strong> Tỷ giá 26.380 VND/USD là mức cao lịch sử, cần cân nhắc việc chuyển đổi nguồn tiền từ USD sang VND để hưởng lãi suất tiết kiệm cao hơn tại Việt Nam.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Disclaimers -->
+            <section class="mt-20 pt-8 border-t border-gray-200">
+                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Lưu ý rủi ro và Tuyên bố miễn trừ trách nhiệm</h2>
+                <div class="text-xs text-gray-500 space-y-3 leading-relaxed justified-text italic">
+                    <p>
+                        Đầu tư luôn đi kèm với rủi ro mất mát vốn. Các con số dự báo về lợi nhuận dựa trên dữ liệu lịch sử và mô hình giả định, không đảm bảo kết quả trong tương lai. Chuyên gia AI không chịu trách nhiệm cho bất kỳ khoản lỗ nào phát sinh từ việc áp dụng kế hoạch này. Nhà đầu tư cần tham khảo ý kiến từ các cố vấn pháp lý và tài chính độc lập trước khi ra quyết định.
+                    </p>
+                    <p class="font-bold text-gray-700">
+                        Để có một bản kế hoạch được cá nhân hóa chính xác hơn theo độ tuổi, thu nhập hàng tháng và mục tiêu tài chính cụ thể, xin vui lòng cung cấp thêm các thông tin cá nhân của bạn.
+                    </p>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <script>
+        // Update live time in the header
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            };
+            document.getElementById('current-datetime').textContent = now.toLocaleDateString('vi-VN', options);
+        }
+        
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+</body>
+</html>
