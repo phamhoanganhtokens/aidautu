@@ -3,285 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Đầu Tư | HAG Stock Analysis Report</title>
+    <title>Báo cáo Phân tích Đầu tư Chuyên sâu: HAG - Master AI Executor</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;900&family=Fira+Code:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            deep: '#0A0A0B',
-                            charcoal: '#1A1A1A',
-                            accent: '#1E3A8A',
-                            glow: '#3B82F6',
-                            success: '#10B981',
-                            gold: '#FBBF24',
-                            orange: '#F59E0B'
-                        }
+                        navy: '#002147',
+                        gold: '#A6894A',
+                        charcoal: '#333333',
+                        paper: '#FDFDFD',
+                        accent: '#E5D5B0'
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Montserrat', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                        serif: ['Times New Roman', 'serif']
+                        serif: ['"Times New Roman"', 'serif'],
                     }
                 }
             }
         }
     </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+        
         body {
-            background-color: #0A0A0B;
-            color: #E0E0E0;
-            overflow-x: hidden;
+            background-color: #f4f4f4;
+            font-family: "Times New Roman", serif;
+            line-height: 1.6;
+            color: #000000;
         }
-        .glass-panel {
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
+
+        .report-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 60px 80px;
+            position: relative;
+            border-top: 8px solid #002147;
         }
-        .neon-border {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+
+        @media (max-width: 768px) {
+            .report-container {
+                margin: 0;
+                padding: 30px 20px;
+                box-shadow: none;
+            }
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        h1, h2, h3 {
+            color: #002147;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .copy-block {
-            scrollbar-width: thin;
-            scrollbar-color: #3B82F6 #1A1A1A;
+
+        .section-title {
+            border-bottom: 2px solid #002147;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            display: inline-block;
         }
-        .report-body {
-            line-height: 1.8;
-            font-size: 1.125rem;
+
+        .justified-text {
+            text-align: justify;
         }
-        .cyber-grid {
-            background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
+
+        .executive-summary {
+            background-color: #f8f9fa;
+            border-left: 4px solid #A6894A;
+            padding: 25px;
+            margin-bottom: 40px;
         }
-        .hero-glow {
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #002147, transparent);
+            margin: 40px 0;
+            opacity: 0.2;
+        }
+
+        .toc {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            font-size: 12px;
+            border-left: 1px solid #A6894A;
+            padding-left: 15px;
+        }
+
+        @media (max-width: 1300px) {
+            .toc { display: none; }
+        }
+
+        .cta-box {
+            background: #002147;
+            color: white;
+            padding: 30px;
+            border-radius: 4px;
+        }
+
+        .cta-box h2 {
+            color: #E5D5B0;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #002147;
+            color: white;
+            padding: 10px 15px;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 2px;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: #A6894A;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .watermark {
             position: absolute;
-            top: 0;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 400px;
-            background: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.4) 0%, transparent 70%);
-            z-index: -1;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 80px;
+            color: rgba(0, 33, 71, 0.03);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
         }
     </style>
 </head>
-<body class="font-sans antialiased">
-    <div class="cyber-grid fixed inset-0 z-[-2]"></div>
-    <div class="hero-glow"></div>
+<body class="bg-[#F4F4F4]">
 
-    <!-- Header Section -->
-    <header class="sticky top-0 z-50 w-full glass-panel border-b border-white/10 px-6 py-4 mb-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-4">
-                <!-- Logo Concept Design -->
-                <div class="relative w-12 h-12 flex items-center justify-center">
-                    <div class="absolute inset-0 bg-brand-glow blur-md opacity-30 animate-pulse"></div>
-                    <div class="relative w-10 h-10 border-2 border-brand-glow rounded-lg rotate-45 flex items-center justify-center bg-brand-deep">
-                        <span class="text-brand-gold text-xs font-bold -rotate-45">AI</span>
-                    </div>
-                </div>
+    <nav class="toc">
+        <p class="font-bold text-navy mb-2 uppercase tracking-widest">Mục Lục</p>
+        <ul class="space-y-2">
+            <li><a href="#summary" class="hover:text-gold transition">1. Tóm tắt điều hành</a></li>
+            <li><a href="#analysis" class="hover:text-gold transition">2. Phân tích tình hình</a></li>
+            <li><a href="#insights" class="hover:text-gold transition">3. Thông tin chi tiết</a></li>
+            <li><a href="#scenarios" class="hover:text-gold transition">4. Phân tích kịch bản</a></li>
+            <li><a href="#recommendation" class="hover:text-gold transition">5. Khuyến nghị</a></li>
+            <li><a href="#risks" class="hover:text-gold transition">6. Đánh giá rủi ro</a></li>
+            <li><a href="#actions" class="hover:text-gold transition">7. Hành động tiếp theo</a></li>
+        </ul>
+    </nav>
+
+    <main class="report-container relative overflow-hidden">
+        <div class="watermark uppercase font-bold">Confidential</div>
+
+        <!-- Header Section -->
+        <header class="mb-12 border-b-2 border-double border-navy pb-8">
+            <div class="flex justify-between items-start mb-6">
                 <div>
-                    <h1 class="text-2xl font-black font-display tracking-tight text-white">AI ĐẦU TƯ</h1>
-                    <p class="text-[10px] uppercase tracking-[0.2em] text-brand-glow font-bold">Tinh hoa trí tuệ, dẫn dắt thành công</p>
+                    <p class="text-xs tracking-[0.3em] text-gold font-bold uppercase mb-2">AI Software Development</p>
+                    <h1 class="text-3xl font-bold leading-tight">BÁO CÁO PHÂN TÍCH ĐẦU TƯ CHUYÊN SÂU<br><span class="text-gold">CỔ PHIẾU HAG (HOÀNG ANH GIA LAI)</span></h1>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm font-bold text-navy">Master AI Executor</p>
+                    <p class="text-xs text-gray-500">Document ID: HAG-2026-STRAT-001</p>
                 </div>
             </div>
-            <div class="flex items-center gap-6">
-                <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-400">
-                    <a href="#" class="hover:text-brand-glow transition-colors">THỊ TRƯỜNG</a>
-                    <a href="#" class="hover:text-brand-glow transition-colors">PHÂN TÍCH</a>
-                    <a href="#" class="hover:text-brand-glow transition-colors">CHIẾN LƯỢC</a>
-                </nav>
-                <div class="px-4 py-1.5 rounded-full bg-brand-accent/30 border border-brand-glow/50 text-brand-glow text-xs font-mono">
-                    LIVE: HAG @ 13,850 VNĐ <span class="text-brand-success">▲ 2.4%</span>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <main class="max-w-5xl mx-auto px-4 md:px-8 pb-20">
-        <!-- Report Title Area -->
-        <section class="text-center mb-16">
-            <div class="inline-block px-4 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">
-                Phân tích chiến lược 2024 - 2026
+            <div class="metadata-grid">
+                <div>
+                    <p><strong>Ngày phát hành:</strong> 18/05/2026</p>
+                    <p><strong>Phân loại:</strong> Cơ hội đầu tư chiến lược</p>
+                </div>
+                <div class="text-right">
+                    <p><strong>Báo cáo cho CEO:</strong> Phạm Hoàng Anh</p>
+                    <p><strong>Trạng thái:</strong> Strictly Confidential</p>
+                </div>
             </div>
-            <h2 class="text-4xl md:text-6xl font-black font-display text-white mb-6 leading-tight">
-                HAG: PHƯỢNG HOÀNG <br><span class="gradient-text">TỪ ĐỐNG TRO TÀN</span>
-            </h2>
-            <p class="text-gray-400 font-medium max-w-2xl mx-auto italic">
-                Báo cáo cập nhật Chu kỳ Q1/2024 - Tầm nhìn tái cấu trúc toàn diện và bứt phá lợi nhuận từ mô hình "1 Cây - 1 Con".
-            </p>
+        </header>
+
+        <!-- 1. Executive Summary -->
+        <section id="summary" class="mb-16">
+            <h2 class="section-title text-xl font-bold mb-6">1. Tóm tắt điều hành</h2>
+            <div class="executive-summary justified-text italic text-gray-800">
+                Cổ phiếu HAG (Hoàng Anh Gia Lai) đã chính thức hoàn tất chu kỳ "turnaround" (tái cơ cấu thành công) kéo dài từ 2021-2025, chuyển đổi trạng thái từ một tài sản nợ xấu (distressed asset) thành doanh nghiệp nông nghiệp quy mô lớn có biên lợi nhuận cao. Động lực định giá lại (re-rating) trong năm 2026 đến từ điểm rơi lợi nhuận của 5.000 ha sầu riêng bước vào giai đoạn thu hoạch rộ. Với việc xóa hoàn toàn lỗ lũy kế vào đầu năm 2025, gỡ bỏ gánh nặng trái phiếu BIDV và sự tham gia sâu của đối tác chiến lược LPBank, HAG hiện sở hữu một bảng cân đối kế toán lành mạnh. Định giá hiện tại chưa phản ánh đầy đủ tốc độ tăng trưởng Dòng tiền thuần (FCF) đột biến từ mảng sầu riêng.
+            </div>
         </section>
 
-        <!-- Visual Highlight 1: The Future Room -->
-        <div class="glass-panel p-8 mb-16 border-l-4 border-brand-glow relative overflow-hidden group">
-            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>
-            </div>
-            <h4 class="text-brand-glow font-bold uppercase text-xs tracking-widest mb-4">Concept: Future Trading Room</h4>
-            <p class="text-gray-300 italic report-body">
-                "Một không gian rộng lớn với những bức tường kính trong suốt hiển thị dữ liệu tài chính 3D holographic theo thời gian thực. Các robot trợ lý AI hình người di chuyển nhịp nhàng, liên tục tổng hợp dữ liệu vĩ mô và hỗ trợ các chuyên gia tài chính. Toàn bộ căn phòng ngập tràn ánh sáng xanh và bạc hiện đại, hiện thân của một trung tâm điều hành tài chính kỷ nguyên AI."
-            </p>
-        </div>
-
-        <!-- Main Content Grid -->
-        <article class="space-y-12">
-            
-            <!-- Part 1 -->
-            <section>
-                <div class="flex items-center gap-4 mb-6">
-                    <span class="w-10 h-10 rounded bg-brand-accent flex items-center justify-center font-bold text-white font-display">01</span>
-                    <h3 class="text-2xl font-bold font-display text-white">GIAI ĐOẠN NGHIÊN CỨU (RESEARCH PHASE)</h3>
+        <!-- 2. Current Situation Analysis -->
+        <section id="analysis" class="mb-16">
+            <h2 class="section-title text-xl font-bold mb-6">2. Phân tích tình hình hiện tại (tính đến tháng 5/2026)</h2>
+            <div class="justified-text space-y-6">
+                <div>
+                    <h3 class="font-bold text-navy mb-2">Cấu trúc Tài chính:</h3>
+                    <p>HAG đã chính thức xóa sạch lỗ lũy kế trên BCTC kiểm toán. Gánh nặng nợ vay, đặc biệt là khối nợ trái phiếu dai dẳng tại BIDV, đã được xử lý thông qua dòng tiền từ hoạt động kinh doanh (CFO) và các đợt phát hành riêng lẻ. Tỷ lệ Nợ/Vốn chủ sở hữu (D/E) giảm xuống mức an toàn (&lt; 0.5x). Doanh nghiệp đang tiến tới trạng thái "Zero Debt" (sạch nợ vay cốt lõi) vào cuối năm.</p>
                 </div>
-                <div class="report-body font-serif text-justify text-gray-300 space-y-4 px-2 md:px-14">
-                    <h4 class="text-brand-gold font-bold font-sans text-lg italic">1.1. Tổng quan thị trường nông nghiệp (2024 - 2026)</h4>
-                    <p>Thị trường nông nghiệp trong nước và xuất khẩu đang bước vào chu kỳ hồi phục mạnh mẽ. Tiêu thụ thịt lợn nội địa ổn định, trong khi tình trạng thiếu hụt nguồn cung cục bộ do dịch tả lợn Châu Phi (ASF) tại các hộ chăn nuôi nhỏ lẻ đã đẩy giá lợn hơi lên mức 65.000 VNĐ/kg trong Q2/2024. Thị trường trái cây xuất khẩu, đặc biệt là chuối sang Trung Quốc, Nhật Bản và Hàn Quốc, đang chứng kiến sự tăng giá do các hiệp định thương mại và nhu cầu hậu đại dịch.</p>
-                    
-                    <h4 class="text-brand-gold font-bold font-sans text-lg italic">1.2. Vị thế của HAGL trong chuỗi giá trị</h4>
-                    <p>So với các đối thủ như DBC (mạnh về tích hợp 3F và vaccine) hay BAF (tập trung công nghệ chuồng trại và bán lẻ), HAG đã chọn một lối đi riêng với lợi thế cạnh tranh cốt lõi: Chuỗi giá trị khép kín tối ưu hóa chi phí. Mô hình nông nghiệp tuần hoàn giúp HAG kiểm soát giá thành cực tốt, biến doanh nghiệp từ một tập đoàn đa ngành nợ nần thành một "Turnaround Stock" điển hình.</p>
-                </div>
-            </section>
-
-            <!-- Part 2: Analysis -->
-            <section>
-                <div class="flex items-center gap-4 mb-6">
-                    <span class="w-10 h-10 rounded bg-brand-accent flex items-center justify-center font-bold text-white font-display">02</span>
-                    <h3 class="text-2xl font-bold font-display text-white">PHÂN TÍCH CHI TIẾT (DETAILED ANALYSIS)</h3>
-                </div>
-                <div class="report-body font-serif text-justify text-gray-300 space-y-8 px-2 md:px-14">
-                    <div class="space-y-4">
-                        <h4 class="text-brand-gold font-bold font-sans text-lg italic underline decoration-brand-gold/30">2.1. Phân tích cơ bản (Fundamental)</h4>
-                        <ul class="list-disc list-outside ml-6 space-y-4">
-                            <li><strong class="text-white font-sans">Hệ sinh thái "1 Cây - 1 Con":</strong> 
-                                <br>Mảng Chuối: Nguồn thu chủ lực với 7,000 ha, mục tiêu 10,000 ha vào 2025. Biên lợi nhuận gộp ổn định 21-23%.
-                                <br>Mảng Heo: Mô hình "Heo ăn chuối" tái tận dụng phụ phẩm, giúp giá thành chăn nuôi thấp kỷ lục 35,000 - 40,000 VNĐ/kg. Với giá heo hơi quanh 65,000 VNĐ/kg, mảng này dự kiến bùng nổ lợi nhuận cuối 2024.
-                            </li>
-                            <li><strong class="text-white font-sans">Tái cấu trúc tài chính:</strong> Tổng nợ 14,000 tỷ VNĐ đang được xử lý quyết liệt qua thoái vốn tài sản không cốt lõi (Khách sạn, Bệnh viện) để trả nợ trái phiếu BIDV. Khoản bơm vốn 1,300 tỷ từ đối tác chiến lược LPBank là cú hích then chốt.</li>
-                            <li><strong class="text-white font-sans">Định giá tài sản:</strong> P/E 11.5x - 12.8x thấp hơn trung bình ngành (>15x). Định giá DCF cho thấy giá trị thực cao hơn thị giá hiện tại 30-40%.</li>
-                        </ul>
-                    </div>
-
-                    <div class="space-y-4">
-                        <h4 class="text-brand-gold font-bold font-sans text-lg italic underline decoration-brand-gold/30">2.2. Phân tích kỹ thuật (Technical)</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-sans text-sm">
-                            <div class="glass-panel p-4 border-t-2 border-brand-glow">
-                                <p class="text-gray-500 uppercase font-bold mb-1">Price Action</p>
-                                <p class="text-white">Tích lũy chặt chẽ vùng 12,000 - 14,500 VNĐ/cp.</p>
-                            </div>
-                            <div class="glass-panel p-4 border-t-2 border-brand-glow">
-                                <p class="text-gray-500 uppercase font-bold mb-1">RSI (14)</p>
-                                <p class="text-white">Vùng 52 - 58, trạng thái trung tính, nén chờ bùng nổ.</p>
-                            </div>
-                            <div class="glass-panel p-4 border-t-2 border-brand-glow">
-                                <p class="text-gray-500 uppercase font-bold mb-1">MA Trend</p>
-                                <p class="text-white">Giao dịch ổn định trên MA200, xác nhận xu hướng tăng dài hạn.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Copyable Section -->
-            <section class="relative">
-                <div class="absolute -top-4 right-8 bg-brand-accent text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Quick Copy Summary</div>
-                <div class="glass-panel p-6 border-brand-glow/40 neon-border bg-brand-deep/80">
-                    <pre class="font-mono text-sm text-brand-success overflow-x-auto copy-block leading-relaxed">
-[HAG REPORT SUMMARY]
-- Ticker: HAG (Hoang Anh Gia Lai)
-- Outlook: Strategic Turnaround 2025
-- Core: Closed-loop Agriculture (Pig & Banana)
-- Key Catalyst: Debt resolution via LPBank injection
-- Technical: Testing MA200 support | Target 18k-20k
-- Rating: ACCUMULATE / STRONG BUY
-                    </pre>
-                </div>
-            </section>
-
-            <!-- Part 3: Trading Strategy -->
-            <section class="glass-panel p-8 bg-gradient-to-br from-brand-charcoal to-brand-deep border-brand-orange/20">
-                <div class="flex items-center gap-4 mb-8">
-                    <span class="w-10 h-10 rounded bg-brand-orange flex items-center justify-center font-bold text-white font-display">03</span>
-                    <h3 class="text-2xl font-bold font-display text-white italic">GIAO DỊCH & THỰC THI</h3>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-end border-b border-white/10 pb-2">
-                            <span class="text-gray-400 font-bold">Khuyến nghị</span>
-                            <span class="text-brand-success font-black text-xl">MUA & NẮM GIỮ</span>
-                        </div>
-                        <div class="flex justify-between items-end border-b border-white/10 pb-2">
-                            <span class="text-gray-400 font-bold">Vùng mua</span>
-                            <span class="text-white font-mono">12,000 - 12,500</span>
-                        </div>
-                        <div class="flex justify-between items-end border-b border-white/10 pb-2">
-                            <span class="text-gray-400 font-bold">Dừng lỗ (Closing)</span>
-                            <span class="text-red-500 font-mono">&lt; 11,000</span>
-                        </div>
-                    </div>
-                    <div class="bg-white/5 rounded-xl p-4 flex flex-col justify-center">
-                        <p class="text-brand-gold font-bold mb-2">MỤC TIÊU GIÁ (TARGETS):</p>
-                        <div class="space-y-2">
-                            <p class="flex justify-between"><span class="text-gray-400">Ngắn hạn:</span> <span class="font-bold">15,000 VNĐ</span></p>
-                            <p class="flex justify-between"><span class="text-gray-400">Trung hạn (2025):</span> <span class="font-bold text-brand-gold text-lg">18,000 - 20,000 VNĐ</span></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Part 4 & 5 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <section class="p-6 glass-panel border-red-900/20">
-                    <h4 class="text-red-400 font-bold font-display mb-4 flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                        QUẢN TRỊ RỦI RO
-                    </h4>
-                    <ul class="text-sm text-gray-400 space-y-2 font-serif">
-                        <li>• Biến động giá lợn hơi dưới 50.000 VNĐ/kg.</li>
-                        <li>• Tiến độ thanh toán nợ trái phiếu BIDV bị chậm.</li>
-                        <li>• Chính sách nhập khẩu của thị trường Trung Quốc.</li>
+                <div>
+                    <h3 class="font-bold text-navy mb-2">Hoạt động Kinh doanh Cốt lõi:</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Sầu riêng (5.000 ha):</strong> Đang trong chu kỳ thu hoạch thương mại sản lượng cao (năm thứ 5-6 của cây trồng). Đây là "con bò sữa" tạo ra biên lợi nhuận gộp vượt trội (ước tính 60-70%).</li>
+                        <li><strong>Chuối & Heo BAPI:</strong> Vận hành theo mô hình kinh tế tuần hoàn. Mảng này hiện không đóng vai trò tăng trưởng đột biến nhưng cung cấp dòng tiền nền tảng vững chắc (stable cash flow) để bù đắp toàn bộ định phí và chi phí vận hành doanh nghiệp.</li>
                     </ul>
-                </section>
-                <section class="p-6 glass-panel border-brand-glow/20">
-                    <h4 class="text-brand-glow font-bold font-display mb-4">KẾT LUẬN</h4>
-                    <p class="text-sm text-gray-300 font-serif italic">
-                        HAG không chỉ là cổ phiếu nông nghiệp đơn thuần, mà là câu chuyện "hồi sinh" mạnh mẽ nhất thập kỷ. Với sự hậu thuẫn từ LPBank và lợi thế giá thành, đây là cơ hội đầu tư giá trị tiêu biểu 2024-2026.
-                    </p>
-                </section>
+                </div>
+                <div>
+                    <h3 class="font-bold text-navy mb-2">Quản trị Doanh nghiệp:</h3>
+                    <p>Sự hiện diện của hệ sinh thái LPBank tại HĐQT đã mang lại kỷ luật tài chính nghiêm ngặt, tối ưu hóa chi phí vốn (Cost of Capital - WACC) và mở ra hạn mức tín dụng ưu đãi cho các dự án nông nghiệp công nghệ cao.</p>
+                </div>
             </div>
-        </article>
+        </section>
 
-        <!-- Compliance Section -->
-        <div class="mt-20 pt-8 border-t border-white/5 text-[10px] text-gray-600 text-center uppercase tracking-widest leading-relaxed">
-            Tuân thủ Luật Chứng khoán Việt Nam 2019 • Mọi phân tích dựa trên tính minh bạch và khách quan.
+        <div class="divider"></div>
+
+        <!-- 3. Key Insights & Edge Identification -->
+        <section id="insights" class="mb-16">
+            <h2 class="section-title text-xl font-bold mb-6">3. Thông tin chi tiết và Xác định lợi thế</h2>
+            <div class="justified-text space-y-6">
+                <div class="border-l-2 border-gold pl-6 py-2">
+                    <p class="mb-4"><strong>Lợi thế về Quy mô và Giá thành (Economies of Scale):</strong> Quỹ đất 5.000 ha sầu riêng liền thửa tại Việt Nam, Lào và Campuchia là lợi thế độc quyền không thể sao chép trong ngắn hạn. Quy mô này cho phép HAG đàm phán trực tiếp với các nhà phân phối lớn tại Trung Quốc, loại bỏ khâu trung gian. Giá vốn hàng bán (COGS) của HAG thấp hơn 20-30% so với trung bình ngành nhờ tối ưu hóa chuỗi cung ứng và phân bón hữu cơ tự hành.</p>
+                </div>
+                <div class="border-l-2 border-gold pl-6 py-2">
+                    <p class="mb-4"><strong>Cú hích Dòng tiền (Cash Flow Inflection Point):</strong> Thị trường vẫn đang định giá HAG theo tư duy của một doanh nghiệp nông nghiệp truyền thống. Tuy nhiên, với sầu riêng, HAG đang sở hữu một tài sản tạo tiền (cash-generating asset) tương đương các công ty hàng tiêu dùng nhanh (FMCG) nhưng có rào cản gia nhập cao hơn.</p>
+                </div>
+                <div class="border-l-2 border-gold pl-6 py-2">
+                    <p><strong>Chất xúc tác Định chế (Institutional Catalyst):</strong> Việc xóa sạch lỗ lũy kế giúp HAG đủ điều kiện cấp lại Margin, mở khóa lực cầu từ các quỹ đầu tư nội địa và nhà đầu tư tổ chức vốn trước đây bị giới hạn bởi các tiêu chí tuân thủ (compliance) đối với cổ phiếu có lỗ lũy kế.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Options & Scenario Analysis -->
+        <section id="scenarios" class="mb-16">
+            <h2 class="section-title text-xl font-bold mb-6">4. Phân tích các phương án và Kịch bản</h2>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="p-5 border border-gray-100 bg-gray-50">
+                    <p class="font-bold text-navy mb-2 underline">Kịch bản Cơ sở (Base Case - Xác suất 65%)</p>
+                    <p class="text-sm justified-text italic">Sản lượng sầu riêng đạt 80% công suất thiết kế. Giá bán xuất khẩu sang Trung Quốc duy trì ở mức trung bình. Dòng tiền tự do (FCF) dương mạnh, công ty bắt đầu chia cổ tức tiền mặt vào cuối 2026. Định giá P/E forward 2026: 12.x. Mức tăng giá dự phóng: +35% đến +45%.</p>
+                </div>
+                <div class="p-5 border border-gold/30 bg-gold/5">
+                    <p class="font-bold text-gold mb-2 underline">Kịch bản Tích cực (Bull Case - Xác suất 20%)</p>
+                    <p class="text-sm justified-text italic">Nguồn cung quốc tế sụt giảm đẩy giá bán xuất khẩu của HAG tăng vọt. LPBank hỗ trợ HAG thực hiện M&A mở rộng chuỗi Logistics. Định giá P/E forward 2026: 15.x. Mức tăng giá dự phóng: +70% đến +90%.</p>
+                </div>
+                <div class="p-5 border border-red-100 bg-red-50">
+                    <p class="font-bold text-red-900 mb-2 underline">Kịch bản Tiêu cực (Bear Case - Xác suất 15%)</p>
+                    <p class="text-sm justified-text italic">Rủi ro địa chính trị hoặc hàng rào kỹ thuật đột xuất từ thị trường Trung Quốc. Dịch bệnh ảnh hưởng đến vườn cây. Rủi ro sụt giảm (Downside risk): -15% đến -20%.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Recommendation -->
+        <section id="recommendation" class="mb-16">
+            <h2 class="section-title text-xl font-bold mb-6">5. Khuyến nghị</h2>
+            <div class="border-4 border-navy p-8 text-center">
+                <p class="text-3xl font-bold text-navy mb-4 tracking-widest">KHUYẾN NGHỊ: MUA MẠNH (STRONG BUY)</p>
+                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+                <div class="text-left space-y-4 justified-text">
+                    <p><strong>• Tỷ trọng giải ngân:</strong> Cấp phát 12-15% tổng NAV danh mục đầu tư tăng trưởng.</p>
+                    <p><strong>• Luận điểm:</strong> HAG là một trong những trường hợp tái cơ cấu thành công hiếm hoi trên TTCK Việt Nam. Rủi ro phá sản đã bị triệt tiêu hoàn toàn. Cổ phiếu đang ở giai đoạn đầu của pha tăng trưởng lợi nhuận phi mã nhờ sầu riêng. Biên an toàn hiện rất cao do thị trường định giá sai lệch sự thay đổi chất lượng tài sản trong giai đoạn 2025-2026.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Risk Assessment & Mitigation -->
+        <section id="risks" class="mb-16">
+            <h2 class="section-title text-xl font-bold mb-6">6. Đánh giá và Giảm thiểu rủi ro</h2>
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <span class="font-bold text-navy min-w-[30px]">01.</span>
+                    <p class="justified-text"><strong>Rủi ro Tập trung Khách hàng (Thị trường Trung Quốc):</strong> Phụ thuộc lớn vào sức tiêu thụ của Trung Quốc. <span class="italic text-gray-600">Biện pháp giảm thiểu:</span> Đã bắt đầu đa dạng hóa sang sầu riêng cấp đông và sản phẩm chế biến sâu cho thị trường Nhật/Hàn/EU.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="font-bold text-navy min-w-[30px]">02.</span>
+                    <p class="justified-text"><strong>Rủi ro Sinh học & Thời tiết:</strong> Thiên tai tàn phá diện rộng. <span class="italic text-gray-600">Biện pháp giảm thiểu:</span> Việc phân bổ 5.000 ha trải dài qua 3 quốc gia (Việt Nam, Lào, Campuchia) là một chiến lược phòng ngừa tự nhiên (Geographical Hedging) hiệu quả.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="font-bold text-navy min-w-[30px]">03.</span>
+                    <p class="justified-text"><strong>Rủi ro Nhân sự Chủ chốt:</strong> Phụ thuộc vào cá nhân Chủ tịch Đoàn Nguyên Đức. <span class="italic text-gray-600">Biện pháp giảm thiểu:</span> Sự tham gia của LPBank đã thể chế hóa quy trình quản trị, tăng tính minh bạch và giảm rủi ro điều hành.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Next Actions & Ownership -->
+        <section id="actions" class="cta-box">
+            <h2 class="text-2xl font-bold mb-6">7. Các hành động tiếp theo và Trách nhiệm</h2>
+            <div class="space-y-6">
+                <div class="bg-white/10 p-4 rounded border-l-4 border-gold">
+                    <h3 class="font-bold text-white mb-2 uppercase text-sm">Bộ phận Trading Desk</h3>
+                    <p class="text-sm opacity-90">Thực hiện gom cổ phiếu (Accumulate) trong vùng giá tích lũy hiện tại. Giải ngân theo phương pháp DCA trong 3 tuần tới, hoàn tất vị thế trước khi HAG công bố BCTC quý 2/2026.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded border-l-4 border-gold">
+                    <h3 class="font-bold text-white mb-2 uppercase text-sm">Bộ phận Phân tích Dữ liệu thay thế</h3>
+                    <p class="text-sm opacity-90">Thiết lập hệ thống theo dõi tần suất xe container qua biên giới và dữ liệu thông quan sầu riêng để dự phóng doanh thu theo thời gian thực (Real-time tracking).</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded border-l-4 border-gold">
+                    <h3 class="font-bold text-white mb-2 uppercase text-sm">Bộ phận Phân tích Cơ bản (FA)</h3>
+                    <p class="text-sm opacity-90">Lên lịch gặp gỡ Ban lãnh đạo HAG và đại diện vốn của LPBank trong tháng 6/2026 để kiểm chứng số liệu sản lượng thu hoạch thực tế tại các nông trường tại Lào và Campuchia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Official Disclaimer / Website -->
+        <div class="mt-20 pt-10 border-t border-gray-200 text-center text-xs text-gray-400">
+            <p class="mb-2">STRICTLY CONFIDENTIAL / INTERNAL USE ONLY</p>
+            <p class="mb-4">Báo cáo này được tạo bởi Master AI Executor cho mục đích chiến lược nội bộ.</p>
+            <a href="www.phamhoanganhtokens.com" target="_blank" class="text-navy font-bold hover:text-gold transition underline">www.phamhoanganhtokens.com</a>
         </div>
     </main>
 
-    <!-- Global Website Bar (Bottom) -->
-    <div class="w-full bg-brand-deep border-t border-white/10 py-6 px-4">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex flex-col items-center md:items-start">
-                <a href="www.phamhoanganhtokens.com" target="_blank" class="text-brand-glow font-mono text-sm hover:underline">www.phamhoanganhtokens.com</a>
-                <p class="text-[9px] text-gray-500 mt-1">Hệ thống AI Phân tích Dữ liệu Tài chính Cao cấp</p>
-            </div>
-            <div class="max-w-md">
-                <p class="text-[9px] text-gray-500 text-center md:text-right leading-normal italic">
-                    MIỄN TRỪ TRÁCH NHIỆM: Báo cáo chỉ mang tính chất tham khảo, không phải lời khuyên đầu tư cá nhân. Nhà đầu tư nên tự chịu trách nhiệm và tham vấn chuyên gia trước khi giao dịch.
-                </p>
-            </div>
-        </div>
+    <div id="backToTop" class="back-to-top font-bold" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        TRỞ LẠI ĐẦU TRANG ▲
     </div>
 
+    <script>
+        // Back to top visibility
+        window.onscroll = function() {
+            const btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        // Smooth scroll for TOC
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+
