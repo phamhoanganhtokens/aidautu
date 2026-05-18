@@ -3,316 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Đầu Tư - Hệ thống Phân tích Cao cấp</title>
+    <title>Báo cáo Phân tích Đầu tư: NVL - Master AI Executor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap');
 
         :root {
-            --primary-font: 'Times New Roman', Times, serif;
-            --display-font: 'Times New Roman', Times, serif; /* Consistent with instructions */
+            --navy: #002147;
+            --charcoal: #1a1a1a;
+            --gold: #c5a059;
+            --off-white: #fcfcfc;
         }
 
         body {
-            font-family: var(--primary-font);
-            background-color: #fcfcfc;
-            color: #1a1a1a;
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            color: var(--charcoal);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
 
-        .justified-text {
-            text-align: justify;
-            text-justify: inter-word;
+        .document-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 60px 80px;
+            position: relative;
+            border-top: 8px solid var(--navy);
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(229, 231, 235, 0.5);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-        }
-
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, #d1d5db, transparent);
-            margin: 3rem 0;
+        @media (max-width: 768px) {
+            .document-container {
+                margin: 0;
+                padding: 30px 20px;
+            }
         }
 
         h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
             font-weight: 700;
-            color: #111827;
-            letter-spacing: -0.02em;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a1a1a1;
+        h1 {
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .header-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
-            border-bottom: 1px solid #e5e7eb;
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--gold);
+            padding-left: 15px;
+            text-transform: uppercase;
         }
 
-        .accent-line {
-            width: 50px;
-            height: 3px;
-            background-color: #1e293b;
-            margin: 1rem 0;
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 25px;
+            color: var(--charcoal);
+            font-weight: 900;
+        }
+
+        p, li {
+            text-align: justify;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .metadata-box {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-style: italic;
+            color: #555;
+        }
+
+        .executive-summary {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .executive-summary::before {
+            content: "EXECUTIVE SUMMARY";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--navy);
+            color: white;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            color: rgba(0, 0, 0, 0.03);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .table-of-contents {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            font-size: 0.8rem;
+            display: none;
+        }
+
+        @media (min-width: 1400px) {
+            .table-of-contents {
+                display: block;
+            }
+        }
+
+        .toc-link {
+            display: block;
+            padding: 5px 0;
+            color: #777;
+            text-decoration: none;
+            transition: color 0.3s;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .toc-link:hover {
+            color: var(--navy);
+        }
+
+        .highlight-card {
+            border: 1px solid #eee;
+            padding: 20px;
+            margin-top: 15px;
+            background: linear-gradient(to right, #ffffff, #fcfcfc);
+        }
+
+        .action-box {
+            background: var(--navy);
+            color: white;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .action-box h2 {
+            color: white;
+            border-left-color: var(--gold);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--navy);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            opacity: 0.8;
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ccc, transparent);
+            margin: 40px 0;
+        }
+
+        .badge-status {
+            background-color: var(--gold);
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        footer.report-footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: #888;
+            text-align: center;
+        }
+
+        .confidential-seal {
+            border: 2px solid #cc0000;
+            color: #cc0000;
+            padding: 5px 15px;
+            display: inline-block;
+            font-weight: bold;
+            transform: rotate(-5deg);
+            opacity: 0.6;
+            margin-bottom: 20px;
         }
     </style>
 </head>
-<body class="selection:bg-gray-200">
+<body>
 
-    <!-- Header Section -->
-    <header class="header-gradient sticky top-0 z-50 py-6 px-4 md:px-8 shadow-sm">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="flex flex-col">
-                <h1 class="text-3xl md:text-4xl uppercase tracking-tighter mb-1">AI Đầu Tư</h1>
-                <div class="accent-line"></div>
-            </div>
-            <div class="mt-4 md:mt-0">
-                <a href="www.phamhoanganhtokens.com" target="_blank" class="text-sm md:text-base text-gray-500 hover:text-black transition-colors duration-300 font-medium tracking-widest">
-                    WWW.PHAMHOANGANHTOKENS.COM
-                </a>
-            </div>
-        </div>
-    </header>
+    <div class="watermark">CONFIDENTIAL</div>
 
-    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
-        
-        <!-- Section 1: Hệ thống AI Đầu Tư - Google Opal -->
-        <section id="system-context" class="mb-20">
-            <div class="mb-10">
-                <span class="text-xs font-bold uppercase tracking-[0.3em] text-gray-400">Kiến trúc Hệ thống</span>
-                <h2 class="text-4xl md:text-5xl mt-2 mb-6">Hệ thống AI Đầu Tư - Google Opal</h2>
-                <p class="justified-text text-lg text-gray-700 italic border-l-4 border-gray-200 pl-6 my-8">
-                    Hệ thống AI Đầu Tư được xây dựng như một thực thể trí tuệ nhân tạo cấp cao, tích hợp các mô hình ngôn ngữ lớn tiên tiến nhất để thực hiện phân tích thị trường tài chính đa chiều và ra quyết định đầu tư chiến lược.
-                </p>
-            </div>
+    <nav class="table-of-contents">
+        <p class="font-bold mb-2 uppercase text-xs tracking-widest text-navy-900">Nội dung báo cáo</p>
+        <a href="#section1" class="toc-link">1. Tóm tắt điều hành</a>
+        <a href="#section2" class="toc-link">2. Phân tích hiện tại</a>
+        <a href="#section3" class="toc-link">3. Lợi thế chiến lược</a>
+        <a href="#section4" class="toc-link">4. Phân tích kịch bản</a>
+        <a href="#section5" class="toc-link">5. Khuyến nghị</a>
+        <a href="#section6" class="toc-link">6. Quản trị rủi ro</a>
+        <a href="#section7" class="toc-link">7. Hành động tiếp theo</a>
+    </nav>
 
-            <div class="space-y-12">
+    <div class="document-container">
+        <!-- Header Section -->
+        <header>
+            <div class="flex justify-between items-start mb-8">
                 <div>
-                    <h3 class="text-2xl mb-4 text-slate-800">1. Vai trò của CEO (Con người)</h3>
-                    <p class="justified-text mb-4">
-                        Trong cấu trúc vận hành, CEO đóng vai trò là người ra chỉ thị chiến lược (Prompt Master) và là người phê duyệt cuối cùng (Final Decision Maker). AI không thay thế con người mà là cánh tay nối dài, cung cấp dữ liệu đã qua xử lý tinh vi để CEO đưa ra những quyết định sáng suốt nhất.
-                    </p>
+                    <p class="text-xs tracking-[0.3em] font-bold text-gray-500 uppercase mb-2">AI Software Development</p>
+                    <p class="text-xl font-bold text-navy-900 uppercase" style="font-family: 'Cinzel', serif;">AI Đầu Tư - Master AI Executor</p>
                 </div>
-
-                <div>
-                    <h3 class="text-2xl mb-4 text-slate-800">2. Cấu trúc Đại lý AI (AI Agents)</h3>
-                    <p class="justified-text mb-6">Hệ thống vận hành thông qua 4 bộ phận chính với 12 AI Agents chuyên biệt, phối hợp nhịp nhàng như một bộ máy doanh nghiệp thực thụ:</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="p-6 glass-card rounded-lg">
-                            <h4 class="font-bold text-lg mb-2">2.1 Nghiên cứu & Phân tích (AI-VPR)</h4>
-                            <ul class="list-disc list-inside space-y-1 text-gray-600">
-                                <li>Phân tích Vĩ mô & Vi mô</li>
-                                <li>Dự báo xu hướng thị trường</li>
-                                <li>Đánh giá sức khỏe doanh nghiệp</li>
-                            </ul>
-                        </div>
-                        <div class="p-6 glass-card rounded-lg">
-                            <h4 class="font-bold text-lg mb-2">2.2 Quản trị Rủi ro (AI-VRM)</h4>
-                            <ul class="list-disc list-inside space-y-1 text-gray-600">
-                                <li>Thiết lập ngưỡng Stop-loss</li>
-                                <li>Cảnh báo biến động bất thường</li>
-                                <li>Kiểm tra tính thanh khoản</li>
-                            </ul>
-                        </div>
-                        <div class="p-6 glass-card rounded-lg">
-                            <h4 class="font-bold text-lg mb-2">2.3 Lập kế hoạch Danh mục (AI-VPP)</h4>
-                            <ul class="list-disc list-inside space-y-1 text-gray-600">
-                                <li>Tối ưu hóa lợi nhuận kỳ vọng</li>
-                                <li>Phân bổ tỷ trọng tài sản</li>
-                                <li>Xác định mục tiêu Take-profit</li>
-                            </ul>
-                        </div>
-                        <div class="p-6 glass-card rounded-lg">
-                            <h4 class="font-bold text-lg mb-2">2.4 Vận hành & Giải ngân (AI-VPO)</h4>
-                            <ul class="list-disc list-inside space-y-1 text-gray-600">
-                                <li>Thực thi lệnh tự động</li>
-                                <li>Chiến thuật mua trung bình giá</li>
-                                <li>Báo cáo trạng thái thời gian thực</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="text-right">
+                    <div class="confidential-seal">NGHIÊM TÚC / NỘI BỘ</div>
                 </div>
+            </div>
 
+            <h1>Báo cáo Phân tích Đầu tư:<br>Cổ phiếu NVL (Tập đoàn Novaland)</h1>
+
+            <div class="metadata-box">
                 <div>
-                    <h3 class="text-2xl mb-4 text-slate-800">3. Luồng công việc tiêu chuẩn</h3>
-                    <div class="space-y-4">
-                        <p class="justified-text"><strong>Hàng ngày (Daily):</strong> Quét tín hiệu thị trường, cập nhật tin tức vĩ mô và điều chỉnh danh mục ngắn hạn.</p>
-                        <p class="justified-text"><strong>Hàng tuần (Weekly):</strong> Đánh giá hiệu quả đầu tư so với chỉ số VN-Index, rà soát lại các ngưỡng rủi ro.</p>
-                        <p class="justified-text"><strong>Định kỳ (Monthly/Quarterly):</strong> Tái cơ cấu danh mục dựa trên báo cáo tài chính quý và thay đổi chiến lược trung hạn.</p>
-                        <p class="justified-text"><strong>Đột xuất (Ad-hoc):</strong> Xử lý các biến động mạnh từ thị trường hoặc các sự kiện "Thiên nga đen".</p>
-                    </div>
+                    <p><strong>Báo cáo cho CEO:</strong> Phạm Hoàng Anh</p>
+                    <p><strong>Vị thế:</strong> Phục hồi sau tái cấu trúc</p>
                 </div>
+                <div class="text-right">
+                    <p><strong>Ngày báo cáo:</strong> 18/05/2026</p>
+                    <p class="badge-status">KHUYẾN NGHỊ: TÍCH LŨY (ACCUMULATE)</p>
+                </div>
+            </div>
+        </header>
 
-                <div>
-                    <h3 class="text-2xl mb-4 text-slate-800">4. Nguyên tắc cốt lõi & KPI</h3>
-                    <p class="justified-text mb-4">
-                        Mọi hoạt động của hệ thống dựa trên nguyên tắc: <strong>Kỷ luật - Dữ liệu - Minh bạch</strong>. Hệ thống KPI không chỉ đo lường bằng lợi nhuận (%) mà còn dựa trên chỉ số Sharpe (hiệu quả trên rủi ro) và mức độ sụt giảm tài sản tối đa (Maximum Drawdown).
-                    </p>
+        <!-- Section 1: Executive Summary -->
+        <section id="section1" class="executive-summary mb-12">
+            <h2 class="mt-0">1. Tóm tắt điều hành</h2>
+            <p>
+                Sau giai đoạn khủng hoảng thanh khoản đỉnh điểm (2022-2024) và quá trình tái cấu trúc nợ quyết liệt, NVL đang bước vào giai đoạn "bình thường hóa" hoạt động kinh doanh. Với sự hỗ trợ từ các bộ Luật mới (Luật Đất đai 2024, Luật Nhà ở) đã thẩm thấu vào thị trường hơn 1,5 năm, các nút thắt pháp lý tại các dự án trọng điểm (Aqua City, NovaWorld Phan Thiet) đã có những chuyển biến thực tế rõ rệt. 
+            </p>
+            <p>
+                Mặc dù cấu trúc tài chính vẫn còn thâm dụng vốn và chịu áp lực pha loãng sau các đợt phát hành tăng vốn để xử lý nợ, NVL hiện tại được đánh giá là một thực thể đầu tư có tính chu kỳ và đột biến cao, đã loại bỏ được rủi ro đổ vỡ hệ thống trong ngắn hạn.
+            </p>
+        </section>
+
+        <!-- Section 2: Current Situation Analysis -->
+        <section id="section2">
+            <h2>2. Phân tích tình hình hiện tại</h2>
+            <ul class="space-y-4">
+                <li>
+                    <strong>Về tài chính:</strong> Biên lợi nhuận của NVL bắt đầu cải thiện đáng kể so với giai đoạn 2024 nhờ giảm áp lực chi phí lãi vay sau khi thực hiện thành công các phương án hoán đổi nợ thành cổ phần và tài sản. Tuy nhiên, dòng tiền từ hoạt động kinh doanh vẫn đang trong quá trình hồi phục và phụ thuộc lớn vào tốc độ bàn giao nhà.
+                </li>
+                <li>
+                    <strong>Về pháp lý:</strong> Đến tháng 05/2026, các vướng mắc về tiền sử dụng đất và cấp giấy chứng nhận quyền sở hữu tại các đại đô thị NovaWorld đã được giải quyết cơ bản theo cơ chế gỡ khó của Chính phủ, cho phép doanh nghiệp khơi thông nguồn vốn bị đóng băng trong hàng tồn kho.
+                </li>
+                <li>
+                    <strong>Về thị trường:</strong> Thị trường bất động sản đang ở giai đoạn đầu của một chu kỳ phục hồi mới. Phân khúc bất động sản đô thị vệ tinh và nghỉ dưỡng đang bắt đầu hưởng lợi từ sự hoàn thiện của hệ thống hạ tầng cao tốc và sân bay Long Thành.
+                </li>
+            </ul>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Section 3: Key Insights & Edge Identification -->
+        <section id="section3">
+            <h2>3. Thông tin chi tiết và Xác định lợi thế</h2>
+            <div class="highlight-card border-l-4 border-l-gold">
+                <h3>Quỹ đất chiến lược</h3>
+                <p>NVL vẫn duy trì vị thế là một trong những nhà phát triển sở hữu quỹ đất lớn nhất Việt Nam (~10.000 ha). Giá vốn quỹ đất rẻ tích lũy từ nhiều năm trước tạo ra dư địa lợi nhuận lớn khi thị trường hồi phục hoàn toàn.</p>
+            </div>
+            <div class="highlight-card border-l-4 border-l-navy">
+                <h3>Đòn bẩy hạ tầng quốc gia</h3>
+                <p>Tại thời điểm 2026, các dự án trọng điểm như Aqua City và NovaWorld Phan Thiet đã kết nối trực tiếp vào mạng lưới hạ tầng quốc gia hoàn thiện, tạo giá trị thực cho người sử dụng cuối cùng thay vì chỉ là đầu cơ đất nền.</p>
+            </div>
+            <div class="highlight-card border-l-4 border-l-gold">
+                <h3>Năng lực quản trị khủng hoảng</h3>
+                <p>Việc vượt qua "cửa tử" trong giai đoạn thắt chặt tiền tệ 2022-2023 đã minh chứng cho năng lực quản trị khủng hoảng của ban lãnh đạo và sự đồng hành của các tổ chức tín dụng lớn trong nước.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Options & Scenario Analysis -->
+        <section id="section4">
+            <h2>4. Phân tích các phương án và Kịch bản</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div class="p-4 border border-gray-200">
+                    <p class="font-bold text-navy-900 border-b mb-2">CƠ SỞ (60%)</p>
+                    <p class="text-sm">Duy trì đà phục hồi chậm nhưng chắc chắn. Lợi nhuận tăng trưởng đều qua các quý khi bàn giao cuốn chiếu dự án. Giá cổ phiếu tích lũy đi lên.</p>
+                </div>
+                <div class="p-4 border border-gold bg-amber-50">
+                    <p class="font-bold text-amber-800 border-b border-gold mb-2">TÍCH CỰC (25%)</p>
+                    <p class="text-sm">Xuất hiện cổ đông chiến lược nước ngoài, rút ngắn thời gian xử lý nợ. Giá cổ phiếu bứt phá mạnh mẽ khi dòng tiền quay lại.</p>
+                </div>
+                <div class="p-4 border border-red-200 bg-red-50">
+                    <p class="font-bold text-red-800 border-b border-red-200 mb-2">TIÊU CỰC (15%)</p>
+                    <p class="text-sm">Lãi suất vay tăng trở lại do biến động vĩ mô toàn cầu. Tiến độ bàn giao chậm hơn cam kết do yếu tố khách quan.</p>
                 </div>
             </div>
         </section>
 
-        <div class="section-divider"></div>
-
-        <!-- Section 2: Phản hồi từ AI Đầu Tư -->
-        <section id="ai-response" class="bg-white p-8 md:p-12 shadow-2xl rounded-sm border border-gray-100">
-            <div class="flex items-center gap-4 mb-8">
-                <div class="h-px flex-grow bg-gray-200"></div>
-                <h2 class="text-3xl md:text-4xl text-center uppercase tracking-widest text-slate-900">Phản hồi từ AI Đầu Tư</h2>
-                <div class="h-px flex-grow bg-gray-200"></div>
+        <!-- Section 5: Recommendation -->
+        <section id="section5">
+            <h2>5. Khuyến nghị chiến lược</h2>
+            <div class="bg-gray-50 p-6 rounded-lg border-2 border-dashed border-gray-300">
+                <ul class="list-disc pl-5 space-y-4">
+                    <li><strong>Chiến lược đầu tư:</strong> Khuyến nghị <strong>TÍCH LŨY (ACCUMULATE)</strong> cho mục tiêu trung và dài hạn. Nhà đầu tư nên thực hiện chiến lược bình quân giá (DCA) tại các nhịp điều chỉnh của thị trường.</li>
+                    <li><strong>Phân bổ vốn:</strong> Không nên tập trung quá 20% tổng giá trị danh mục vào NVL do tính biến động cao của mã cổ phiếu này.</li>
+                    <li><strong>Vùng giá kỳ vọng:</strong> Ưu tiên giải ngân khi giá cổ phiếu nằm dưới giá trị sổ sách (Book Value) sau điều chỉnh pha loãng.</li>
+                </ul>
             </div>
+        </section>
 
-            <div class="mb-10 text-center">
-                <p class="text-sm text-gray-400 font-mono">ID PHẢN HỒI: OPAL-2026-NVL-0504</p>
-            </div>
-
-            <div class="space-y-8 text-lg leading-relaxed">
-                <p class="justified-text font-bold text-xl">Kính gửi CEO,</p>
-                
-                <p class="justified-text">
-                    Hệ thống trí tuệ trung tâm <strong>AI Đầu Tư</strong> đã tiếp nhận chỉ thị của ngài về việc đánh giá và triển khai đầu tư cổ phiếu <strong>NVL (Tập đoàn Novaland)</strong> tại thời điểm hiện tại (04/05/2026). Dựa trên sự phối hợp điều phối giữa các phòng ban chuyên trách (AI-VPR, AI-VPP, AI-VRM, và AI-VPO), chúng tôi xin gửi đến ngài bản kế hoạch chiến lược chi tiết như sau:
-                </p>
-
+        <!-- Section 6: Risk Assessment -->
+        <section id="section6">
+            <h2>6. Đánh giá và Giảm thiểu rủi ro</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h3 class="text-2xl border-b border-gray-900 pb-2 mb-6">1. BÁO CÁO PHÂN TÍCH THỊ TRƯỜNG (AI-VPR)</h3>
-                    <p class="justified-text mb-4">Dựa trên dữ liệu tài chính và biến động thị trường mới nhất:</p>
-                    <ul class="list-none space-y-4 ml-4">
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Hoạt động kinh doanh:</strong> NVL đang trong giai đoạn chuyển mình từ "tồn tại" sang "hồi phục". Doanh thu đã có sự tăng trưởng mạnh mẽ (trên 150%) nhờ việc bàn giao tại các dự án trọng điểm như NovaWorld Phan Thiet và Aqua City.</span>
-                        </li>
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Tín hiệu Pháp lý:</strong> Các nút thắt tại dự án Aqua City (Đồng Nai) và NovaWorld Phan Thiet đã được tháo gỡ đáng kể sau các chỉ đạo trực tiếp từ Chính phủ. Đây là động lực tăng trưởng giá trị tài sản ròng (NAV) mạnh nhất cho NVL trong trung hạn.</span>
-                        </li>
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Tái cấu trúc nợ:</strong> Việc đạt được thỏa thuận hoán đổi nợ 300 triệu USD trái phiếu quốc tế thành cổ phần là bước ngoặt giúp giảm áp lực thanh khoản ngắn hạn, củng cố cấu trúc bảng cân đối kế toán.</span>
-                        </li>
-                    </ul>
+                    <h3>Rủi ro tiềm ẩn</h3>
+                    <p class="text-sm italic mb-2">• Rủi ro pha loãng cổ phiếu do hoán đổi trái phiếu.</p>
+                    <p class="text-sm italic">• Áp lực nợ trái phiếu đến hạn cần theo dõi sát.</p>
                 </div>
-
                 <div>
-                    <h3 class="text-2xl border-b border-gray-900 pb-2 mb-6">2. ĐÁNH GIÁ VÀ QUẢN TRỊ RỦI RO (AI-VRM)</h3>
-                    <p class="justified-text mb-4">Dù có nhiều chuyển biến tích cực, AI-VRM xác lập các cảnh báo rủi ro sau:</p>
-                    <ul class="list-none space-y-4 ml-4">
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Rủi ro Thanh khoản:</strong> Áp lực đáo hạn trái phiếu trong nước vẫn còn lớn (xấp xỉ 10.000 tỷ đồng trong năm hiện tại).</span>
-                        </li>
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Rủi ro Tài chính:</strong> Chi phí lãi vay và lỗ chênh lệch tỷ giá vẫn là "gánh nặng" lớn khiến lợi nhuận sau thuế chưa thể dương ngay lập tức trong các quý gần nhất.</span>
-                        </li>
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Ngưỡng an toàn (Stop-loss):</strong> Nếu giá cổ phiếu đóng nến tuần dưới vùng <strong>12.500 VND/cp</strong>, hệ thống sẽ kích hoạt lệnh bán cắt lỗ toàn phần để bảo vệ vốn.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-2xl border-b border-gray-900 pb-2 mb-6">3. CHIẾN LƯỢC PHÂN BỔ DANH MỤC (AI-VPP)</h3>
-                    <p class="justified-text mb-4">Phù hợp với định hướng tối đa hóa lợi nhuận điều chỉnh theo rủi ro của công ty:</p>
-                    <ul class="list-none space-y-4 ml-4">
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Phân loại tài sản:</strong> Đầu tư mạo hiểm (Speculative Asset).</span>
-                        </li>
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Tỷ trọng đề xuất:</strong> Khuyến nghị giải ngân không quá <strong>10% - 15%</strong> tổng quy mô danh mục hiện tại.</span>
-                        </li>
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Mục tiêu lợi nhuận (Take-profit):</strong> 
-                                <br>• Mục tiêu 1: <strong>16.500 VND/cp</strong> (Tương đương kỳ vọng +20%).
-                                <br>• Mục tiêu 2: <strong>20.000 VND/cp</strong> (Kỳ vọng dài hạn khi các dự án lớn ghi nhận lợi nhuận đột biến).
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-2xl border-b border-gray-900 pb-2 mb-6">4. KẾ HOẠCH VẬN HÀNH VÀ GIẢI NGÂN (AI-VPO)</h3>
-                    <p class="justified-text mb-4">Quy trình thực hiện lệnh được tự động hóa theo phương thức sau:</p>
-                    <ul class="list-none space-y-4 ml-4">
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Chiến thuật mua:</strong> Chia làm 3 đợt (DCA) để tối ưu giá vốn:
-                                <br><em>- Đợt 1 (Thăm dò):</em> 30% ngân sách tại vùng giá hiện tại (<strong>13.500 - 14.000</strong>).
-                                <br><em>- Đợt 2 (Tăng tỷ trọng):</em> 40% khi giá vượt vùng kháng cự <strong>15.000</strong> với thanh khoản thuyết phục.
-                                <br><em>- Đợt 3 (Hoàn tất):</em> 30% còn lại khi có thông tin pháp lý chính thức hoàn tất tại phân khu lớn nhất của Aqua City.
-                            </span>
-                        </li>
-                        <li class="justified-text flex items-start">
-                            <span class="mr-3 mt-1">•</span>
-                            <span><strong>Thời gian thực hiện:</strong> Bắt đầu giải ngân đợt 1 ngay trong phiên giao dịch tiếp theo.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="bg-gray-50 p-8 rounded-lg mt-12 border border-gray-200">
-                    <h3 class="text-xl font-bold mb-4 text-center">TỔNG KẾT KHUYẾN NGHỊ CỦA AI ĐẦU TƯ</h3>
-                    <p class="justified-text italic mb-6">
-                        Hiện tại là thời điểm <strong>"Mua tích lũy có kiểm soát"</strong> đối với NVL. Chiến lược này tận dụng vùng giá nền thấp và kỳ vọng vào sự bùng nổ của chu kỳ bất động sản mới khi các luật liên quan chính thức có hiệu lực. Chúng tôi sẽ theo dõi sát sao mọi biến động và tự động điều chỉnh lệnh theo thời gian thực để bảo vệ quyền lợi đầu tư của công ty.
-                    </p>
-                    <p class="justified-text mb-8">
-                        Hệ thống đã sẵn sàng cho quy trình thực thi. Chờ xác nhận cuối cùng của ngài để kích hoạt lệnh giải ngân đợt 1.
-                    </p>
-                    <div class="text-right">
-                        <p class="font-bold">Trân trọng,</p>
-                        <p class="font-bold text-xl">AI Dau Tu - Central Intelligence System</p>
-                    </div>
+                    <h3>Biện pháp giảm thiểu</h3>
+                    <p class="text-sm italic mb-2">• Tuyệt đối không sử dụng Margin ở mức cao.</p>
+                    <p class="text-sm italic">• Duy trì tỷ trọng tiền mặt hợp lý để quản trị rủi ro.</p>
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- Footer Space -->
-    <div class="h-24"></div>
+        <!-- Section 7: Next Actions -->
+        <section id="section7" class="action-box rounded-lg">
+            <h2 class="mt-0">7. Các hành động tiếp theo và Trách nhiệm</h2>
+            <div class="space-y-4 text-white">
+                <div class="flex gap-4">
+                    <span class="font-bold text-gold">01.</span>
+                    <p class="text-sm">Tiếp tục cập nhật tiến độ pháp lý cuối cùng của dự án The Grand Manhattan (Quận 1) và khả năng hấp thụ của thị trường tại NovaWorld Ho Tram.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="font-bold text-gold">02.</span>
+                    <p class="text-sm">Hệ thống Master AI sẽ thực hiện đánh giá lại khuyến nghị nếu có sự thay đổi đột ngột về nhân sự cấp cao hoặc biến động lãi suất điều hành quá 0.5% trong một quý.</p>
+                </div>
+                <div class="flex gap-4 border-t border-gray-600 pt-4 mt-4">
+                    <span class="font-bold text-gold">LƯU Ý:</span>
+                    <p class="text-xs italic">Báo cáo này không thay thế cho quyết định cá nhân và dựa trên mô hình phân tích dữ liệu tổng hợp tại thời điểm hiện tại.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="report-footer">
+            <p class="font-bold text-navy-900 mb-2 uppercase tracking-widest">Master AI Executor</p>
+            <p class="mb-4">Hệ thống phân tích đầu tư và thực thi chiến lược tối ưu.</p>
+            <p class="text-xs border-t pt-4">Website chính thức: <a href="www.phamhoanganhtokens.com" target="_blank" class="underline hover:text-navy-900">www.phamhoanganhtokens.com</a></p>
+            <p class="mt-2 font-bold tracking-tighter opacity-50">STRICTLY CONFIDENTIAL / INTERNAL USE ONLY</p>
+        </footer>
+    </div>
+
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </div>
 
     <script>
-        // Simple entry animation for sections
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
-            const observerOptions = {
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                observer.observe(section);
             });
         });
+
+        // Show/hide back to top button
+        window.onscroll = function() {
+            const btn = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                btn.style.display = "flex";
+            } else {
+                btn.style.display = "none";
+            }
+        };
     </script>
 </body>
 </html>
