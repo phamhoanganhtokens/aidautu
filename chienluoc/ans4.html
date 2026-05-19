@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Chiến Lược Đầu Tư | AI Đầu Tư</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            deepBlue: '#0f172a',
+                            slateBlue: '#1e293b',
+                            accentGold: '#b59d5c',
+                            softGray: '#f8fafc',
+                            borderGray: '#e2e8f0',
+                        }
+                    },
+                    fontFamily: {
+                        'serif': ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f8fafc; /* brand.softGray */
+            color: #334155; /* slate-700 */
+        }
+
+        /* Typography Defaults */
+        h1, h2, h3, h4 {
+            font-family: "Times New Roman", Times, serif;
+            color: #0f172a; /* brand.deepBlue */
+            line-height: 1.2;
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+        }
+
+        h1 { font-size: 2.25rem; font-weight: 700; border-bottom: 2px solid #b59d5c; padding-bottom: 0.5rem; text-align: center; }
+        h2 { font-size: 1.75rem; font-weight: 700; border-left: 4px solid #0f172a; padding-left: 1rem; margin-top: 2.5rem; }
+        h3 { font-size: 1.4rem; font-weight: 700; color: #1e293b; }
+        h4 { font-size: 1.2rem; font-weight: 700; color: #475569; }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            font-size: 1.125rem;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background-color: #1e293b;
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #e2e8f0;
+        }
+
+        td {
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+
+        /* Layout */
+        .content-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: #ffffff;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #e2e8f0;
+            margin: 3rem 0;
+        }
+
+        /* Custom UI Elements */
+        .header-logo {
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 640px) {
+            .content-wrapper {
+                padding: 2rem 1.25rem;
+            }
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="w-full bg-white border-b border-gray-200 py-6 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-screen-xl mx-auto px-4 flex flex-col items-center">
+            <div class="header-logo text-2xl md:text-3xl font-bold text-brand-deepBlue">
+                AI ĐẦU TƯ
+            </div>
+            <div class="text-xs md:text-sm text-brand-accentGold font-medium tracking-widest mt-1">
+                BÁO CÁO CHIẾN LƯỢC ĐẦU TƯ
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen py-12 px-4">
+        <article class="content-wrapper rounded-sm fade-in">
+            
+            <div class="investment_strategy_content">
+                <h1>BÁO CÁO CHIẾN LƯỢC ĐẦU TƯ GIAI ĐOẠN 2024 - 2030</h1>
+
+                <div class="flex flex-col md:flex-row justify-between mb-8 text-slate-500 italic text-sm border-b pb-4">
+                    <div>
+                        <p class="mb-1"><strong>Người thực hiện:</strong> Opal – Chuyên gia Đầu tư Cao cấp</p>
+                        <p class="mb-0"><strong>Đối tượng:</strong> Nhà đầu tư cá nhân (Vốn 1,5 tỷ VNĐ)</p>
+                    </div>
+                    <div class="mt-2 md:mt-0 md:text-right">
+                        <p class="mb-0"><strong>Mục tiêu:</strong> Tạo dòng tiền ổn định & Tăng trưởng dài hạn</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2>1. PHÂN TÍCH BỐI CẢNH THỊ TRƯỜNG</h2>
+
+                <p>Dựa trên các chỉ số kinh tế vĩ mô, thị trường tài chính Việt Nam trong giai đoạn 5-8 năm tới đang đứng trước "điểm rơi" phong độ lý tưởng để tích lũy tài sản:</p>
+
+                <ul>
+                    <li><strong>Tăng trưởng kinh tế (GDP):</strong> Mục tiêu 6.5 - 7% phản ánh sức nội tại mạnh mẽ của nền kinh tế, hỗ trợ trực tiếp cho lợi nhuận của các doanh nghiệp niêm yết.</li>
+                    <li><strong>Chính sách tiền tệ:</strong> Lãi suất duy trì ở mức 5.5 - 7% là môi trường "vàng" cho đầu tư. Mức lãi suất này đủ cao để duy trì sức hấp dẫn của các công cụ thu nhập cố định (trái phiếu), nhưng cũng đủ thấp để kích thích dòng vốn chảy vào thị trường chứng khoán.</li>
+                    <li><strong>Triển vọng VN-Index:</strong> Với mục tiêu 1450 - 1600 điểm và lộ trình nâng hạng từ thị trường cận biên lên thị trường mới nổi (Emerging Markets), dòng vốn ngoại được dự báo sẽ đổ mạnh vào các cổ phiếu vốn hóa lớn (Blue-chips), tạo động lực tăng trưởng bền vững.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. KỊCH BẢN PHÂN BỔ DANH MỤC (VỐN 1,5 TỶ VNĐ)</h2>
+
+                <h3>Bảng tổng hợp so sánh 2 kịch bản</h3>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tiêu chí</th>
+                                <th>Kịch bản A: Cân bằng Bền vững</th>
+                                <th>Kịch bản B: Cân bằng Tăng trưởng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Mục tiêu chính</strong></td>
+                                <td>Tối ưu dòng tiền, bảo vệ vốn.</td>
+                                <td>Tận dụng tối đa sự tăng trưởng cổ phiếu.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lợi nhuận kỳ vọng</strong></td>
+                                <td>10% - 12% / năm.</td>
+                                <td>13% - 16% / năm.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Phân bổ Trái phiếu</strong></td>
+                                <td>50% (750 triệu VNĐ)</td>
+                                <td>35% (525 triệu VNĐ)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Phân bổ Cổ phiếu</strong></td>
+                                <td>40% (600 triệu VNĐ)</td>
+                                <td>55% (825 triệu VNĐ)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tiền mặt/Quỹ mở</strong></td>
+                                <td>10% (150 triệu VNĐ)</td>
+                                <td>10% (150 triệu VNĐ)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Chi tiết Phân bổ Tài sản</h3>
+
+                <h4>A. Nhóm Thu nhập cố định (Trái phiếu doanh nghiệp uy tín)</h4>
+                <ul>
+                    <li><strong>Lựa chọn:</strong> Trái phiếu từ các định chế tài chính lớn hoặc doanh nghiệp đầu ngành (Bất động sản khu công nghiệp, Năng lượng tái tạo) có tài sản đảm bảo và xếp hạng tín nhiệm cao.</li>
+                    <li><strong>Vai trò:</strong> Tạo dòng tiền lãi suất định kỳ (Coupon) từ 8-9%/năm, thay thế lương hưu trong tương lai.</li>
+                </ul>
+
+                <h4>B. Nhóm Tăng trưởng (Cổ phiếu đầu ngành)</h4>
+                <p>Tập trung vào 2 nhóm ngành chiến lược:</p>
+                <ul>
+                    <li><strong>Ngân hàng (VCB, TCB, MBB):</strong> Hưởng lợi từ sự phục hồi kinh tế và tăng trưởng tín dụng. Đây là "xương sống" của VN-Index khi nâng hạng.</li>
+                    <li><strong>Công nghệ & Bán lẻ (FPT, MWG):</strong> Tận dụng xu hướng chuyển đổi số toàn cầu và sức mua nội địa. FPT là lựa chọn ưu tiên hàng đầu cho mục tiêu nắm giữ 5-8 năm nhờ cổ tức đều đặn và tăng trưởng hai chữ số.</li>
+                </ul>
+
+                <h4>C. Nhóm Thanh khoản (Quỹ mở/Tiền gửi linh hoạt)</h4>
+                <ul>
+                    <li>Duy trì 10% vốn để sẵn sàng giải ngân khi thị trường có những nhịp điều chỉnh sâu (Discount) từ 15-20%.</li>
+                </ul>
+
+                <hr>
+
+                <h2>3. QUẢN TRỊ RỦI RO & KHUYẾN NGHỊ</h2>
+
+                <p>Để đạt được mục tiêu nghỉ hưu với 1,5 tỷ VNĐ trong vòng 8 năm tới, chuyên gia Opal đưa ra các nguyên tắc kỷ luật sau:</p>
+
+                <h3>Chiến lược bảo vệ vốn</h3>
+                <ul>
+                    <li><strong>Đa dạng hóa nguồn thu:</strong> Không dồn quá 20% tổng vốn vào một mã cổ phiếu duy nhất. Chia nhỏ danh mục trái phiếu vào 2-3 tổ chức phát hành khác nhau.</li>
+                    <li><strong>Tái cân bằng (Rebalancing):</strong> Định kỳ 6 tháng một lần, thực hiện kiểm tra danh mục. Nếu cổ phiếu tăng trưởng quá mạnh chiếm tỷ trọng lớn, hãy chốt lời một phần để chuyển sang trái phiếu nhằm khóa lợi nhuận.</li>
+                </ul>
+
+                <h3>Chiến lược tối ưu hóa lợi nhuận</h3>
+                <ul>
+                    <li><strong>Tái đầu tư lãi kép:</strong> Toàn bộ tiền lãi trái phiếu và cổ tức tiền mặt trong 5 năm đầu nên được tái đầu tư trực tiếp vào danh mục cổ phiếu để tận dụng sức mạnh lãi kép.</li>
+                    <li><strong>Tư duy dài hạn:</strong> Bỏ qua các biến động ngắn hạn của thị trường. Với tầm nhìn 8 năm và mục tiêu VN-Index 1600, các nhịp giảm ngắn hạn là cơ hội để gia tăng tỷ trọng các cổ phiếu công nghệ và ngân hàng với giá rẻ.</li>
+                </ul>
+
+                <div class="mt-12 p-8 bg-slate-50 border-l-4 border-brand-accentGold rounded-r">
+                    <p class="mb-0 italic text-brand-deepBlue font-semibold">
+                        <strong>Kết luận:</strong> Với số vốn 1,5 tỷ VNĐ, kịch bản <strong>"Cân bằng Bền vững"</strong> là lựa chọn tối ưu nhất. Nó vừa đảm bảo an toàn cho kế hoạch nghỉ hưu, vừa giúp nhà đầu tư hưởng lợi từ sự bùng nổ của kinh tế Việt Nam trong thập kỷ tới.
+                    </p>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-deepBlue text-white py-12">
+        <div class="max-w-screen-xl mx-auto px-4 text-center">
+            <div class="header-logo text-xl font-bold mb-2">AI ĐẦU TƯ</div>
+            <p class="text-slate-400 mb-4 font-serif">Chuyên nghiệp - Minh bạch - Hiệu quả</p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-slate-400">
+                <a href="www.phamhoanganhtokens.com" target="_blank" class="hover:text-brand-accentGold transition-colors underline decoration-brand-accentGold underline-offset-4">www.phamhoanganhtokens.com</a>
+            </div>
+            <div class="mt-8 text-xs text-slate-500 uppercase tracking-widest border-t border-slate-800 pt-8">
+                &copy; 2024 AI Đầu Tư. Báo cáo này chỉ mang tính chất tham khảo.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for internal links or any micro-interactions
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
