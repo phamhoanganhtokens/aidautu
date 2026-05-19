@@ -1,1 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chiến Lược - Investment Portfolio Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1a2a6c',
+                        charcoal: '#2d3436',
+                        gold: '#b8860b',
+                        emerald: '#065f46',
+                        offwhite: '#f9f9f9',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .text-justify {
+            text-align: justify;
+        }
+        .strategy-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 4px solid #1a2a6c;
+        }
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(26, 42, 108, 0.1);
+            border-top-color: #b8860b;
+        }
+        .accent-border {
+            border-left: 2px solid #b8860b;
+            padding-left: 1rem;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="text-charcoal min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="glass-header sticky top-0 z-50 py-6 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <h1 class="text-2xl md:text-3xl font-bold tracking-widest text-navy uppercase italic">AI Chiến Lược</h1>
+                <p class="text-sm tracking-widest text-gray-500 font-serif">STRATEGIC ADVISORY PRECISION</p>
+            </div>
+            <div class="text-center md:text-right">
+                <a href="www.phamhoanganhtokens.com" target="_blank" class="text-navy hover:text-gold transition-colors block text-lg mb-1">
+                    www.phamhoanganhtokens.com
+                </a>
+                <div id="current-date" class="text-xs uppercase tracking-tighter text-gray-400 italic"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-6xl mx-auto w-full px-4 py-12">
+        <div class="mb-12 text-center">
+            <h2 class="text-4xl font-light mb-4 text-navy">Mẫu Chiến Lược Đầu Tư</h2>
+            <div class="w-24 h-1 bg-gold mx-auto"></div>
+            <p class="mt-6 text-gray-600 italic max-w-2xl mx-auto text-justify">
+                Hệ thống phân tích AI đã thiết lập 5 kịch bản danh mục tiêu biểu dựa trên các thông số thị trường hiện tại và tâm lý học hành chính tài chính.
+            </p>
+        </div>
+
+        <!-- Strategy Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Test Case 1 -->
+            <div class="strategy-card bg-white p-8 rounded-sm card-shadow relative overflow-hidden group">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-bold text-navy uppercase tracking-wide">Nhà đầu tư thận trọng</h3>
+                    <span class="bg-emerald/10 text-emerald text-xs px-2 py-1 rounded">Mức độ: An toàn</span>
+                </div>
+                <div class="space-y-4 text-justify">
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Số Tiền Vốn:</strong> 100.000.000 VNĐ</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Khẩu vị rủi ro:</strong> Thấp (An toàn)</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Thời gian đầu tư:</strong> 1 năm</p>
+                    </div>
+                    <div class="accent-border mt-4">
+                        <p><strong>Mục tiêu đầu tư:</strong> Bảo toàn vốn tuyệt đối và tạo nguồn thu nhập thụ động ổn định hàng tháng để bổ sung vào quỹ dự phòng khẩn cấp cá nhân.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Case 2 -->
+            <div class="strategy-card bg-white p-8 rounded-sm card-shadow relative overflow-hidden group">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-bold text-navy uppercase tracking-wide">Kế hoạch tích lũy gia đình</h3>
+                    <span class="bg-navy/10 text-navy text-xs px-2 py-1 rounded">Mức độ: Trung bình</span>
+                </div>
+                <div class="space-y-4 text-justify">
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Số Tiền Vốn:</strong> 850.000.000 VNĐ</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Khẩu vị rủi ro:</strong> Trung bình (Thận trọng)</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Thời gian đầu tư:</strong> 3 - 5 năm</p>
+                    </div>
+                    <div class="accent-border mt-4">
+                        <p><strong>Mục tiêu đầu tư:</strong> Gia tăng giá trị tài sản ổn định với mức biến động thấp để chuẩn bị ngân sách thanh toán đợt cuối cho việc mua căn hộ chung cư.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Case 3 -->
+            <div class="strategy-card bg-white p-8 rounded-sm card-shadow relative overflow-hidden group">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-bold text-navy uppercase tracking-wide">Chiến lược tăng trưởng dài hạn</h3>
+                    <span class="bg-red-900/10 text-red-900 text-xs px-2 py-1 rounded">Mức độ: Tăng trưởng mạnh</span>
+                </div>
+                <div class="space-y-4 text-justify">
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Số Tiền Vốn:</strong> 3.000.000.000 VNĐ</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Khẩu vị rủi ro:</strong> Cao (Tăng trưởng mạnh)</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Thời gian đầu tư:</strong> Trên 10 năm</p>
+                    </div>
+                    <div class="accent-border mt-4">
+                        <p><strong>Mục tiêu đầu tư:</strong> Tối đa hóa tỷ suất sinh lời thông qua việc phân bổ vào danh mục cổ phiếu tiềm năng nhằm xây dựng khối tài sản lớn cho việc nghỉ hưu và di sản cho con cái.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Case 4 -->
+            <div class="strategy-card bg-white p-8 rounded-sm card-shadow relative overflow-hidden group">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-bold text-navy uppercase tracking-wide">Quỹ hưu trí cân bằng</h3>
+                    <span class="bg-gold/10 text-gold text-xs px-2 py-1 rounded">Mức độ: Cân bằng</span>
+                </div>
+                <div class="space-y-4 text-justify">
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Số Tiền Vốn:</strong> 1.500.000.000 VNĐ</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Khẩu vị rủi ro:</strong> Cân bằng</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-gold mt-1">✦</span>
+                        <p><strong>Thời gian đầu tư:</strong> 5 - 8 năm</p>
+                    </div>
+                    <div class="accent-border mt-4">
+                        <p><strong>Mục tiêu đầu tư:</strong> Kết hợp giữa dòng tiền đều đặn từ trái phiếu và sự tăng trưởng trung hạn của các cổ phiếu đầu ngành để đảm bảo tài chính sau khi nghỉ việc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Case 5 -->
+            <div class="strategy-card bg-white p-8 rounded-sm card-shadow relative overflow-hidden group md:col-span-2">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-bold text-navy uppercase tracking-wide">Đầu tư năng động ngắn hạn</h3>
+                    <span class="bg-red-600 text-white text-[10px] uppercase tracking-tighter px-2 py-1 rounded">Rủi ro: Rất cao (Đầu cơ)</span>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 text-justify">
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <span class="text-gold mt-1">✦</span>
+                            <p><strong>Số Tiền Vốn:</strong> 500.000.000 VNĐ</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-gold mt-1">✦</span>
+                            <p><strong>Khẩu vị rủi ro:</strong> Rất cao (Đầu cơ)</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-gold mt-1">✦</span>
+                            <p><strong>Thời gian đầu tư:</strong> 6 tháng - 1 năm</p>
+                        </div>
+                    </div>
+                    <div class="accent-border">
+                        <p><strong>Mục tiêu đầu tư:</strong> Khai thác các biến động ngắn hạn của thị trường tài chính hoặc các xu hướng công nghệ mới để đạt được mục tiêu sinh lời đột biến trong thời gian ngắn.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-20 border-t border-gray-200 pt-10 text-center">
+            <p class="text-charcoal text-lg italic mb-2">
+                "Bạn có thể copy từng test case hoặc yêu cầu tôi tạo thêm mẫu khác."
+            </p>
+            <p class="text-xs text-gray-400 uppercase tracking-widest">AI Chiến Lược • 2024 Strategic Advisory Division</p>
+        </div>
+    </main>
+
+    <script>
+        // Dynamic Date Formatting
+        function updateDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            const formattedDate = now.toLocaleDateString('vi-VN', options);
+            document.getElementById('current-date').textContent = formattedDate;
+        }
+        updateDate();
+        setInterval(updateDate, 60000);
+    </script>
+</body>
+</html>
 
