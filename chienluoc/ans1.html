@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Chiến Lược Đầu Tư - AI Đầu Tư</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a365d', // Deep Navy
+                        secondary: '#2c5282', // Rich Blue
+                        accent: '#b8860b', // Muted Gold
+                        surface: '#f8fafc', // Soft Off-white
+                        charcoal: '#333333',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f1f5f9;
+            color: #333333;
+            line-height: 1.8;
+        }
+
+        .report-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            padding: 3rem 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .report-container {
+                padding: 1.5rem;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            color: #1a365d;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 3px solid #b8860b;
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: #2c5282;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid #b8860b;
+            padding-left: 1rem;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #2d3748;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            text-align: justify;
+        }
+
+        li::before {
+            content: "•";
+            color: #b8860b;
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1.5rem;
+            position: absolute;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background-color: white;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            display: block;
+        }
+
+        @media (min-width: 640px) {
+            table {
+                display: table;
+            }
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: #1a365d;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .highlight-row {
+            background-color: #eff6ff !important;
+            font-weight: bold;
+        }
+
+        .success-row {
+            background-color: #f0fdf4 !important;
+            font-weight: bold;
+        }
+
+        .header-banner {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .footer-simple {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 4rem;
+        }
+
+        .footer-simple a {
+            color: #2c5282;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-simple a:hover {
+            color: #b8860b;
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #cbd5e1;
+            margin: 2.5rem 0;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 4px solid #1a365d;
+        }
+
+        .meta-item {
+            font-size: 0.95rem;
+        }
+
+        .meta-label {
+            font-weight: bold;
+            color: #475569;
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="header-banner">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-white border-none m-0 p-0 text-3xl font-bold tracking-widest" style="font-family: 'Playfair Display', serif;">AI ĐẦU TƯ</h2>
+            <p class="text-blue-100 text-center m-0 mt-2 italic opacity-80" style="text-align: center;">Báo Cáo Chiến Lược Đầu Tư Định Kỳ</p>
+        </div>
+    </header>
+
+    <!-- Main Report Content -->
+    <main class="report-container">
+        
+        <h1>BÁO CÁO CHIẾN LƯỢC ĐẦU TƯ TOÀN DIỆN</h1>
+
+        <div class="meta-info">
+            <div class="meta-item">
+                <span class="meta-label">Chuyên gia phân tích</span>
+                Opal - Chuyên gia Đầu tư Cấp cao
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Ngày lập báo cáo</span>
+                19/05/2026
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Quy mô vốn</span>
+                100.000.000 VNĐ
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Thời hạn</span>
+                1 năm
+            </div>
+        </div>
+
+        <div class="p-4 bg-blue-50 border border-blue-100 rounded-lg mb-8">
+            <p class="mb-2"><strong>Mục tiêu:</strong> Bảo toàn vốn tuyệt đối, tạo dòng tiền hàng tháng, phục vụ quỹ dự phòng khẩn cấp.</p>
+            <p class="m-0"><strong>Khẩu vị rủi ro:</strong> Thấp (An toàn tuyệt đối).</p>
+        </div>
+
+        <hr>
+
+        <h2>1. Phân tích Thị trường (Market Analysis)</h2>
+        <p>Dựa trên dữ liệu tài chính tại thị trường Việt Nam vào tháng 5/2026, chiến lược đầu tư được xây dựng dựa trên các đánh giá sau:</p>
+        <ul>
+            <li><strong>Lãi suất & Lạm phát:</strong> Lạm phát dự kiến dao động ở mức 3.5% - 4.5%. Với mức lãi suất tiết kiệm trung bình 12 tháng là 6.8%/năm tại các ngân hàng uy tín, nhà đầu tư vẫn duy trì được <strong>lãi suất thực dương</strong> (khoảng 2.3% - 3.3%). Đây là công cụ mỏ neo quan trọng nhất để bảo vệ giá trị của dòng vốn gốc.</li>
+            <li><strong>Thị trường Trái phiếu:</strong> Lợi suất các quỹ mở trái phiếu chất lượng cao duy trì ở mức 6.5% - 7.0%/năm. Kênh này cung cấp lợi suất tương đương tiền gửi dài hạn nhưng có ưu thế vượt trội về tính thanh khoản (có thể rút từng phần không mất lãi gốc), rất phù hợp cho mục đích dự phòng khẩn cấp.</li>
+            <li><strong>Thị trường Vàng:</strong> Giá vàng biến động mạnh và rủi ro cao trong ngắn hạn (hiện dao động quanh 163 triệu VNĐ/lượng). Do mục tiêu hàng đầu là "bảo toàn vốn tuyệt đối" trong thời gian ngắn (1 năm), vàng không được lựa chọn vào danh mục để tránh rủi ro sụt giảm giá trị tài sản khi cần rút tiền gấp.</li>
+        </ul>
+
+        <h2>2. Kịch bản Phân bổ Danh mục (Portfolio Allocation Scenarios)</h2>
+        <p>Để đáp ứng yêu cầu <strong>bảo toàn vốn 100%</strong> và tạo <strong>thu nhập thụ động hàng tháng</strong>, tôi đề xuất kịch bản phân bổ tài sản theo tỷ lệ <strong>70% Tiết kiệm - 30% Quỹ Trái phiếu</strong>:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Kênh Đầu Tư</th>
+                    <th>Tỷ trọng</th>
+                    <th>Số tiền (VNĐ)</th>
+                    <th>Lợi suất/năm</th>
+                    <th>Mục đích cốt lõi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tiết kiệm ngân hàng</strong></td>
+                    <td>70%</td>
+                    <td>70.000.000</td>
+                    <td>6.8%</td>
+                    <td>Đảm bảo lãi suất cố định. Cung cấp dòng tiền chủ đạo hàng tháng.</td>
+                </tr>
+                <tr>
+                    <td><strong>Quỹ mở Trái phiếu</strong></td>
+                    <td>30%</td>
+                    <td>30.000.000</td>
+                    <td>6.5%</td>
+                    <td>Tối ưu thanh khoản (rút tiền nhanh), bổ sung thu nhập.</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>TỔNG CỘNG</td>
+                    <td>100%</td>
+                    <td>100.000.000</td>
+                    <td>~ 6.71%</td>
+                    <td>Danh mục Cân bằng & An toàn</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Dự phóng thu nhập thụ động hàng tháng</h3>
+        <p>Dựa trên 100.000.000 VNĐ vốn ban đầu, dưới đây là dòng tiền thực tế quý khách nhận về hàng tháng:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nguồn thu nhập</th>
+                    <th>Số lãi / năm (VNĐ)</th>
+                    <th>Số lãi / tháng (VNĐ)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Từ Tiết kiệm (70 triệu VNĐ)</td>
+                    <td>4.760.000</td>
+                    <td>396.667</td>
+                </tr>
+                <tr>
+                    <td>Từ Quỹ trái phiếu (30 triệu VNĐ)</td>
+                    <td>1.950.000</td>
+                    <td>162.500</td>
+                </tr>
+                <tr class="success-row">
+                    <td>TỔNG THU NHẬP THỤ ĐỘNG</td>
+                    <td>6.710.000 VNĐ</td>
+                    <td>559.167 VNĐ/tháng</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>3. Quản trị Rủi ro (Risk Management)</h2>
+        <p>Để duy trì trạng thái an toàn cao nhất cho danh mục, Opal đưa ra các khuyến nghị quản trị rủi ro chi tiết:</p>
+
+        <ul>
+            <li><strong>Quản trị Rủi ro Lạm phát:</strong> 
+                Lợi suất danh mục 6.71% hiện đang cao hơn mức lạm phát dự báo (4.5%). Quý khách hoàn toàn yên tâm vì tiền vốn đang tăng trưởng ổn định trên mức trượt giá của thị trường.
+            </li>
+            <li><strong>Quản trị Rủi ro Thanh khoản:</strong> 
+                Nhà đầu tư nên chia khoản 70 triệu VNĐ tiền gửi thành <strong>02 sổ tiết kiệm (mỗi sổ 35 triệu VNĐ)</strong>. Trong kịch bản cần tiền khẩn cấp vượt quá 30 triệu từ quỹ trái phiếu, quý khách chỉ cần tất toán sớm 1 sổ, sổ còn lại vẫn được bảo toàn lãi suất cao.
+            </li>
+            <li><strong>Quản trị Rủi ro Tín dụng (Lựa chọn đối tác):</strong> 
+                Chỉ lựa chọn các ngân hàng thương mại nhà nước (Big 4) hoặc Top 5 các ngân hàng thương mại cổ phần có xếp hạng tín nhiệm cao nhất thị trường để gửi tiền. Đối với quỹ mở, ưu tiên các quỹ được quản lý bởi VCBF, SSIAM hoặc Dragon Capital để đảm bảo tính minh bạch.
+            </li>
+            <li><strong>Loại bỏ Biến động:</strong> 
+                Vì khẩu vị rủi ro là "Thấp", danh mục này tuyệt đối <strong>không</strong> phân bổ vào Bất động sản phân lô, Cổ phiếu penny hay Tiền điện tử, nhằm đáp ứng mục cam kết duy nhất: Bảo toàn 100% gốc trong mọi điều kiện thị trường năm 2026.
+            </li>
+        </ul>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer-simple">
+        <div class="max-w-4xl mx-auto">
+            <p class="m-0 font-bold text-primary" style="text-align: center;">AI Đầu Tư</p>
+            <p class="m-0" style="text-align: center;">
+                <a href="www.phamhoanganhtokens.com" target="_blank" rel="noopener">www.phamhoanganhtokens.com</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
