@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Chiến Lược Đầu Tư - AI Đầu Tư</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Importing Times New Roman style via Google Fonts or standard system fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-gold: #b59410;
+            --bg-paper: #fcfcfc;
+            --text-main: #2d3436;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f4f7f6;
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .report-container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            padding: 60px 80px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .report-container {
+                margin: 0;
+                padding: 40px 20px;
+                box-shadow: none;
+            }
+        }
+
+        /* Typography Styling */
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid var(--accent-gold);
+            padding-left: 15px;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            color: #334155;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            list-style-type: none;
+        }
+
+        li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 0.75rem;
+            text-align: justify;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent-gold);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Table Styling */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 2rem 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-align: center;
+            padding: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fbfcfe;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+            transition: background 0.3s ease;
+        }
+
+        .meta-info {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .meta-info p {
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+            margin: 3rem 0;
+        }
+
+        .footer-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        /* Glassmorphism Header */
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="py-4 shadow-sm">
+        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-blue-900 flex items-center justify-center rounded-lg shadow-lg">
+                    <span class="text-white font-bold text-xl">AI</span>
+                </div>
+                <div>
+                    <h1 class="text-xl m-0 p-0 border-none text-blue-900 tracking-tight">AI ĐẦU TƯ</h1>
+                    <p class="text-[10px] uppercase tracking-widest text-gray-500 m-0 p-0 text-left">Báo Cáo Chiến Lược Đầu Tư</p>
+                </div>
+            </div>
+            <div class="hidden md:block text-sm text-gray-400 font-serif italic">
+                Cung cấp giải pháp tài chính thịnh vượng
+            </div>
+        </div>
+    </header>
+
+    <div class="watermark">AI ĐẦU TƯ</div>
+
+    <main class="relative z-10">
+        <article class="report-container">
+            <!-- Title -->
+            <h1>BÁO CÁO CHIẾN LƯỢC ĐẦU TƯ TOÀN DIỆN - CHIẾN LƯỢC TĂNG TRƯỞNG MẠNH (2026 - 2036)</h1>
+
+            <!-- Meta Information -->
+            <div class="meta-info">
+                <p><strong>Người thực hiện:</strong> Opal - Chuyên gia Tư vấn Đầu tư Cấp cao</p>
+                <p><strong>Ngày lập báo cáo:</strong> 19 tháng 05 năm 2026</p>
+                <p><strong>Vốn đầu tư ban đầu:</strong> 3.000.000.000 VNĐ</p>
+                <p><strong>Thời gian đầu tư:</strong> Trên 10 năm (Dài hạn)</p>
+                <p><strong>Mục tiêu:</strong> Tối đa hóa lợi nhuận, xây dựng di sản và tài sản hưu trí.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Section I -->
+            <section>
+                <h2>I. PHÂN TÍCH THỊ TRƯỜNG (MARKET ANALYSIS)</h2>
+                <p>
+                    Tính đến giữa năm 2026, thị trường tài chính Việt Nam và toàn cầu đang đứng trước những bước ngoặt mang tính lịch sử, tạo ra cơ hội lớn cho các danh mục đầu tư theo đuổi sự tăng trưởng mạnh mẽ.
+                </p>
+
+                <h3>1. Bối cảnh Kinh tế Vĩ mô</h3>
+                <ul>
+                    <li><strong>Nâng hạng thị trường:</strong> Việt Nam chính thức được FTSE Russell nâng hạng lên Thị trường Mới nổi (Emerging Market) vào tháng 09/2026. Điều này dự kiến sẽ thu hút dòng vốn ngoại khổng lồ từ 1,5 tỷ đến 6 tỷ USD, tạo bệ phóng vững chắc cho các cổ phiếu vốn hóa lớn và trung bình.</li>
+                    <li><strong>Chu kỳ Công nghệ AI & Bán dẫn:</strong> Thế giới đang ở trong giai đoạn đỉnh cao của chu kỳ chi tiêu vốn cho hạ tầng AI. Việt Nam, với vai trò là mắt xích quan trọng trong chiến lược "China+1", đang trở thành trung tâm sản xuất bán dẫn và linh kiện điện tử hàng đầu khu vực.</li>
+                    <li><strong>Chính sách tiền tệ:</strong> Sau giai đoạn thắt chặt, các ngân hàng trung ương đang duy trì lãi suất ở mức ổn định, hỗ trợ doanh nghiệp mở rộng sản xuất và kinh doanh.</li>
+                </ul>
+
+                <h3>2. Các Nhóm Ngành Tiềm Năng (10 Năm Tới)</h3>
+                <ul>
+                    <li><strong>Công nghệ & AI:</strong> Đóng vai trò hạt nhân với tốc độ tăng trưởng dự báo 22-25%/năm. Các doanh nghiệp dẫn đầu về chuyển đổi số và giải pháp AI sẽ chiếm lĩnh thị phần.</li>
+                    <li><strong>Dịch vụ Tài chính & Fintech:</strong> Sự bùng nổ của thanh toán số và thị trường chứng khoán sẽ thúc đẩy lợi nhuận của các ngân hàng số và công ty chứng khoán.</li>
+                    <li><strong>Năng lượng Xanh & Hạ tầng:</strong> Theo Quy hoạch Điện VIII, các doanh nghiệp năng lượng tái tạo và xây lắp hạ tầng điện sẽ hưởng lợi trực tiếp từ lộ trình phát thải ròng bằng 0 (Net Zero).</li>
+                </ul>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Section II -->
+            <section>
+                <h2>II. CÁC KỊCH BẢN PHÂN BỔ DANH MỤC (PORTFOLIO ALLOCATION SCENARIOS)</h2>
+                <p>Dưới đây là kịch bản phân bổ tối ưu cho số vốn 3.000.000.000 VNĐ với kỳ hạn trên 10 năm.</p>
+
+                <h3>1. Cơ cấu Phân bổ Chi tiết</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Phân lớp tài sản</th>
+                                <th>Tỷ trọng</th>
+                                <th>Số tiền đầu tư (VNĐ)</th>
+                                <th>Nhóm cổ phiếu/Công cụ mục tiêu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Cổ phiếu Công nghệ & AI</strong></td>
+                                <td class="text-center">40%</td>
+                                <td class="text-right">1.200.000.000</td>
+                                <td>FPT, VGI (Viettel Global), CMG</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cổ phiếu Tài chính & Chứng khoán</strong></td>
+                                <td class="text-center">25%</td>
+                                <td class="text-right">750.000.000</td>
+                                <td>TCB, MBB, SSI, VND</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Năng lượng Xanh & Bán dẫn</strong></td>
+                                <td class="text-center">20%</td>
+                                <td class="text-right">600.000.000</td>
+                                <td>REE, PC1, FOC</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quỹ ETF (VN30/Diamond)</strong></td>
+                                <td class="text-center">10%</td>
+                                <td class="text-right">300.000.000</td>
+                                <td>E1VFVN30, FUEVFVND</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tiền mặt/Dự phòng thanh khoản</strong></td>
+                                <td class="text-center">5%</td>
+                                <td class="text-right">150.000.000</td>
+                                <td>Tiền gửi linh hoạt lãi suất cao</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>2. Kỳ vọng Lợi nhuận và Hiệu suất Tài chính</h3>
+                <ul>
+                    <li><strong>Tỷ suất sinh lời kỳ vọng (IRR):</strong> 18% - 22%/năm.</li>
+                    <li><strong>Giá trị dự kiến sau 10 năm:</strong>
+                        <ul class="mt-2">
+                            <li><strong>Kịch bản cơ sở (18%/năm):</strong> ~ 15.700.000.000 VNĐ.</li>
+                            <li><strong>Kịch bản tăng trưởng mạnh (22%/năm):</strong> ~ 21.900.000.000 VNĐ.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Tác động:</strong> Tạo dựng nguồn vốn hưu trí vững chắc và một di sản tài chính ý nghĩa cho con cái.</li>
+                </ul>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Section III -->
+            <section>
+                <h2>III. QUẢN TRỊ RỦI RO (RISK MANAGEMENT)</h2>
+                <p>Để bảo vệ thành quả đầu tư và hiện thực hóa mục tiêu di sản, chiến lược quản trị rủi ro được thiết lập như sau:</p>
+
+                <h3>1. Chiến lược Giải ngân Kỷ luật</h3>
+                <p>
+                    <strong>Trung bình hóa chi phí (DCA):</strong> Chia 3 tỷ VNĐ thành 3 đợt giải ngân trong vòng 6 tháng. Điều này giúp giảm thiểu rủi ro mua đúng đỉnh thị trường trước các sự kiện vĩ mô biến động.
+                </p>
+
+                <h3>2. Tái cân bằng Danh mục (Portfolio Rebalancing)</h3>
+                <ul>
+                    <li><strong>Tần suất:</strong> Mỗi 12 tháng.</li>
+                    <li><strong>Hành động:</strong> Chốt lời các nhóm tài sản tăng trưởng nóng để duy trì tỷ trọng mục tiêu. Điều này đảm bảo danh mục không bị phụ thuộc quá mức vào một ngành duy nhất khi thị trường đảo chiều.</li>
+                </ul>
+
+                <h3>3. Quản trị Tâm lý và Biến động</h3>
+                <ul>
+                    <li><strong>Tầm nhìn 10 năm:</strong> Chấp nhận các đợt sụt giảm tạm thời của VN-Index (Drawdown) từ 15-20%. Đây là cơ hội để dùng 5% tiền mặt dự phòng mua thêm các cổ phiếu giá trị ở vùng giá chiết khấu.</li>
+                    <li><strong>Đa dạng hóa thông qua ETF:</strong> Sử dụng 10% tỷ trọng vào các quỹ chỉ số để giảm thiểu rủi ro rớt giá mạnh từ một cổ phiếu riêng lẻ.</li>
+                </ul>
+            </section>
+
+            <div class="divider"></div>
+
+            <footer class="mt-12">
+                <p class="italic text-gray-600">
+                    <strong>Lời kết từ Opal:</strong> Với sự kết hợp giữa sức mạnh của lãi suất kép trong 10 năm và đà tăng trưởng của các ngành mũi nhọn, kế hoạch này không chỉ dừng lại ở việc sinh lời mà còn là bước chuẩn bị hoàn hảo cho tương lai dài hạn của gia đình quý vị.
+                </p>
+                <div class="mt-8 pt-8 border-t border-gray-100 flex flex-col items-center">
+                    <p class="font-bold text-lg mb-1">AI Đầu Tư</p>
+                    <a href="www.phamhoanganhtokens.com" target="_blank" class="footer-link font-medium">www.phamhoanganhtokens.com</a>
+                    <p class="text-sm text-gray-400 mt-4 italic">Tài liệu này được soạn thảo bởi Opal - Đại diện Đầu tư Cấp cao.</p>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <script>
+        // Adding a subtle reveal animation on scroll for the components
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section, .meta-info, .table-wrapper');
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.6s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
