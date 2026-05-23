@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Analysis Report - Tay Ninh Property</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#002147',
+                        charcoal: '#333333',
+                        gold: '#B8860B',
+                        emerald: '#2E8B57',
+                        crimson: '#B22222',
+                        offwhite: '#F9F9F9',
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'Times New Roman', 'serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F4F4F4;
+            color: #333333;
+            line-height: 1.8;
+            font-family: 'Lora', 'Times New Roman', serif;
+        }
+        .report-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #FFFFFF;
+            padding: 60px 80px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #E5E5E5;
+        }
+        p {
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #002147;
+            font-weight: 900;
+        }
+        .section-divider {
+            border-top: 1px solid #E5E5E5;
+            margin: 3rem 0;
+            position: relative;
+        }
+        .section-divider::after {
+            content: "◆";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 0 10px;
+            color: #B8860B;
+            font-size: 12px;
+        }
+        .red-flag {
+            border-left: 4px solid #B22222;
+            background-color: #FFF5F5;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .margin-safety {
+            border: 1px dashed #B8860B;
+            background-color: #FFFDF5;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .report-container {
+                margin: 0;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-stone-100 antialiased">
+
+    <div class="report-container">
+        <!-- HEADER -->
+        <header class="border-b-4 border-navy pb-6 mb-10">
+            <div class="flex flex-col md:flex-row justify-between items-baseline mb-4">
+                <div class="text-3xl font-black tracking-tighter text-navy uppercase">AI ĐẦU TƯ</div>
+                <div class="text-gold font-bold tracking-widest text-sm uppercase">phamhoanganhtokens.com</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-bold text-gray-500 uppercase tracking-widest italic">
+                <div>Ngày: 22/05/2026</div>
+                <div class="md:text-center">Chuyên viên: Giám đốc Chiến lược Opal</div>
+                <div class="md:text-right text-emerald">Trạng thái: Cập nhật thời gian thực</div>
+            </div>
+        </header>
+
+        <!-- TITLE -->
+        <div class="mb-12">
+            <h1 class="text-4xl md:text-5xl mb-4 leading-tight">Báo Cáo Phân Tích Đầu Tư: Dự Án Bất Động Sản Tây Ninh</h1>
+            <p class="italic text-gray-600 text-lg">Phân tích chuyên sâu dựa trên triết lý đầu tư ngược dòng (Contrarian Investing) và Biên an toàn.</p>
+        </div>
+
+        <!-- STEP 1: EXECUTIVE SUMMARY HERO -->
+        <section class="bg-navy text-white p-10 rounded-sm mb-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4">
+                <span class="bg-gold text-navy font-black px-6 py-2 text-xl shadow-xl border-2 border-white">THEO DÕI (WATCH)</span>
+            </div>
+            <h2 class="text-white text-2xl mb-6 border-b border-gray-600 pb-2">Tóm Lược Điều Hành</h2>
+            <p class="text-gray-200 leading-relaxed">
+                Tài sản tọa lạc tại khu vực có tiềm năng tăng trưởng hành chính mạnh mẽ. Tuy nhiên, sự mâu thuẫn giữa thông tin "ngộp ngân hàng" và tài liệu marketing chuyên nghiệp đòi hỏi một sự thẩm định khắt khe về giá trị thực và động cơ bên bán. Khuyến nghị duy trì trạng thái quan sát cho đến khi xác lập được mức chiết khấu tối thiểu 30% so với giá thị trường.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 text-center border-t border-gray-700 pt-8">
+                <div>
+                    <div class="text-gold text-sm font-bold uppercase mb-1">Loại Hình</div>
+                    <div class="text-lg font-serif">Đất Thổ Cư/CLN</div>
+                </div>
+                <div>
+                    <div class="text-gold text-sm font-bold uppercase mb-1">Diện Tích</div>
+                    <div class="text-lg font-serif">1,514.0 m²</div>
+                </div>
+                <div>
+                    <div class="text-gold text-sm font-bold uppercase mb-1">Vị Thế</div>
+                    <div class="text-lg font-serif">Mặt Tiền 10m</div>
+                </div>
+                <div>
+                    <div class="text-gold text-sm font-bold uppercase mb-1">Xếp Hạng</div>
+                    <div class="text-lg font-serif">Rủi Ro Trung Bình</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 0: DATA VERIFICATION -->
+        <section class="mb-12">
+            <h2 class="text-2xl mb-6">0. Xác Thực Dữ Liệu Gốc</h2>
+            <div class="space-y-4">
+                <p>Phân tích dựa trên hồ sơ pháp lý tại Ấp Trường Thọ, Xã Trường Hòa (nay thuộc Phường Long Hòa), Thị xã Hòa Thành, Tây Ninh. Dữ liệu bao gồm Sổ Hồng chính quy với 300m² đất ở đô thị (ONT) và 1,214m² đất trồng cây lâu năm (CLN).</p>
+                <div class="red-flag">
+                    <h3 class="text-crimson text-sm font-bold uppercase mb-2">Cảnh Báo Tính Xác Thực</h3>
+                    <p class="text-sm italic mb-0">Tồn tại sự mâu thuẫn logic: Một chủ sở hữu đang trong tình trạng "ngộp" tài chính hiếm khi sở hữu bộ ấn phẩm marketing bóng bẩy. Đây có thể là chiến thuật tâm lý nhằm tạo sự khan hiếm và thúc đẩy quyết định nhanh chóng từ nhà đầu tư thiếu kinh nghiệm.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- STEP 2: MARKET SENTIMENT -->
+        <section class="mb-12">
+            <h2 class="text-2xl mb-6 italic">1. Đánh Giá Tâm Lý Thị Trường</h2>
+            <p>Đến tháng 5/2026, thị trường Tây Ninh đang ở giai đoạn chuyển giao. Mặc dù các dự án hạ tầng như Cao tốc Gò Dầu - Xa Mát tạo ra kỳ vọng tích cực, nhưng thị trường nội tại đang bị bão hòa bởi các thông tin "cắt lỗ" ảo.</p>
+            <p><strong>Góc nhìn ngược dòng:</strong> Nhãn dán "nợ ngân hàng" đã trở thành một tiền tố marketing tiêu chuẩn hơn là một sự bảo chứng về giá rẻ. Nhiều nhà đầu tư đang kẹt vốn tại các lô đất sào lớn và chịu áp lực lãi suất cao. Tâm lý chủ đạo là "đầu cơ thận trọng". Việc giải ngân vào lúc này đồng nghĩa với việc mua vào khi các lợi ích hạ tầng tương lai đã được phản ánh một phần vào giá hiện tại.</p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- STEP 3: LEGAL & LOCATION -->
+        <section class="mb-12">
+            <h2 class="text-2xl mb-6">2. Phân Tích Pháp Lý & Vị Trí</h2>
+            <p>Vị trí chiến lược nhờ sự nâng cấp hành chính của Hòa Thành lên Thị xã và lộ trình tiến tới Thành phố vào năm 2030. Việc thuộc Phường Long Hòa giúp gia tăng tiện ích đô thị dài hạn.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
+                <div class="bg-stone-50 p-6 border border-stone-200">
+                    <h3 class="text-lg mb-3">Lợi Thế Pháp Lý</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm italic">
+                        <li>300m² ONT là mỏ neo giá trị an toàn.</li>
+                        <li>Mặt tiền đường nhựa 10m hiện hữu.</li>
+                        <li>Sổ hồng riêng, sẵn sàng giao dịch.</li>
+                    </ul>
+                </div>
+                <div class="bg-stone-50 p-6 border border-stone-200">
+                    <h3 class="text-lg mb-3">Rủi Ro Quy Hoạch</h3>
+                    <p class="text-sm italic">Cần kiểm tra kỹ quy hoạch phân khu 2026 cho phần 1,214m² CLN. Việc lên phường thường đi kèm với việc siết chặt hành lang an toàn đường bộ và các chỉ tiêu cây xanh công cộng.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- STEP 4: FINANCIALS -->
+        <section class="mb-12">
+            <h2 class="text-2xl mb-6 italic">3. Phân Tích Tài Chính & Định Giá</h2>
+            <p>Trong bối cảnh tháng 5/2026, các lô đất diện tích ~1,500m² có mặt tiền 10m tại khu vực này đang được giao dịch trong khoảng từ 3.5 triệu đến 5.5 triệu VNĐ/m².</p>
+            
+            <div class="margin-safety">
+                <h3 class="text-gold text-sm font-bold uppercase mb-4 tracking-widest">Tính Toán Biên An Toàn (Margin of Safety)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <div class="text-xs uppercase text-gray-500 font-bold mb-1">Giá Trị Thị Trường Ước Tính</div>
+                        <div class="text-3xl font-serif text-navy">5.3 - 6.0 Tỷ VNĐ</div>
+                    </div>
+                    <div>
+                        <div class="text-xs uppercase text-gray-500 font-bold mb-1">Giá Mua Khuyến Nghị (Contrarian Buy)</div>
+                        <div class="text-3xl font-serif text-emerald">&lt; 4.0 Tỷ VNĐ</div>
+                    </div>
+                </div>
+                <p class="mt-6 text-sm italic text-gray-600 border-t border-gold/20 pt-4">
+                    Mức giá dưới 4 tỷ VNĐ tạo ra biên an toàn 25-30%, đủ sức chống chọi với các kịch bản thị trường đi ngang hoặc lãi suất tiếp tục duy trì ở mức cao. Nếu giá chào bán trên 5 tỷ VNĐ, tài sản này không còn biên độ an toàn cho một thương vụ "ngộp".
+                </p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- STEP 5: STRATEGY -->
+        <section class="mb-12">
+            <h2 class="text-2xl mb-6">4. Chiến Lược & Lộ Trình Thực Thi</h2>
+            <p>Tài sản có nền tảng tốt nhưng chiến lược giải ngân cần sự lạnh lùng của một nhà đầu tư tổ chức:</p>
+            <ol class="list-decimal pl-5 space-y-4 font-serif italic text-gray-800">
+                <li><strong>Xác thực nợ:</strong> Kiểm tra trực tiếp tình trạng dư nợ tại ngân hàng. Nhà đầu tư ngược dòng nên đàm phán dựa trên số tiền cần để giải chấp, thay vì dựa trên "giá mong muốn" của chủ nhà.</li>
+                <li><strong>Giao dịch ba bên:</strong> Sử dụng thỏa thuận ba bên với ngân hàng để đảm bảo dòng tiền đi thẳng vào việc tất toán khoản vay, loại bỏ rủi ro chủ nhà chiếm dụng vốn.</li>
+                <li><strong>Tối ưu hóa sử dụng:</strong> Chuyển đổi thêm thổ cư nếu khung giá đất 2026 cho phép, nhằm chia nhỏ lô đất trong tương lai nếu cần thanh khoản gấp.</li>
+            </ol>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- STEP 6: RISKS -->
+        <section class="mb-12">
+            <h2 class="text-2xl mb-6 italic">5. Rủi Ro Chính & Kịch Bản Xấu</h2>
+            <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                    <div class="text-crimson font-bold text-lg">01.</div>
+                    <div>
+                        <h3 class="font-bold uppercase text-xs tracking-widest text-gray-600">Rủi Ro Thanh Khoản</h3>
+                        <p class="text-sm italic">Diện tích lớn khiến việc thoát hàng khó khăn hơn các lô đất nền nhỏ. Vốn có thể bị chôn chân từ 3 đến 5 năm nếu chu kỳ bất động sản phục hồi chậm.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="text-crimson font-bold text-lg">02.</div>
+                    <div>
+                        <h3 class="font-bold uppercase text-xs tracking-widest text-gray-600">Rủi Ro Chính Sách</h3>
+                        <p class="text-sm italic">Bảng giá đất mới 2026 có thể làm tăng đáng kể chi phí chuyển đổi mục đích sử dụng cho 1,214m² đất CLN, làm xói mòn lợi nhuận kỳ vọng.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="text-crimson font-bold text-lg">03.</div>
+                    <div>
+                        <h3 class="font-bold uppercase text-xs tracking-widest text-gray-600">Trễ Hẹn Hạ Tầng</h3>
+                        <p class="text-sm italic">Cao tốc Gò Dầu - Xa Mát có thể đối mặt với việc chậm tiến độ do ngân sách hoặc giải phóng mặt bằng, khiến "tin tức" không kịp chuyển hóa thành giá trị thực trong ngắn hạn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- STEP 7: CONCLUSION -->
+        <section class="mb-16">
+            <h2 class="text-2xl mb-6">6. Kết Luận & Lời Khuyên</h2>
+            <div class="border-2 border-navy p-8 relative">
+                <div class="absolute -top-4 left-6 bg-white px-4 text-navy font-black tracking-widest uppercase text-sm">Kết luận cuối cùng</div>
+                <p class="text-xl font-serif italic mb-6">
+                    "Tài sản có tiềm năng nền tảng cao, nhưng trạng thái 'Mua' chỉ được kích hoạt khi mức giá phản ánh đúng thực trạng nợ xấu của chủ sở hữu."
+                </p>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="font-bold">Khuyến nghị:</span>
+                        <span class="text-gold font-black">THEO DÕI SÁT (WATCH)</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="font-bold">Hành động:</span>
+                        <span class="italic">Chờ đợi mức giá nợ xác thực</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold">Ưu tiên:</span>
+                        <span class="italic text-crimson">Bảo toàn vốn & Biên an toàn</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER / DISCLAIMER -->
+        <footer class="mt-20 pt-10 border-t border-gray-200">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Triết lý đầu tư</h4>
+                    <p class="text-[11px] leading-relaxed text-gray-500 uppercase tracking-tight">
+                        Phương pháp đầu tư ngược dòng (Contrarian Investing) tập trung vào việc tìm kiếm giá trị trong những tài sản bị định giá sai do áp lực tâm lý hoặc tài chính của bên bán. Chúng tôi ưu tiên bảo vệ vốn lên hàng đầu; lợi nhuận là kết quả tất yếu của việc mua tài sản dưới giá trị thực với một biên an toàn đủ lớn.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Miễn trừ trách nhiệm</h4>
+                    <p class="text-[11px] leading-relaxed text-gray-500 italic">
+                        Báo cáo này chỉ mang tính chất tham khảo và không cấu thành lời mời chào đầu tư cụ thể. Mọi quyết định tài chính dựa trên báo cáo này là trách nhiệm duy nhất của nhà đầu tư. Thị trường bất động sản luôn tiềm ẩn rủi ro biến động không lường trước được.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Interactive script for subtle scroll reveal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.8s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
