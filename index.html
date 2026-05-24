@@ -1,629 +1,471 @@
 <!DOCTYPE html>
-<html lang="vi" class="scroll-smooth">
+<html lang="vi" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Đầu Tư</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#0F172A',
-                            primary: '#3B82F6',
-                            secondary: '#6366F1',
-                            accent: '#10B981',
-                            muted: '#94A3B8',
-                            surface: 'rgba(30, 41, 59, 0.7)',
-                        }
-                    },
-                    fontFamily: {
-                        display: ['Outfit', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --background: 240 10% 3.9%;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px; 
+            height: 50px;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid #00f5ff;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 999;
+            color: #00f5ff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        #back-to-top:hover {
+            background: #00f5ff;
+            color: #0a0a1f;
+            transform: scale(1.1);
+        }
+
         body {
-            background-color: #020617;
-            color: #F8FAFC;
-            font-family: 'Inter', sans-serif;
-            background-image: 
-                radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
-            background-attachment: fixed;
+            background-color: hsl(240 10% 3.9%);
+            color: hsl(0 0% 98%);
+            font-family: 'Inter', system-ui, sans-serif;
+            scroll-behavior: smooth;
         }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.5);
+
+        .font-mono-tech { font-family: 'JetBrains Mono', monospace; }
+
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card:hover {
-            border-color: rgba(59, 130, 246, 0.5);
-            transform: translateY(-2px);
-        }
-        .accordion-content {
-            max-height: 0;
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            position: relative;
             overflow: hidden;
-            transition: max-height 0.5s ease-out, opacity 0.3s ease;
+        }
+
+        .liquid-glass::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        @keyframes fade-rise {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-rise {
+            animation: fade-rise 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
         }
-        .accordion-content.active {
-            max-height: 5000px;
-            opacity: 1;
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        .accent-gradient {
+            background: linear-gradient(to right, #60a5fa, #a5b4fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .scroll-hide::-webkit-scrollbar {
-            display: none;
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.25;
+            filter: grayscale(80%) contrast(110%);
+            pointer-events: none;
         }
+
+        .rainbow-text {
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 400% 400%;
+            animation: rainbow 6s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="selection:bg-blue-500/20">
 
-    <!-- Sticky Header -->
-    <header class="sticky top-0 z-50 w-full glass-card border-b border-white/10 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-                <div>
-                    <h1 class="font-display font-bold text-2xl tracking-tight">AI ĐẦU TƯ</h1>
-                    <p class="text-[10px] text-brand-muted tracking-[0.2em] uppercase">Intelligence Driven Growth</p>
-                </div>
+    <!-- Video Background -->
+    <video class="video-bg" autoplay loop muted playsinline>
+        <source src="https://huggingface.co/datasets/phamhoanganh/video/resolve/main/multiaiagent.mp4" type="video/mp4">
+    </video>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center liquid-glass px-8 py-3 rounded-full">
+            <div class="text-2xl font-bold tracking-tighter">AI ĐẦU TƯ</div>
+            
+            <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest opacity-75">
+                <a href="#overview" class="hover:opacity-100 transition-opacity">Tóm tắt</a>
+                <a href="#agents" class="hover:opacity-100 transition-opacity">Phân tích AI</a>
+                <a href="#chart" class="hover:opacity-100 transition-opacity">Thị trường</a>
+                <a href="#strategy" class="hover:opacity-100 transition-opacity">Khuyến nghị</a>
+                <a href="#footer" class="hover:opacity-100 transition-opacity">Liên hệ</a>
             </div>
-            <div class="text-center">
-                <h2 class="font-display font-semibold text-lg text-white/90">Bảng Điều Khiển Tổng Hợp Báo Cáo AI Agent</h2>
-            </div>
-            <div class="hidden md:block">
-                <a href="https://www.phamhoanganhtokens.com" target="_blank" class="text-sm font-medium text-brand-primary hover:text-blue-400 transition-colors">
-                    www.phamhoanganhtokens.com
+
+            <a href="https://www.facebook.com/ssphamhoanganhss" 
+               target="_blank"
+               class="text-sm font-medium px-6 py-2.5 rounded-full border border-white/30 hover:bg-white hover:text-black transition-all duration-300">
+                XEM BÁO CÁO ĐẦY ĐỦ
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-screen flex flex-col items-center justify-center text-center px-6">
+        <div class="relative z-10 max-w-5xl">
+            <h1 class="text-[7.5vw] md:text-[5.5rem] lg:text-[6rem] font-light tracking-[-0.04em] leading-none animate-fade-rise delay-1">
+                AI ĐẦU TƯ
+            </h1>
+            
+            <p class="mt-6 text-xl md:text-2xl font-light opacity-90 max-w-3xl mx-auto animate-fade-rise delay-2 text-center leading-relaxed">
+                <span class="rainbow-text font-medium">Master AI Executor • Phân tích Chiến lược Đầu tư 2026</span>
+            </p>
+            
+            <div class="mt-12 animate-fade-rise delay-3">
+                <a href="#" 
+                   class="liquid-glass inline-block px-12 py-4 text-sm tracking-[0.125em] uppercase hover:bg-white hover:text-black transition-all duration-700 rounded-full">
+                    KHÁM PHÁ DANH MỤC KHUYẾN NGHỊ
                 </a>
+            </div>
+        </div>
+
+        <div id="terminal" class="absolute bottom-8 left-8 right-8 flex justify-between items-end opacity-70 font-mono-tech text-xs tracking-widest">
+            <div>
+                [ STATUS: MULTI-AI ANALYSIS ACTIVE ]<br>
+                v1.0.0
+            </div>
+            <div class="text-right">
+                <div id="live-time" class="font-mono-tech text-[10px]"></div>
+                [ VERSION: v1.0.0 - MAY 2026 ]<br>
+                [ MARKET OUTLOOK: BULLISH ]
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        <!-- Dashboard Overview / Quick Nav -->
-        <section class="mb-10 animate-float">
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 scroll-hide overflow-x-auto pb-2">
-                <button onclick="scrollToSection('analysis')" class="glass-card p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-blue-400 group-hover:scale-110 transition-transform">📊</span>
-                    <span class="text-xs font-semibold uppercase tracking-wider">Thị Trường</span>
-                </button>
-                <button onclick="scrollToSection('quantitative')" class="glass-card p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-purple-400 group-hover:scale-110 transition-transform">📉</span>
-                    <span class="text-xs font-semibold uppercase tracking-wider">Định Lượng</span>
-                </button>
-                <button onclick="scrollToSection('strategy')" class="glass-card p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-emerald-400 group-hover:scale-110 transition-transform">🎯</span>
-                    <span class="text-xs font-semibold uppercase tracking-wider">Chiến Lược</span>
-                </button>
-                <button onclick="scrollToSection('simulation')" class="glass-card p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-amber-400 group-hover:scale-110 transition-transform">🤖</span>
-                    <span class="text-xs font-semibold uppercase tracking-wider">Mô Phỏng</span>
-                </button>
-                <button onclick="scrollToSection('risk')" class="glass-card p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-red-400 group-hover:scale-110 transition-transform">🛡️</span>
-                    <span class="text-xs font-semibold uppercase tracking-wider">Rủi Ro</span>
-                </button>
-                <button onclick="scrollToSection('performance')" class="glass-card p-4 rounded-2xl flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-cyan-400 group-hover:scale-110 transition-transform">⚡</span>
-                    <span class="text-xs font-semibold uppercase tracking-wider">Hiệu Suất</span>
-                </button>
+    <!-- Main Content -->
+    <main id="content" class="max-w-6xl mx-auto px-6 py-24 space-y-32 relative">
+
+        <!-- Section 1: Tóm tắt -->
+        <section id="overview" class="space-y-10">
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-mono-tech opacity-40">01</span>
+                <div class="h-px flex-1 bg-white/10"></div>
+                <h2 class="text-4xl font-light tracking-tight accent-gradient">TÓM TẮT ĐIỀU HÀNH</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6 text-lg">
+                    <p class="text-justify">
+                        Thị trường chứng khoán Việt Nam năm 2026 đang bước vào giai đoạn tăng trưởng mới sau khi được nâng hạng lên <strong>Emerging Market</strong>. 
+                        AI Đầu Tư sử dụng hệ thống Multi-AI Agent để phân tích và đưa ra khuyến nghị danh mục tối ưu.
+                    </p>
+                    <p class="text-justify opacity-75">
+                        Tập trung vào 3 trụ cột: Công nghệ - Ngân hàng - Tiêu dùng & Hạ tầng. Mục tiêu: Tối ưu lợi nhuận với quản trị rủi ro chặt chẽ.
+                    </p>
+                </div>
+                <div class="liquid-glass p-8 rounded-2xl">
+                    <h3 class="text-xl font-semibold mb-6">Điểm nổi bật</h3>
+                    <ul class="space-y-5 text-sm">
+                        <li class="flex gap-4"><span class="text-emerald-400">●</span> Phân tích bởi Master AI Executor</li>
+                        <li class="flex gap-4"><span class="text-emerald-400">●</span> Danh mục 10 cổ phiếu tiềm năng</li>
+                        <li class="flex gap-4"><span class="text-emerald-400">●</span> 3 kịch bản: Lạc quan - Cơ sở - Bi quan</li>
+                        <li class="flex gap-4"><span class="text-emerald-400">●</span> Cập nhật thời gian thực tháng 05/2026</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <!-- CEO Directive Highlights -->
-        <div class="mb-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="lg:col-span-2 glass-card p-8 rounded-3xl relative overflow-hidden bg-gradient-to-br from-slate-900/80 to-blue-900/20">
-                <div class="relative z-10">
-                    <h3 class="text-brand-muted text-xs font-bold uppercase tracking-widest mb-2">Chỉ thị CEO</h3>
-                    <p class="text-2xl md:text-3xl font-display font-light leading-relaxed">
-                        Đề xuất danh mục <span class="font-bold text-brand-primary">10 cổ phiếu xuất sắc nhất</span> thị trường Việt Nam hiện nay để tối ưu hóa lợi nhuận trong kỷ nguyên nâng hạng thị trường.
-                    </p>
-                </div>
-                <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-blue-600/10 blur-[80px] rounded-full"></div>
+        <!-- Section 2: Multi-AI Agents -->
+        <section id="agents" class="space-y-10">
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-mono-tech opacity-40">02</span>
+                <div class="h-px flex-1 bg-white/10"></div>
+                <h2 class="text-4xl font-light tracking-tight accent-gradient">MULTI-AI AGENT ANALYSIS</h2>
             </div>
-            <div class="glass-card p-6 rounded-3xl flex flex-col justify-center border-l-4 border-l-brand-primary">
-                <div class="text-4xl font-bold font-display gradient-text mb-1">04/2026</div>
-                <p class="text-sm text-brand-muted font-medium uppercase">Kỳ báo cáo cập nhật</p>
-                <div class="mt-4 flex items-center gap-2">
-                    <span class="flex h-2 w-2 rounded-full bg-brand-accent animate-pulse"></span>
-                    <span class="text-xs text-brand-accent font-mono uppercase tracking-tighter">Live Market Data Active</span>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="liquid-glass p-8 rounded-2xl space-y-6">
+                    <h3 class="text-2xl font-medium">1. Công nghệ & Bán dẫn</h3>
+                    <p class="text-justify opacity-75">FPT, các công ty chuyển đổi số và xuất khẩu phần mềm.</p>
+                </div>
+                <div class="liquid-glass p-8 rounded-2xl space-y-6">
+                    <h3 class="text-2xl font-medium">2. Ngân hàng & Tài chính</h3>
+                    <p class="text-justify opacity-75">VCB, MBB, TCB – Pháo đài tài chính ổn định.</p>
+                </div>
+                <div class="liquid-glass p-8 rounded-2xl space-y-6">
+                    <h3 class="text-2xl font-medium">3. Thép & Sản xuất</h3>
+                    <p class="text-justify opacity-75">HPG – Chu kỳ tăng trưởng mạnh từ Dung Quất 2.</p>
+                </div>
+                <div class="liquid-glass p-8 rounded-2xl space-y-6">
+                    <h3 class="text-2xl font-medium">4. Tiêu dùng & Bán lẻ</h3>
+                    <p class="text-justify opacity-75">MSN, MWG – Hồi phục sức mua nội địa.</p>
+                </div>
+                <div class="liquid-glass p-8 rounded-2xl space-y-6 col-span-2 md:col-span-1">
+                    <h3 class="text-2xl font-medium">5. Hạ tầng & BĐS KCN</h3>
+                    <p class="text-justify opacity-75">GVR, VHM, REE – Lợi thế từ đầu tư công và năng lượng xanh.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            <!-- Section: Market Analysis -->
-            <section id="analysis" class="space-y-6">
-                <div class="glass-card rounded-3xl overflow-hidden">
-                    <button onclick="toggleAccordion('market-content')" class="w-full flex items-center justify-between p-6 bg-white/5 border-b border-white/5">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-display font-bold">BÁO CÁO PHÂN TÍCH THỊ TRƯỜNG</h3>
-                        </div>
-                        <svg id="market-content-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div id="market-content" class="accordion-content p-6 space-y-6">
-                        <!-- Macro Content -->
-                        <div class="space-y-4">
-                            <h4 class="text-sm font-bold text-blue-400 uppercase tracking-widest flex items-center gap-2">
-                                <span class="w-1 h-4 bg-blue-400 rounded-full"></span> Xu hướng Vĩ mô & Vi mô
-                            </h4>
-                            <div class="grid grid-cols-1 gap-4">
-                                <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
-                                    <span class="text-brand-primary text-xs font-bold uppercase">Kỷ nguyên mới</span>
-                                    <p class="text-sm mt-2 leading-relaxed opacity-80">Nâng hạng "Secondary Emerging Market" bởi FTSE Russell. Dự kiến thu hút 25 tỷ USD vốn ngoại.</p>
-                                </div>
-                                <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
-                                    <span class="text-brand-accent text-xs font-bold uppercase">Công nghệ & AI</span>
-                                    <p class="text-sm mt-2 leading-relaxed opacity-80">Các tập đoàn lớn chuyển dịch sang AI Factory và bán dẫn, tăng biên lợi nhuận đột phá.</p>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Section 3: Biểu đồ TradingView -->
+        <section id="chart" class="space-y-10">
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-mono-tech opacity-40">03</span>
+                <div class="h-px flex-1 bg-white/10"></div>
+                <h2 class="text-4xl font-light tracking-tight accent-gradient">THỊ TRƯỜNG THỜI GIAN THỰC</h2>
+            </div>
+            <div class="liquid-glass p-6 rounded-3xl overflow-hidden" style="height: 620px;">
+                <div class="tradingview-widget-container h-full">
+                    <div class="tradingview-widget-container__widget h-full"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                    {
+                      "colorTheme": "dark",
+                      "dateRange": "1D",
+                      "showChart": true,
+                      "locale": "vi_VN",
+                      "width": "100%",
+                      "height": "100%",
+                      "isTransparent": true,
+                      "showSymbolLogo": true,
+                      "tabs": [
+                        {
+                          "title": "VN Market",
+                          "symbols": [
+                            { "s": "HOSE:VNINDEX", "d": "VN-Index" },
+                            { "s": "HOSE:FPT", "d": "FPT" },
+                            { "s": "HOSE:VCB", "d": "VCB" },
+                            { "s": "HOSE:HPG", "d": "HPG" }
+                          ]
+                        }
+                      ]
+                    }
+                    </script>
+                </div>
+            </div>
+        </section>
 
-                        <!-- Macro Factors -->
-                        <div class="space-y-4">
-                            <h4 class="text-sm font-bold text-blue-400 uppercase tracking-widest flex items-center gap-2">
-                                <span class="w-1 h-4 bg-blue-400 rounded-full"></span> Chỉ số Kinh tế - Chính trị
-                            </h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs">GDP: 7.2-7.5%</span>
-                                <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs">Lạm phát: &lt;4.5%</span>
-                                <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs">USD/VND: 26,357</span>
-                            </div>
-                        </div>
-
-                        <!-- Top 10 Table -->
-                        <div class="space-y-4">
-                            <h4 class="text-sm font-bold text-blue-400 uppercase tracking-widest flex items-center gap-2">
-                                <span class="w-1 h-4 bg-blue-400 rounded-full"></span> TOP 10 Cổ Phiếu Đề Xuất
-                            </h4>
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-left border-collapse">
-                                    <thead>
-                                        <tr class="text-xs text-brand-muted uppercase border-b border-white/10">
-                                            <th class="py-3 px-2">Mã</th>
-                                            <th class="py-3 px-2">Tên Công Ty</th>
-                                            <th class="py-3 px-2">Lợi thế then chốt</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="text-sm">
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">FPT</td>
-                                            <td class="py-3 px-2">FPT Corp</td>
-                                            <td class="py-3 px-2 opacity-70 italic">AI Factory, Xuất khẩu phần mềm</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">VCB</td>
-                                            <td class="py-3 px-2">Vietcombank</td>
-                                            <td class="py-3 px-2 opacity-70 italic">Cổ phiếu trụ, chất lượng TS tốt nhất</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">HPG</td>
-                                            <td class="py-3 px-2">Hoa Phat Group</td>
-                                            <td class="py-3 px-2 opacity-70 italic">Dung Quất 2, Chu kỳ thép</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">TCB</td>
-                                            <td class="py-3 px-2">Techcombank</td>
-                                            <td class="py-3 px-2 opacity-70 italic">CASA cao, Hiệu quả vốn dẫn đầu</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">SZC</td>
-                                            <td class="py-3 px-2">Sonadezi Châu Đức</td>
-                                            <td class="py-3 px-2 opacity-70 italic">BĐS KCN, Sân bay Long Thành</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">VCG</td>
-                                            <td class="py-3 px-2">Vinaconex</td>
-                                            <td class="py-3 px-2 opacity-70 italic">Đầu tư công, Backlog lớn</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">MWG</td>
-                                            <td class="py-3 px-2">Mobile World</td>
-                                            <td class="py-3 px-2 opacity-70 italic">Bách Hóa Xanh, Hồi phục tiêu dùng</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">MCH</td>
-                                            <td class="py-3 px-2">Masan Consumer</td>
-                                            <td class="py-3 px-2 opacity-70 italic">Tiêu dùng thiết yếu, Cổ tức ổn định</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">PNJ</td>
-                                            <td class="py-3 px-2">Phú Nhuận Jewelry</td>
-                                            <td class="py-3 px-2 opacity-70 italic">Bán lẻ trang sức hạng sang</td>
-                                        </tr>
-                                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
-                                            <td class="py-3 px-2 font-bold text-brand-primary">GAS</td>
-                                            <td class="py-3 px-2">PV Gas</td>
-                                            <td class="py-3 px-2 opacity-70 italic">Phòng thủ, Năng lượng quốc gia</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+        <!-- Section 4: Khuyến nghị -->
+        <section id="strategy" class="space-y-10">
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-mono-tech opacity-40">04</span>
+                <div class="h-px flex-1 bg-white/10"></div>
+                <h2 class="text-4xl font-light tracking-tight accent-gradient">KHUYẾN NGHỊ DANH MỤC THÁNG 05/2026</h2>
+            </div>
+            <div class="liquid-glass p-10 rounded-3xl">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibold text-emerald-400 mb-4">Kịch bản Cơ sở (50%)</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li>• FPT: 15% | Mục tiêu +25%</li>
+                            <li>• VCB: 12% | Mục tiêu +15%</li>
+                            <li>• HPG: 12% | Mục tiêu +30%</li>
+                            <li class="pt-4 border-t border-white/10 font-medium">Lợi nhuận kỳ vọng: 18 - 22%/năm</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibold text-amber-400 mb-4">Kịch bản Lạc quan (30%)</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li>• Tăng tỷ trọng Beta cao: HPG, TCB, GVR</li>
+                            <li>• VN-Index hướng tới 1.600 điểm</li>
+                            <li class="pt-4 border-t border-white/10 font-medium">Lợi nhuận kỳ vọng: 28 - 35%/năm</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Section: Quantitative Results -->
-                <div id="quantitative" class="glass-card rounded-3xl overflow-hidden">
-                    <button onclick="toggleAccordion('quant-content')" class="w-full flex items-center justify-between p-6 bg-white/5 border-b border-white/5">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-display font-bold uppercase">Kết quả phân tích định lượng</h3>
-                        </div>
-                        <svg id="quant-content-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div id="quant-content" class="accordion-content p-6 space-y-8">
-                        
-                        <!-- Forecast Scenarios -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20">
-                                <span class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Base Case</span>
-                                <div class="text-2xl font-bold mt-1">2,242</div>
-                                <div class="text-xs text-brand-accent">+28.9%</div>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
-                                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Bull Case</span>
-                                <div class="text-2xl font-bold mt-1 text-emerald-400">2,359</div>
-                                <div class="text-xs text-emerald-400">+35.6%</div>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-red-500/10 border border-red-500/20">
-                                <span class="text-[10px] font-bold text-red-400 uppercase tracking-widest">Bear Case</span>
-                                <div class="text-2xl font-bold mt-1">2,053</div>
-                                <div class="text-xs text-red-400">+18%</div>
-                            </div>
-                        </div>
-
-                        <!-- Portfolio Optimization -->
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-end">
-                                <h4 class="text-sm font-bold text-purple-400 uppercase tracking-widest">Tối ưu hóa danh mục</h4>
-                                <div class="text-right">
-                                    <span class="text-xs text-brand-muted">Sharpe Ratio:</span>
-                                    <span class="text-lg font-bold text-emerald-400 ml-2">1.15</span>
-                                </div>
-                            </div>
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-3">
-                                    <div class="flex-1 bg-white/5 h-2 rounded-full overflow-hidden">
-                                        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 h-full" style="width: 25%"></div>
-                                    </div>
-                                    <span class="text-xs font-mono w-16">FPT 25%</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="flex-1 bg-white/5 h-2 rounded-full overflow-hidden">
-                                        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 h-full" style="width: 15%"></div>
-                                    </div>
-                                    <span class="text-xs font-mono w-16">HPG 15%</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="flex-1 bg-white/5 h-2 rounded-full overflow-hidden">
-                                        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 h-full" style="width: 12.5%"></div>
-                                    </div>
-                                    <span class="text-xs font-mono w-16">VCB 12.5%</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="flex-1 bg-white/5 h-2 rounded-full overflow-hidden">
-                                        <div class="bg-white/20 h-full" style="width: 47.5%"></div>
-                                    </div>
-                                    <span class="text-xs font-mono w-16">Other 47.5%</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Risk Metrics -->
-                        <div class="p-4 rounded-2xl bg-white/5 space-y-4">
-                            <h4 class="text-xs font-bold text-red-400 uppercase tracking-widest">Quản trị rủi ro định lượng (VaR)</h4>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <div class="text-sm opacity-60">VaR 1-Ngày (95% CL)</div>
-                                    <div class="text-xl font-bold text-red-400">-1.70%</div>
-                                </div>
-                                <div>
-                                    <div class="text-sm opacity-60">VaR 1-Tháng (95% CL)</div>
-                                    <div class="text-xl font-bold text-red-400">-7.79%</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Highlight Stock Valuation -->
-                        <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-blue-500/20 border border-blue-500/30">
-                            <div class="flex justify-between items-start mb-4">
-                                <h4 class="font-display font-bold text-lg">Cổ phiếu tiêu điểm: FPT</h4>
-                                <span class="bg-blue-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Strong Buy</span>
-                            </div>
-                            <div class="grid grid-cols-2 gap-6">
-                                <div>
-                                    <div class="text-xs opacity-60">Dự phóng EPS</div>
-                                    <div class="text-lg font-bold text-emerald-400">+25%/năm</div>
-                                </div>
-                                <div>
-                                    <div class="text-xs opacity-60">Giá mục tiêu</div>
-                                    <div class="text-lg font-bold">203,125 <span class="text-xs">VNĐ</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section: Investment Strategy & Simulation -->
-            <section id="strategy" class="space-y-6">
-                <div class="glass-card rounded-3xl overflow-hidden">
-                    <button onclick="toggleAccordion('strategy-content')" class="w-full flex items-center justify-between p-6 bg-white/5 border-b border-white/5">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-display font-bold uppercase">Chiến lược đầu tư</h3>
-                        </div>
-                        <svg id="strategy-content-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div id="strategy-content" class="accordion-content p-6 space-y-6">
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/30 transition-all">
-                                <div class="text-2xl">🚀</div>
-                                <div>
-                                    <div class="text-sm font-bold text-white mb-1">Nhóm Đột phá (57%)</div>
-                                    <p class="text-xs opacity-60">FPT, HPG, SZC, VCG. Tập trung vào động lực AI, Hạ tầng và Chu kỳ thép.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all">
-                                <div class="text-2xl">🏛️</div>
-                                <div>
-                                    <div class="text-sm font-bold text-white mb-1">Nhóm Trụ cột & Giá trị (31%)</div>
-                                    <p class="text-xs opacity-60">VCB, TCB, MWG. Thu hút dòng vốn ETF ngoại, đảm bảo thanh khoản.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-500/30 transition-all">
-                                <div class="text-2xl">🛡️</div>
-                                <div>
-                                    <div class="text-sm font-bold text-white mb-1">Nhóm Phòng thủ (12%)</div>
-                                    <p class="text-xs opacity-60">MCH, PNJ, GAS. Giảm thiểu rủi ro biến động VaR tháng -7.79%.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Timing Strategy -->
-                        <div class="bg-brand-dark/50 p-5 rounded-2xl border border-white/5 space-y-3">
-                            <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">Chiến lược giải ngân</h4>
-                            <div class="flex items-center justify-between py-2 border-b border-white/5">
-                                <span class="text-sm">Vùng Tích lũy (Support)</span>
-                                <span class="font-bold text-brand-primary">1,700 – 1,720 pts</span>
-                            </div>
-                            <div class="flex items-center justify-between py-2 border-b border-white/5">
-                                <span class="text-sm">Vùng Kháng cự (Resistance)</span>
-                                <span class="font-bold text-red-400">1,760 – 1,800 pts</span>
-                            </div>
-                            <div class="flex items-center justify-between py-2">
-                                <span class="text-sm">Tỷ lệ Tiền mặt</span>
-                                <span class="font-bold">10% - 15%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Section: Simulation Log -->
-                <div id="simulation" class="glass-card rounded-3xl overflow-hidden">
-                    <button onclick="toggleAccordion('sim-content')" class="w-full flex items-center justify-between p-6 bg-white/5 border-b border-white/5">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-display font-bold uppercase">Nhật ký mô phỏng giao dịch</h3>
-                        </div>
-                        <svg id="sim-content-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div id="sim-content" class="accordion-content p-6">
-                        <div class="space-y-4 font-mono text-[11px]">
-                            <!-- Entry 1 -->
-                            <div class="flex gap-4 p-3 rounded-xl bg-white/5 border-l-2 border-l-blue-500">
-                                <span class="text-brand-muted shrink-0">10:15 AM</span>
-                                <div>
-                                    <span class="text-blue-400 font-bold">[AI-ET EXECUTION]</span>
-                                    <p class="text-white opacity-90 mt-1">BUY LIMIT <span class="text-emerald-400">FPT</span> @ 185,500 | Qty: 25,000 shares. Order filled.</p>
-                                </div>
-                            </div>
-                            <!-- Entry 2 -->
-                            <div class="flex gap-4 p-3 rounded-xl bg-white/5 border-l-2 border-l-blue-500">
-                                <span class="text-brand-muted shrink-0">11:30 AM</span>
-                                <div>
-                                    <span class="text-blue-400 font-bold">[AI-ET EXECUTION]</span>
-                                    <p class="text-white opacity-90 mt-1">BUY LIMIT <span class="text-emerald-400">VCB</span> @ 112,000 | Qty: 15,000 shares. Order filled.</p>
-                                </div>
-                            </div>
-                            <!-- Entry 3 -->
-                            <div class="flex gap-4 p-3 rounded-xl bg-white/5 border-l-2 border-l-blue-500">
-                                <span class="text-brand-muted shrink-0">14:20 PM</span>
-                                <div>
-                                    <span class="text-blue-400 font-bold">[AI-ET EXECUTION]</span>
-                                    <p class="text-white opacity-90 mt-1">BUY LIMIT <span class="text-emerald-400">HPG</span> @ 42,150 | Qty: 40,000 shares. Order filled.</p>
-                                </div>
-                            </div>
-                            <!-- Entry 4 -->
-                            <div class="flex gap-4 p-3 rounded-xl bg-red-500/10 border-l-2 border-l-red-500">
-                                <span class="text-brand-muted shrink-0">14:45 PM</span>
-                                <div>
-                                    <span class="text-red-400 font-bold">[HEDGING ALERT]</span>
-                                    <p class="text-white opacity-90 mt-1">SHORT <span class="text-red-400">VN30F2604</span> @ 1,782 | 50 contracts. Portfolio protection activated.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Lower Full Width Sections -->
-        <div class="mt-8 grid grid-cols-1 gap-8">
-            
-            <!-- Section: Risk & Compliance -->
-            <section id="risk" class="glass-card rounded-3xl overflow-hidden">
-                <button onclick="toggleAccordion('risk-content')" class="w-full flex items-center justify-between p-6 bg-white/5 border-b border-white/5">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center text-red-400">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-display font-bold uppercase tracking-tight">Tuân thủ & Quản trị rủi ro</h3>
-                    </div>
-                    <svg id="risk-content-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div id="risk-content" class="accordion-content p-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="space-y-3">
-                            <h4 class="text-xs font-bold text-red-400 uppercase tracking-widest">Cảnh báo Đỏ</h4>
-                            <ul class="text-sm space-y-2 opacity-80 list-disc list-inside">
-                                <li>Rủi ro Bull-trap tại 1,760 - 1,800.</li>
-                                <li>Áp lực tỷ giá USD/VND: 26,357.</li>
-                                <li>Duy trì vị thế Short Hedging.</li>
-                            </ul>
-                        </div>
-                        <div class="space-y-3">
-                            <h4 class="text-xs font-bold text-amber-400 uppercase tracking-widest">Rủi ro Tín dụng</h4>
-                            <ul class="text-sm space-y-2 opacity-80 list-disc list-inside">
-                                <li>Nợ xấu tiềm ẩn ngành Ngân hàng.</li>
-                                <li>Chi phí vốn USD của HPG, VCG tăng.</li>
-                                <li>Biên lợi nhuận ròng chịu sức ép.</li>
-                            </ul>
-                        </div>
-                        <div class="space-y-3">
-                            <h4 class="text-xs font-bold text-blue-400 uppercase tracking-widest">Thanh khoản</h4>
-                            <ul class="text-sm space-y-2 opacity-80 list-disc list-inside">
-                                <li>Lộ trình nâng hạng bù đắp vốn ngoại.</li>
-                                <li>Ưu tiên nhóm VN30 thanh khoản lớn.</li>
-                                <li>Dự phòng 10-15% tiền mặt an toàn.</li>
-                            </ul>
-                        </div>
-                        <div class="space-y-3">
-                            <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Tuân thủ</h4>
-                            <ul class="text-sm space-y-2 opacity-80 list-disc list-inside">
-                                <li>10/10 mã đúng chỉ thị CEO.</li>
-                                <li>Không sử dụng Margin tại vùng đỉnh.</li>
-                                <li>Đúng tiêu chuẩn Room ngoại FTSE.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section: Operational Performance -->
-            <section id="performance" class="glass-card rounded-3xl overflow-hidden mb-12">
-                <button onclick="toggleAccordion('perf-content')" class="w-full flex items-center justify-between p-6 bg-white/5 border-b border-white/5">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-display font-bold uppercase tracking-tight">Vận hành & Hiệu suất đầu tư</h3>
-                    </div>
-                    <svg id="perf-content-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div id="perf-content" class="accordion-content p-8">
-                    <div class="flex flex-col md:flex-row gap-8 items-center">
-                        <div class="w-full md:w-1/3 flex flex-col items-center justify-center text-center p-8 bg-brand-dark/30 rounded-3xl border border-white/10">
-                            <span class="text-sm text-brand-muted uppercase mb-2">Trạng thái vận hành</span>
-                            <div class="text-5xl font-bold text-emerald-400 mb-2">ACTIVE</div>
-                            <div class="flex items-center gap-2 text-emerald-400/80 text-xs">
-                                <span class="flex h-2 w-2 rounded-full bg-emerald-400"></span> 100% Tuân thủ
-                            </div>
-                        </div>
-                        <div class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="p-6 glass-card rounded-2xl">
-                                <h5 class="text-xs font-bold text-brand-muted uppercase mb-4">Kết luận tổng quan</h5>
-                                <p class="text-sm leading-relaxed opacity-90">Danh mục đang vận hành ổn định với hệ số Sharpe cao (1.15) và cơ chế phòng thủ vững chắc trước biến động tỷ giá và thị trường.</p>
-                            </div>
-                            <div class="p-6 glass-card rounded-2xl">
-                                <h5 class="text-xs font-bold text-brand-muted uppercase mb-4">Khuyến nghị then chốt</h5>
-                                <ul class="text-xs space-y-3 opacity-90">
-                                    <li class="flex gap-2"><span class="text-emerald-400 font-bold">1.</span> Tiếp tục giữ vị thế Hedging Short VN30.</li>
-                                    <li class="flex gap-2"><span class="text-emerald-400 font-bold">2.</span> Theo dõi sát nợ USD của HPG & VCG.</li>
-                                    <li class="flex gap-2"><span class="text-emerald-400 font-bold">3.</span> Gia tăng tỷ trọng Bank khi lùi về 1,700.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
     </main>
 
+    <!-- Back to Top -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+    <!-- Scroll Progress -->
+    <div class="fixed bottom-8 left-8 z-50 hidden md:flex items-center gap-4 font-mono text-xs tracking-[2px] text-white/50">
+        <span class="uppercase">SCROLL</span>
+        <div class="w-28 h-px bg-white/20 relative overflow-hidden">
+            <div id="scrollProgress" class="absolute top-0 left-0 h-full bg-[#00FF9F] transition-all duration-200" style="width: 0%"></div>
+        </div>
+        <span id="scrollPercent" class="w-8 text-right text-[#00FF9F]">00</span>
+        <span class="text-white/30">%</span>
+    </div>
+
+<!-- ==================== FOOTER ==================== -->
+    <footer id="footer" class="py-20 px-6 border-t border-white/10 relative">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-[#28a745] rounded-xl flex items-center justify-center text-black font-bold text-2xl">AI</div>
+                    <span class="text-3xl font-display tracking-tighter rainbow-text">Đầu Tư</span>
+                </div>
+                <p class="text-white/70 max-w-md text-lg leading-relaxed">
+                    Tiên phong công nghệ Trí tuệ Nhân tạo cố vấn đầu tư tại Việt Nam
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex gap-4 mt-10">
+                    <a href="https://x.com/VGA82017" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.facebook.com/sssssphamhoanganhsssss" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.youtube.com/@thanlongcoins" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://t.me/phamhoanganhtokens" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.688 7.96c-.124.58-.46.72-.936.448L12 14.25l-2.25 2.16c-.248.248-.456.116-.456-.224l.48-3.84 7.008-6.72c.312-.288.168-.432-.432-.144L6.75 13.5l-2.25-.72c-.48-.16-.492-.48.096-.72L17.25 7.5c.336-.144.624.192.312.748z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/phạm-hoàng-anh-51bb3446" target="_blank" rel="noopener noreferrer" class="social-link w-11 h-11 border border-white/30 rounded-2xl flex items-center justify-center hover:border-[#00FF9F]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-3">
+                <h4 class="font-display uppercase tracking-widest text-sm mb-6 text-[#28a745]">Khám phá</h4>
+                <ul class="space-y-4 text-white/70">
+                    <li><a href="#mechanism" class="hover:text-[#28a745]">Cơ Chế AI</a></li>
+                    <li><a href="#activation" class="hover:text-[#28a745]">Hệ Thống AI Agent</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="md:col-span-4">
+                <h4 class="font-display uppercase tracking-widest text-sm mb-6 text-[#28a745]">Liên hệ</h4>
+                <ul class="space-y-4 text-white/70">
+                    <li class="flex items-start gap-3">
+                        <span class="text-[#28a745] mt-1">📍</span>
+                        <span>Quán Ngon đường 39, Phường Tân Thuận, Quận 7, TP. Hồ Chí Minh</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-[#28a745]">📞</span>
+                        <span>+84 090 33 44 55 1</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-[#28a745]">✉️</span>
+                        <a href="https://www.phamhoanganhtokens.com" target="_blank" class="text-neonCyan hover:underline">www.phamhoanganhtokens.com</a>
+                    </li>
+                </ul>
+
+                <div class="mt-8">
+                    <h5 class="text-[#28a745] text-sm mb-3">Vị trí trên bản đồ</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d622.5477281090639!2d106.71737901182837!3d10.74384443005467!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f8de8e1c19b%3A0x96021b3d41b2a2ac!2zTmjDoCBIw6FuZyAzOSB8IE5ow6AgSMOgbmcgxJDhurdjIFPhuqNuIFF14bqtbiA3!5e1!3m2!1sen!2sus!4v1778843997201!5m2!1sen!2sus" 
+                            width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-white/10 mt-20 pt-8 text-center text-xs text-white/40">
+            © 2026 AI Đầu Tư • Tiên phong công nghệ Trí tuệ Nhân tạo cố vấn đầu tư tại Việt Nam
+        </div>
+    </footer>
+
     <script>
-        function toggleAccordion(id) {
-            const content = document.getElementById(id);
-            const icon = document.getElementById(id + '-icon');
+        // Live Time ICT
+        function updateLiveTime() {
+            const now = new Date();
+            const options = { 
+                timeZone: 'Asia/Ho_Chi_Minh', 
+                year: 'numeric', month: '2-digit', day: '2-digit',
+                hour: '2-digit', minute: '2-digit', second: '2-digit', 
+                hour12: false 
+            };
+            const str = new Intl.DateTimeFormat('vi-VN', options).format(now);
+            document.getElementById('live-time').innerHTML = `[ THỜI GIAN THỰC: ${str} ICT ]`;
+        }
+        setInterval(updateLiveTime, 1000);
+        updateLiveTime();
+
+        // Back to Top
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTopBtn.style.display = window.scrollY > 600 ? 'flex' : 'none';
+        });
+
+        // Scroll Progress
+        let lastScrollY = 0;
+        let ticking = false;
+
+        function updateScrollProgress() {
+            const progressBar = document.getElementById('scrollProgress');
+            const percentText = document.getElementById('scrollPercent');
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             
-            // Close others (Optional, uncomment if you want only one open at a time)
-            /*
-            document.querySelectorAll('.accordion-content').forEach(el => {
-                if(el.id !== id) {
-                    el.classList.remove('active');
-                    document.getElementById(el.id + '-icon').classList.remove('rotate-180');
-                }
-            });
-            */
+            if (height <= 0) return;
+            
+            let scrolled = (winScroll / height) * 100;
+            scrolled = Math.min(Math.max(scrolled, 0), 100);
+            
+            progressBar.style.width = scrolled + '%';
+            percentText.textContent = scrolled.toFixed(1);
+        }
 
-            content.classList.toggle('active');
-            if (content.classList.contains('active')) {
-                icon.classList.add('rotate-180');
-            } else {
-                icon.classList.remove('rotate-180');
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollProgress);
+                ticking = true;
             }
         }
 
-        function scrollToSection(id) {
-            const el = document.getElementById(id);
-            const headerOffset = 100;
-            const elementPosition = el.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.addEventListener('scroll', requestTick, { passive: true });
+        window.addEventListener('load', updateScrollProgress);
+        window.addEventListener('resize', updateScrollProgress);
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
-
-            // Auto-open accordion if closed
-            const content = el.querySelector('.accordion-content');
-            if (content && !content.classList.contains('active')) {
-                toggleAccordion(content.id);
-            }
-        }
-
-        // Open first few by default for "Wow" factor
-        window.onload = () => {
-            toggleAccordion('market-content');
-            toggleAccordion('quant-content');
-        }
+        });
     </script>
 </body>
 </html>
