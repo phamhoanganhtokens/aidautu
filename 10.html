@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Chiến lược Đầu tư - Master AI Executor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#002147',
+                        gold: '#C5A059',
+                        charcoal: '#333333',
+                        paper: '#FAFAFA'
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'serif'],
+                        display: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f4f4f2;
+            color: #1a1a1a;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .section-divider {
+            border-top: 1px solid #d4d4d4;
+            margin: 3rem 0;
+        }
+        .executive-summary {
+            background-color: #ffffff;
+            border-left: 4px solid #002147;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .table-of-contents {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+        @media print {
+            .no-print { display: none; }
+            body { background: white; }
+            .container { max-width: 100%; width: 100%; padding: 0; }
+        }
+        .hover-gold:hover {
+            color: #C5A059;
+            transition: color 0.3s ease;
+        }
+        .investment-table th {
+            background-color: #002147;
+            color: white;
+            font-weight: normal;
+            padding: 12px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+        .investment-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Branding -->
+    <header class="bg-navy text-white py-12 px-6 shadow-xl">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-end gap-6">
+            <div>
+                <p class="text-gold tracking-widest uppercase text-sm font-bold mb-2">AI Software Development</p>
+                <h1 class="text-3xl md:text-5xl font-display font-bold leading-tight">AI ĐẦU TƯ</h1>
+                <p class="text-xl text-gray-300 mt-2 italic">Master AI Executor — Phân Tích Chiến Lược</p>
+            </div>
+            <div class="text-right border-l border-gold/30 pl-6 hidden md:block">
+                <p class="text-xs uppercase text-gray-400">Báo cáo cho CEO</p>
+                <p class="text-lg font-bold">Phạm Hoàng Anh</p>
+                <p class="text-xs uppercase text-gray-400 mt-2">Ngày lập báo cáo</p>
+                <p id="current-date" class="text-sm font-semibold">24/05/2026</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 bg-white shadow-2xl my-8">
+        
+        <!-- Document Meta (Mobile Only) -->
+        <div class="md:hidden mb-8 border-b pb-4 text-sm text-gray-600">
+            <p><strong>CEO:</strong> Phạm Hoàng Anh</p>
+            <p><strong>Ngày:</strong> 24/05/2026</p>
+            <p><strong>Cấp độ:</strong> Tuyệt mật / Nội bộ</p>
+        </div>
+
+        <!-- Document Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-navy uppercase tracking-tight border-b-2 border-navy inline-block pb-2 mb-4">
+                BÁO CÁO PHÂN TÍCH CHIẾN LƯỢC ĐẦU TƯ
+            </h2>
+            <p class="text-lg text-charcoal">Thị Trường Chứng Khoán Việt Nam (Tháng 05/2026)</p>
+        </div>
+
+        <!-- 1. Executive Summary -->
+        <section id="section-1" class="executive-summary p-8 mb-12">
+            <h2 class="text-xl font-bold text-navy mb-4 uppercase tracking-wide flex items-center">
+                <span class="mr-2">1.</span> TÓM TẮT ĐIỀU HÀNH
+            </h2>
+            <div class="justified-text text-lg">
+                Thị trường chứng khoán Việt Nam năm 2026 đang bước vào kỷ nguyên mới sau khi chính thức được <strong>FTSE Russell</strong> nâng hạng lên Thị trường mới nổi (Emerging Market). VN-Index duy trì xu hướng tăng trưởng bền vững (1.480 – 1.520 điểm) nhờ sự cộng hưởng của nền tảng vĩ mô ổn định và dòng vốn ngoại dồi dào. Danh mục 10 mã cổ phiếu được đề xuất tập trung vào 03 trụ cột chính: <span class="text-navy font-bold">Công nghệ/Bán dẫn</span>, <span class="text-navy font-bold">Tài chính/Ngân hàng</span> và <span class="text-navy font-bold">Sản xuất/Tiêu dùng hồi phục</span>. Mục tiêu là tối ưu hóa lợi nhuận dựa trên sự bứt phá về EPS và dòng tiền cổ tức ổn định.
+            </div>
+        </section>
+
+        <!-- 2. Current Situation -->
+        <section id="section-2" class="mb-12">
+            <h2 class="text-xl font-bold text-navy mb-6 uppercase tracking-wide flex items-center">
+                <span class="mr-2 border-b-2 border-gold">2.</span> PHÂN TÍCH TÌNH HÌNH HIỆN TẠI
+            </h2>
+            <div class="space-y-4 justified-text">
+                <p>
+                    <strong>Trạng thái VN-Index:</strong> Thị trường đã thoát khỏi tâm lý đầu cơ ngắn hạn, chuyển dịch sang định giá dựa trên giá trị nội tại. Thanh khoản duy trì mức cao (trên 1 tỷ USD/phiên) cho thấy sự tự tin của cả dòng vốn nội và ngoại.
+                </p>
+                <p>
+                    <strong>Động lực vĩ mô:</strong> GDP đạt mức tăng trưởng ấn tượng (6.8% – 7.2%). Việc vận hành thành công hệ thống KRX và mô hình CCP là "chìa khóa" gỡ bỏ rào cản kỹ thuật, thu hút các quỹ ETF toàn cầu.
+                </p>
+                <p>
+                    <strong>Chính sách:</strong> Lãi suất duy trì ở mức thấp kỷ lục giúp chi phí vốn doanh nghiệp tối ưu, trong khi tỷ giá ổn định tạo môi trường đầu tư an toàn cho khối ngoại.
+                </p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 3. Key Insights & Edge Identification -->
+        <section id="section-3" class="mb-12">
+            <h2 class="text-xl font-bold text-navy mb-6 uppercase tracking-wide flex items-center">
+                <span class="mr-2 border-b-2 border-gold">3.</span> THÔNG TIN CHI TIẾT VÀ XÁC ĐỊNH LỢI THẾ
+            </h2>
+            <p class="mb-6 italic text-gray-600">Dưới đây là phân tích lợi thế cạnh tranh cốt lõi của 10 mã cổ phiếu dẫn dắt thị trường:</p>
+            
+            <div class="grid grid-cols-1 gap-6">
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">01. FPT (Công nghệ)</h3>
+                    <p class="justified-text mt-1">Lợi thế tuyệt đối trong xuất khẩu phần mềm và chuyển đổi số. Việc tham gia vào chuỗi giá trị bán dẫn toàn cầu nâng tầm định giá của FPT từ một công ty IT thành một tập đoàn công nghệ cao đa quốc gia.</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">02. HPG (Thép)</h3>
+                    <p class="justified-text mt-1">"Cỗ máy in tiền" Dung Quất 2 đi vào hoạt động tối ưu hóa quy mô, giúp HPG thống trị thị trường HRC trong nước và đẩy mạnh xuất khẩu thép chất lượng cao sang các thị trường khó tính.</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">03. VCB (Ngân hàng)</h3>
+                    <p class="justified-text mt-1">"Pháo đài" tài chính với chất lượng tài sản số 1 hệ thống. Lợi thế chi phí vốn thấp (CASA cao) và sự ưu tiên của khối ngoại khi giải ngân vào thị trường mới nổi.</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">04. MBB (Ngân hàng)</h3>
+                    <p class="justified-text mt-1">Lợi thế từ hệ sinh thái khách hàng quân đội và tốc độ chuyển đổi số nhanh nhất ngành, giúp tối ưu hóa chi phí vận hành và duy trì tăng trưởng tín dụng vượt trội.</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">05. TCB (Ngân hàng)</h3>
+                    <p class="justified-text mt-1">Sự phục hồi của thị trường bất động sản cao cấp và vị thế dẫn đầu trong mảng phí dịch vụ/trái phiếu giúp TCB có sự bứt phá mạnh về lợi nhuận thuần.</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">06. MSN (Tiêu dùng)</h3>
+                    <p class="justified-text mt-1">Điểm rơi lợi nhuận từ chuỗi WinCommerce và sự bùng nổ của Masan Consumer. MSN là đại diện tiêu biểu cho sự hồi phục sức mua nội địa.</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">07. MWG (Bán lẻ)</h3>
+                    <p class="justified-text mt-1">Bách Hóa Xanh trở thành động cơ tăng trưởng mới sau khi đạt điểm hòa vốn, kết hợp với tiềm năng từ thị trường Indonesia (Era Blue) tạo ra triển vọng dài hạn.</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">08. GVR (BĐS KCN)</h3>
+                    <p class="justified-text mt-1">Lợi thế sở hữu quỹ đất khổng lồ. Việc chuyển đổi đất cao su sang khu công nghiệp tại các vị trí chiến lược (Đồng Nai, Bình Dương) mang lại nguồn thu đột biến và bền vững.</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">09. REE (Năng lượng)</h3>
+                    <p class="justified-text mt-1">Đón đầu xu hướng chuyển dịch năng lượng xanh theo Quy hoạch điện VIII. Danh mục tài sản đa dạng (điện, nước, cơ điện lạnh) tạo dòng tiền cực kỳ ổn định.</p>
+                </div>
+                <div class="border-l-2 border-gray-200 pl-6 py-2">
+                    <h3 class="font-bold text-navy text-lg">10. VHM (Bất động sản)</h3>
+                    <p class="justified-text mt-1">Năng lực triển khai dự án quy mô lớn (Vinhomes) không đối thủ. VHM hưởng lợi trực tiếp từ việc hạ tầng giao thông kết nối liên vùng được đẩy mạnh trong năm 2026.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Options & Scenario Analysis -->
+        <section id="section-4" class="mb-12 py-8 px-6 bg-gray-50 border-y border-gray-100">
+            <h2 class="text-xl font-bold text-navy mb-6 uppercase tracking-wide flex items-center">
+                <span class="mr-2 border-b-2 border-gold">4.</span> PHÂN TÍCH CÁC PHƯƠNG ÁN VÀ KỊCH BẢN
+            </h2>
+            <div class="space-y-6">
+                <div class="bg-white p-4 shadow-sm border-r-4 border-green-700">
+                    <h4 class="font-bold text-green-800">Kịch bản Lạc quan (30% xác suất)</h4>
+                    <p class="text-sm italic">VN-Index vượt 1.600 điểm nếu dòng vốn ngoại đổ vào mạnh hơn dự kiến.</p>
+                    <p class="mt-2 text-charcoal"><strong>Hành động:</strong> Gia tăng tỷ trọng các mã Beta cao như HPG, TCB, GVR.</p>
+                </div>
+                <div class="bg-white p-4 shadow-sm border-r-4 border-navy">
+                    <h4 class="font-bold text-navy">Kịch bản Cơ sở (50% xác suất)</h4>
+                    <p class="text-sm italic">VN-Index dao động 1.480 – 1.550 điểm, tăng trưởng đồng thuận lợi nhuận.</p>
+                    <p class="mt-2 text-charcoal"><strong>Hành động:</strong> Tập trung nắm giữ danh mục 10 mã với tỷ trọng cân bằng.</p>
+                </div>
+                <div class="bg-white p-4 shadow-sm border-r-4 border-red-700">
+                    <h4 class="font-bold text-red-800">Kịch bản Bi quan (20% xác suất)</h4>
+                    <p class="text-sm italic">Rủi ro địa chính trị thế giới làm gián đoạn chuỗi cung ứng, index lùi về 1.400 điểm.</p>
+                    <p class="mt-2 text-charcoal"><strong>Hành động:</strong> Tăng tỷ trọng nhóm phòng thủ có cổ tức cao như VNM, REE, FPT.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Recommendation Table -->
+        <section id="section-5" class="mb-12 overflow-x-auto">
+            <h2 class="text-xl font-bold text-navy mb-6 uppercase tracking-wide flex items-center">
+                <span class="mr-2 border-b-2 border-gold">5.</span> KHUYẾN NGHỊ DANH MỤC
+            </h2>
+            <table class="w-full investment-table text-sm">
+                <thead>
+                    <tr>
+                        <th class="text-left">Mã CP</th>
+                        <th>Tỷ trọng</th>
+                        <th>Mục tiêu</th>
+                        <th class="text-left">Chiến lược</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="font-bold text-navy">FPT</td><td class="text-center font-bold">15%</td><td class="text-center text-green-700">+25%</td><td>Mua và nắm giữ dài hạn</td></tr>
+                    <tr><td class="font-bold text-navy">VCB</td><td class="text-center font-bold">12%</td><td class="text-center text-green-700">+15%</td><td>Trụ cột điều tiết danh mục</td></tr>
+                    <tr><td class="font-bold text-navy">HPG</td><td class="text-center font-bold">12%</td><td class="text-center text-green-700">+30%</td><td>Chu kỳ tăng trưởng sản lượng</td></tr>
+                    <tr><td class="font-bold text-navy">TCB</td><td class="text-center font-bold">10%</td><td class="text-center text-green-700">+22%</td><td>Tận dụng phục hồi tài sản</td></tr>
+                    <tr><td class="font-bold text-navy">MBB</td><td class="text-center font-bold">10%</td><td class="text-center text-green-700">+20%</td><td>Đầu tư giá trị, cổ tức</td></tr>
+                    <tr><td class="font-bold text-navy">MSN</td><td class="text-center font-bold">10%</td><td class="text-center text-green-700">+45%</td><td>Xoay chiều lợi nhuận</td></tr>
+                    <tr><td class="font-bold text-navy">MWG</td><td class="text-center font-bold">10%</td><td class="text-center text-green-700">+30%</td><td>Kỳ vọng Bách Hóa Xanh</td></tr>
+                    <tr><td class="font-bold text-navy">GVR</td><td class="text-center font-bold">8%</td><td class="text-center text-green-700">+25%</td><td>Sóng đầu tư công & KCN</td></tr>
+                    <tr><td class="font-bold text-navy">REE</td><td class="text-center font-bold">8%</td><td class="text-center text-green-700">+18%</td><td>Phòng thủ chủ động</td></tr>
+                    <tr><td class="font-bold text-navy">VHM</td><td class="text-center font-bold">5%</td><td class="text-center text-green-700">+20%</td><td>Mua tích lũy vùng giá thấp</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 6. Risk Assessment -->
+        <section id="section-6" class="mb-12">
+            <h2 class="text-xl font-bold text-navy mb-6 uppercase tracking-wide flex items-center">
+                <span class="mr-2 border-b-2 border-gold">6.</span> ĐÁNH GIÁ VÀ GIẢM THIỂU RỦI RO
+            </h2>
+            <div class="space-y-4 justified-text">
+                <div class="flex gap-4">
+                    <span class="text-gold font-bold">●</span>
+                    <p><strong>Rủi ro lạm phát:</strong> Theo dõi sát diễn biến giá dầu và hàng hóa thế giới. <em>Giảm thiểu:</em> Ưu tiên doanh nghiệp có khả năng chuyển giao chi phí sang người tiêu dùng (FPT, MSN).</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-gold font-bold">●</span>
+                    <p><strong>Rủi ro thanh khoản:</strong> Mặc dù thị trường đã nâng hạng nhưng các cú sốc ngoại biên có thể khiến khối ngoại đảo chiều. <em>Giảm thiểu:</em> Duy trì tỷ lệ tiền mặt 10-15% để quản trị rủi ro.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-gold font-bold">●</span>
+                    <p><strong>Rủi ro thực thi:</strong> Các dự án lớn (Dung Quất 2, Bách Hóa Xanh) không đạt tiến độ. <em>Giảm thiểu:</em> Cập nhật báo cáo kết quả kinh doanh hàng quý để điều chỉnh tỷ trọng kịp thời.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Next Actions -->
+        <section id="section-7" class="bg-navy text-white p-8 rounded-sm shadow-inner">
+            <h2 class="text-xl font-bold text-gold mb-6 uppercase tracking-wide flex items-center">
+                <span class="mr-2 border-b-2 border-white">7.</span> CÁC HÀNH ĐỘNG TIẾP THEO
+            </h2>
+            <div class="space-y-4">
+                <div class="border-b border-white/10 pb-4">
+                    <h4 class="font-bold text-white uppercase text-xs mb-2 tracking-widest">Lộ trình giải ngân</h4>
+                    <p>Chia làm 3 đợt (40% - 30% - 30%) để tối ưu giá vốn. Đợt 1 thực hiện giải ngân ngay tại vùng 1.480 - 1.500 điểm.</p>
+                </div>
+                <div class="border-b border-white/10 pb-4">
+                    <h4 class="font-bold text-white uppercase text-xs mb-2 tracking-widest">Theo dõi danh mục</h4>
+                    <p>Master AI Executor sẽ rà soát và đánh giá lại danh mục định kỳ vào ngày 25 hàng tháng.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white uppercase text-xs mb-2 tracking-widest">Trách nhiệm quản trị</h4>
+                    <p>Thực hiện bán quyết liệt nếu mã cổ phiếu vi phạm ngưỡng giảm 10% từ giá mua hoặc có những thay đổi trọng yếu về triển vọng kinh doanh.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <div class="mt-16 text-center border-t border-double border-navy pt-8">
+            <p class="text-lg font-bold text-navy italic">
+                "Kết luận: Thị trường Việt Nam năm 2026 là cơ hội 'thập kỷ' cho các nhà đầu tư nắm bắt đúng xu hướng nâng hạng."
+            </p>
+        </div>
+    </main>
+
+    <!-- Navigation / TOC Overlay (Desktop Only) -->
+    <nav class="hidden lg:block fixed left-8 top-1/3 w-56 table-of-contents no-print">
+        <p class="text-xs font-bold text-navy uppercase mb-4 tracking-tighter opacity-50">Mục lục Báo cáo</p>
+        <ul class="space-y-3 text-xs uppercase font-sans tracking-wide">
+            <li><a href="#section-1" class="hover-gold block">01 Tóm tắt điều hành</a></li>
+            <li><a href="#section-2" class="hover-gold block">02 Tình hình hiện tại</a></li>
+            <li><a href="#section-3" class="hover-gold block">03 Lợi thế chiến lược</a></li>
+            <li><a href="#section-4" class="hover-gold block">04 Phân tích kịch bản</a></li>
+            <li><a href="#section-5" class="hover-gold block">05 Khuyến nghị</a></li>
+            <li><a href="#section-6" class="hover-gold block">06 Quản trị rủi ro</a></li>
+            <li><a href="#section-7" class="hover-gold block">07 Hành động tiếp theo</a></li>
+        </ul>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mt-8 text-[10px] text-gold border border-gold px-2 py-1 hover:bg-gold hover:text-white transition-all">
+            VỀ ĐẦU TRANG ↑
+        </button>
+    </nav>
+
+    <!-- Footer Identity -->
+    <div class="max-w-4xl mx-auto px-6 py-12 text-center border-t border-gray-200 mt-12 mb-20 text-gray-400 text-xs font-sans">
+        <div class="flex justify-center items-center gap-4 mb-4">
+            <div class="h-[1px] w-12 bg-gray-300"></div>
+            <a href="www.phamhoanganhtokens.com" target="_blank" class="hover:text-navy transition-colors">www.phamhoanganhtokens.com</a>
+            <div class="h-[1px] w-12 bg-gray-300"></div>
+        </div>
+        <p class="uppercase tracking-widest font-bold text-charcoal">STRICTLY CONFIDENTIAL / INTERNAL USE ONLY</p>
+        <p class="mt-2 italic">Copyright © 2026 AI Software Development. Master AI Executor Analysis Division.</p>
+    </div>
+
+    <script>
+        // Set dynamic date to match the "May 2026" theme if today is before, 
+        // or just keep it consistent with the analysis report's fixed date.
+        const reportDate = "24/05/2026";
+        document.getElementById('current-date').innerText = reportDate;
+
+        // Smooth scroll implementation for the TOC
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
