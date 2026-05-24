@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chu kỳ Thịnh - Suy theo triết lý Đạo Gia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dao-charcoal': '#2C3E50',
+                        'dao-gold': '#B8860B',
+                        'dao-paper': '#FAFAFA',
+                        'dao-ink': '#1A1A1A',
+                        'dao-forest': '#2D4B3E'
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAFAFA;
+            color: #2C3E50;
+            line-height: 1.6;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .justified {
+            text-align: justify;
+        }
+        .academic-border {
+            border-left: 2px solid #B8860B;
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+        @media print {
+            .no-print { display: none; }
+        }
+        .brush-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #2C3E50 50%, transparent);
+            opacity: 0.2;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
 
+    <!-- Document Container -->
+    <div class="max-w-[900px] mx-auto bg-white p-8 md:p-16 soft-shadow border border-gray-100 min-h-screen">
+        
+        <!-- Top Metadata -->
+        <div class="flex justify-end mb-8">
+            <p class="text-xs uppercase tracking-widest text-gray-400 italic">
+                Analysis Date: <span id="current-date"></span>
+            </p>
+        </div>
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-dao-ink mb-2">
+                CHU KỲ THỊNH - SUY THEO TRIẾT LÝ ĐẠO GIA
+            </h1>
+            <a href="www.phamhoanganhtokens.com" target="_blank" class="text-sm tracking-[0.3em] text-dao-gold hover:text-dao-forest transition-colors duration-300">
+                WWW.PHAMHOANGANHTOKENS.COM
+            </a>
+            <div class="brush-divider mt-8"></div>
+        </header>
+
+        <!-- Introduction Section -->
+        <section class="bg-[#F4F4F4] p-8 md:p-10 mb-16 rounded-sm">
+            <h2 class="text-lg font-bold mb-4 italic text-dao-forest">Lời dẫn (Introduction)</h2>
+            <p class="justified italic leading-relaxed text-dao-charcoal">
+                Triết học Đạo Gia nhìn nhận thị trường không phải là những con số rời rạc, mà là một thực thể sống vận động theo quy luật "Thịnh cực tất Suy, Suy cực tất Thịnh". Khi Dương (Thịnh) đạt đến đỉnh điểm, hạt giống của Âm (Suy) đã bắt đầu nảy nở. Sự thông thái trong đầu tư không nằm ở việc chống lại dòng chảy, mà là nhận diện điểm "Thái Cực" để hành động thuận theo tự nhiên (Vô Vi).
+            </p>
+        </section>
+
+        <!-- Main Content: Scenarios -->
+        <div class="space-y-12 mb-16">
+            <h2 class="text-2xl font-bold text-dao-ink border-b border-dao-gold pb-2 inline-block mb-8">
+                Kịch bản Kiểm tra Hệ thống (System Test Scenarios)
+            </h2>
+
+            <!-- Scenario 1 -->
+            <div class="scenario-card academic-border pl-6 py-2">
+                <h3 class="text-xl font-bold text-dao-ink mb-4">1. Cycle Transition Equilibrium</h3>
+                <ul class="space-y-2 mb-4 text-sm md:text-base">
+                    <li><strong>Loại:</strong> Định hướng Chu kỳ (Cycle Orientation)</li>
+                    <li><strong>Mục tiêu test:</strong> Xác thực khả năng xác định điểm 'Thái Cực' (Taiji) của chu kỳ thị trường.</li>
+                    <li><strong>Supporting Data:</strong> Lịch sử biến động 10 năm, Chỉ số hưng phấn (Sentiments), P/E Ratio.</li>
+                </ul>
+                <div class="bg-gray-50 p-4 italic text-dao-charcoal border-l-4 border-gray-200 justified">
+                    "Validate the module’s ability to pinpoint the 'Taiji' point of a market cycle, where a trend of maximum prosperity (Yang) begins its inevitable transition into a phase of decline (Yin), ensuring the system recognizes the inherent seeds of change within each state."
+                </div>
+            </div>
+
+            <!-- Scenario 2 -->
+            <div class="scenario-card academic-border pl-6 py-2">
+                <h3 class="text-xl font-bold text-dao-ink mb-4">2. Natural Reversion Consistency</h3>
+                <ul class="space-y-2 mb-4 text-sm md:text-base">
+                    <li><strong>Loại:</strong> Kiểm tra tính Phản hồi (Reversion Logic)</li>
+                    <li><strong>Mục tiêu test:</strong> Đánh giá logic 'Phản giả Đạo chi động' (Sự quay lại là vận động của Đạo).</li>
+                    <li><strong>Supporting Data:</strong> Mean Reversion Models, Standard Deviation Analysis.</li>
+                </ul>
+                <div class="bg-gray-50 p-4 italic text-dao-charcoal border-l-4 border-gray-200 justified">
+                    "Test the accuracy of the 'Fan' or Reversion logic; this scenario evaluates whether the system correctly signals a return to the mean when market movements reach an unnatural extreme, maintaining the balance of the natural flow."
+                </div>
+            </div>
+
+            <!-- Scenario 3 -->
+            <div class="scenario-card academic-border pl-6 py-2">
+                <h3 class="text-xl font-bold text-dao-ink mb-4">3. Synchronicity of Nested Cycles</h3>
+                <ul class="space-y-2 mb-4 text-sm md:text-base">
+                    <li><strong>Loại:</strong> Phân tích Đa khung (Multi-timeframe Analysis)</li>
+                    <li><strong>Mục tiêu test:</strong> Phối hợp các chu kỳ Thịnh-Suy lồng ghép từ Vĩ mô đến Vi mô.</li>
+                    <li><strong>Supporting Data:</strong> Global Macro Trends, Sector Rotation Patterns.</li>
+                </ul>
+                <div class="bg-gray-50 p-4 italic text-dao-charcoal border-l-4 border-gray-200 justified">
+                    "Assess the analytical depth of the module in coordinating macro and micro cycles of 'Thinh' (Prosperity) and 'Suy' (Decline), ensuring that the system perceives the market as a holistic entity where every movement is interconnected."
+                </div>
+            </div>
+
+            <!-- Scenario 4 -->
+            <div class="scenario-card academic-border pl-6 py-2">
+                <h3 class="text-xl font-bold text-dao-ink mb-4">4. Fluid Intelligence Adaptability</h3>
+                <ul class="space-y-2 mb-4 text-sm md:text-base">
+                    <li><strong>Loại:</strong> Khả năng Thích ứng (Volatility Management)</li>
+                    <li><strong>Mục tiêu test:</strong> Phản ứng của hệ thống trong giai đoạn thị trường 'Hư vô' (Vô định).</li>
+                    <li><strong>Supporting Data:</strong> Real-time volatility index, Liquidity flow data.</li>
+                </ul>
+                <div class="bg-gray-50 p-4 italic text-dao-charcoal border-l-4 border-gray-200 justified">
+                    "Evaluate the module's response to volatile 'void' periods in the market. This scenario checks if the system maintains a 'Wu Wei' (effortless action) approach, adjusting its projections without artificial resistance to the prevailing market current."
+                </div>
+            </div>
+
+            <!-- Scenario 5 -->
+            <div class="scenario-card academic-border pl-6 py-2">
+                <h3 class="text-xl font-bold text-dao-ink mb-4">5. Potentiality Recognition in Troughs</h3>
+                <ul class="space-y-2 mb-4 text-sm md:text-base">
+                    <li><strong>Loại:</strong> Nhận diện Cơ hội (Bottom Discovery)</li>
+                    <li><strong>Mục tiêu test:</strong> Xác minh khả năng nhận diện 'Đại thụ tinh thần' tại đáy chu kỳ.</li>
+                    <li><strong>Supporting Data:</strong> Accumulation phase indicators, Whale wallet movements.</li>
+                </ul>
+                <div class="bg-gray-50 p-4 italic text-dao-charcoal border-l-4 border-gray-200 justified">
+                    "Verify the system's capacity to identify the 'Great Receptivity' within a market bottom. This scenario ensures the module detects the subtle gathering of strength that precedes a new cycle of growth, well before the trend becomes apparent to the unobservant."
+                </div>
+            </div>
+        </div>
+
+        <!-- Copy Block Section -->
+        <section class="mt-20">
+            <h2 class="text-sm font-bold text-dao-gold uppercase tracking-widest mb-4">Mã nguồn Kịch bản (Copy Script)</h2>
+            <div class="relative group">
+                <div class="absolute right-4 top-4">
+                    <button onclick="copyToClipboard()" class="bg-dao-charcoal text-white text-xs px-3 py-1 rounded hover:bg-dao-forest transition-colors flex items-center gap-2">
+                        <span>📋</span> Copy
+                    </button>
+                </div>
+                <pre id="code-block" class="bg-gray-900 text-gray-300 p-6 rounded-md overflow-x-auto text-sm leading-relaxed font-mono">
+{
+  "project": "Chu kỳ Thịnh - Suy",
+  "philosophy": "Daoist Investment Analysis",
+  "scenarios": [
+    "1. Cycle Transition Equilibrium",
+    "2. Natural Reversion Consistency",
+    "3. Synchronicity of Nested Cycles",
+    "4. Fluid Intelligence Adaptability",
+    "5. Potentiality Recognition in Troughs"
+  ],
+  "author": "phamhoanganhtokens.com"
+}</pre>
+            </div>
+        </section>
+
+        <!-- Footer / Philosophy -->
+        <div class="mt-24 pt-8 border-t border-gray-100 text-center">
+            <p class="text-dao-gold italic font-serif text-lg mb-2">"Phản giả Đạo chi động"</p>
+            <p class="text-xs text-gray-400 tracking-widest uppercase">Thanh tĩnh — Vô vi — Tự nhiên</p>
+            
+            <div class="mt-8 text-[10px] text-gray-300 uppercase tracking-tighter justified px-4 md:px-20 opacity-60">
+                DISCLAIMER: Nội dung này chỉ mang tính chất phân tích triết học và dữ liệu mô phỏng. Đầu tư tài chính luôn tiềm ẩn rủi ro. Chúng tôi không chịu trách nhiệm cho bất kỳ quyết định cá nhân nào dựa trên các kịch bản này.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set current date
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('vi-VN', options);
+
+        // Copy functionality
+        function copyToClipboard() {
+            const code = document.getElementById('code-block').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.currentTarget;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<span>Check</span> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
