@@ -246,7 +246,7 @@
             <div class="flex items-center gap-4">
                 <span class="text-xs font-mono-tech opacity-40">03</span>
                 <div class="h-px flex-1 bg-white/10"></div>
-                <h2 class="text-4xl font-light tracking-tight accent-gradient">THỊ TRƯỜNG THỜI GIAN THỰC</h2>
+                <h2 class="text-4xl font-light tracking-tight accent-gradient">BIỂU ĐỒ THỊ TRƯỜNG THỜI GIAN THỰC</h2>
             </div>
             <div class="liquid-glass p-6 rounded-3xl overflow-hidden" style="height: 620px;">
                 <div class="tradingview-widget-container h-full">
@@ -261,14 +261,18 @@
                       "height": "100%",
                       "isTransparent": true,
                       "showSymbolLogo": true,
+                      "showFloatingTooltip": true,
+                      "plotLineColorGrowing": "rgba(74, 222, 128, 1)",
+                      "plotLineColorFalling": "rgba(248, 113, 113, 1)",
+                      "gridLineColor": "rgba(255,255,255,0.05)",
+                      "scaleFontColor": "rgba(163, 163, 163, 1)",
                       "tabs": [
                         {
-                          "title": "VN Market",
+                          "title": "Tài sản chính",
                           "symbols": [
-                            { "s": "HOSE:VNINDEX", "d": "VN-Index" },
-                            { "s": "HOSE:FPT", "d": "FPT" },
-                            { "s": "HOSE:VCB", "d": "VCB" },
-                            { "s": "HOSE:HPG", "d": "HPG" }
+                            { "s": "TVC:GOLD", "d": "Vàng (XAUUSD)" },
+                            { "s": "TVC:USOIL", "d": "Dầu thô WTI" },
+                            { "s": "BINANCE:BTCUSDT", "d": "Bitcoin" }
                           ]
                         }
                       ]
@@ -276,6 +280,7 @@
                     </script>
                 </div>
             </div>
+            <p class="text-center text-xs opacity-50 font-mono-tech">Dữ liệu được cung cấp bởi TradingView • Cập nhật thời gian thực</p>
         </section>
 
     </main>
