@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Phân tích Rủi ro - AI Đầu Tư</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#002147',
+                        accent: '#C5A059',
+                        bgPaper: '#F4F4F4',
+                        highRisk: '#c0392b',
+                        safeZone: '#27ae60',
+                    },
+                    fontFamily: {
+                        serif: ['"Times New Roman"', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #e5e7eb; }
+        .paper { background-color: #ffffff; }
+        .justified { text-align: justify; }
+        .hr-custom { border-bottom: 2px solid #C5A059; }
+    </style>
+</head>
+<body class="py-10 px-4">
+
+    <div class="paper max-w-[900px] mx-auto shadow-2xl p-8 md:p-16 border border-gray-200">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center border-b border-gray-300 pb-6 mb-8">
+            <div class="font-bold text-2xl text-primary tracking-wider">AI ĐẦU TƯ</div>
+            <div class="text-sm text-gray-600 font-serif" id="current-date"></div>
+        </header>
+
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-primary mb-12 uppercase">BÁO CÁO PHÂN TÍCH QUẢN TRỊ RỦI RO</h1>
+
+        <!-- Section 1: Kelly Analysis -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold text-primary mb-4 hr-custom inline-block">1. Phân tích định lượng (Mô hình Kelly)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <div class="border border-gray-200 p-6 text-center hover:shadow-lg transition-shadow">
+                    <p class="text-sm text-gray-500 uppercase mb-2">Full Kelly</p>
+                    <p class="text-2xl font-bold text-primary">49.375%</p>
+                    <p class="text-xs italic mt-1">3,950,000 VNĐ</p>
+                </div>
+                <div class="border border-gray-200 p-6 text-center hover:shadow-lg transition-shadow">
+                    <p class="text-sm text-gray-500 uppercase mb-2">Half Kelly</p>
+                    <p class="text-2xl font-bold text-primary">24.6875%</p>
+                    <p class="text-xs italic mt-1">1,975,000 VNĐ</p>
+                </div>
+                <div class="border border-gray-200 p-6 text-center hover:shadow-lg transition-shadow">
+                    <p class="text-sm text-gray-500 uppercase mb-2">Quarter Kelly</p>
+                    <p class="text-2xl font-bold text-primary">12.34%</p>
+                    <p class="text-xs italic mt-1">987,500 VNĐ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Risk & Survival -->
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold text-primary hr-custom inline-block">2. Đánh giá Rủi ro & Sinh tồn</h2>
+                <span class="bg-highRisk text-white px-4 py-1 text-sm font-bold rounded-sm">RỦI RO CAO</span>
+            </div>
+            <p class="text-gray-800 leading-7 justified font-serif">
+                Dựa trên triết lý "Survival First", báo cáo xác định chỉ số <strong>Risk of Ruin</strong> đang ở mức <strong>20.08%</strong>. Đây là con số không thể chấp nhận đối với một danh mục ưu tiên bảo toàn vốn. Việc tập trung quá mức vào meme coin giai đoạn này tiềm ẩn rủi ro "đu đỉnh" do sự quá nhiệt trên thị trường mạng xã hội.
+            </p>
+        </section>
+
+        <!-- Section 3: Recommendations -->
+        <section class="mb-12 bg-blue-50 p-8 rounded-sm">
+            <h2 class="text-xl font-bold text-primary mb-6 hr-custom inline-block">3. Khuyến nghị Hành động</h2>
+            <ul class="space-y-4 font-serif">
+                <li class="flex items-start">
+                    <span class="text-primary mr-2 font-bold">•</span>
+                    <span class="justified"><strong>Mức tối đa (Aggressive):</strong> Không vượt quá Quarter Kelly (987,500 VNĐ) để đảm bảo ngưỡng tổn thất giới hạn.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-primary mr-2 font-bold">•</span>
+                    <span class="justified"><strong>Mức an toàn (Conservative):</strong> Phân bổ từ 5% - 8% tổng vốn (400,000 - 640,000 VNĐ).</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-primary mr-2 font-bold">•</span>
+                    <span class="justified"><strong>Chiến lược thoát:</strong> Thực hiện chốt lời từng phần (DCA out) ngay khi đạt ngưỡng mục tiêu để thu hồi vốn gốc.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 border-t border-gray-300 text-center">
+            <p class="text-primary italic font-serif mb-4">"Trong thị trường biến động, việc tồn tại để đầu tư vào ngày mai quan trọng hơn việc thắng lớn hôm nay."</p>
+            <a href="www.phamhoanganhtokens.com" target="_blank" class="text-accent font-bold hover:underline">www.phamhoanganhtokens.com</a>
+        </footer>
+    </div>
+
+    <script>
+        // Set date
+        const date = new Date().toLocaleDateString('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('current-date').innerText = `Ngày: ${date}`;
+    </script>
+</body>
+</html>
