@@ -3,124 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo Cáo Phân Tích Đầu Tư: NovaWorld Hồ Tràm</title>
+    <title>Báo cáo Đầu tư Bất động sản: NovaWorld Hồ Tràm</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap');
+        
         body {
             font-family: 'Times New Roman', serif;
+            background-color: #f9f9f9;
+            color: #4a4a4a;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', serif;
+            color: #1a2b3c;
+            font-weight: 700;
+        }
+
+        .justify-text {
             text-align: justify;
-            background-color: #f8fafc;
         }
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            text-align: left;
+
+        .premium-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
         }
-        .report-section {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+        .premium-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: #c5a059;
         }
-        .table-border {
-            border: 1px solid #e2e8f0;
+
+        .gold-text { color: #c5a059; }
+        .navy-text { color: #1a2b3c; }
+
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
         }
     </style>
 </head>
-<body class="text-slate-800 leading-relaxed py-10 px-4 md:px-12">
+<body class="py-10">
 
-    <main class="max-w-4xl mx-auto">
+    <div class="max-w-[900px] mx-auto bg-white shadow-2xl p-8 md:p-16">
         <!-- Header -->
-        <header class="mb-12 text-center border-b-2 border-slate-900 pb-8">
-            <h1 class="text-4xl md:text-5xl text-slate-900 mb-4">BÁO CÁO PHÂN TÍCH ĐẦU TƯ</h1>
-            <p class="text-xl text-slate-600 font-serif">DỰ ÁN NOVAWORLD HỒ TRÀM</p>
+        <header class="border-b-2 border-slate-900 pb-8 mb-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-center md:text-left">
+                    <h1 class="text-3xl uppercase tracking-widest font-bold text-[#1a2b3c]">AI ĐẦU TƯ BĐS</h1>
+                    <p class="text-sm uppercase tracking-tighter">PHẠM HOÀNG ANH</p>
+                </div>
+                <div class="text-center md:text-right text-sm">
+                    <p class="font-bold underline text-[#c5a059]">www.phamhoanganhtokens.com</p>
+                    <p class="mt-1">Ngày báo cáo: 24/05/2024</p>
+                </div>
+            </div>
         </header>
 
-        <!-- 1. Tổng quan -->
-        <section class="report-section p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-slate-900 pl-4">1. TỔNG QUAN DỰ ÁN</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <p><strong>Tên dự án:</strong> NovaWorld Hồ Tràm.</p>
-                    <p><strong>Phát triển bởi:</strong> Tập đoàn Novaland.</p>
-                    <p><strong>Vị trí:</strong> Dọc cung đường ven biển Bình Châu – Lộc An, huyện Xuyên Mộc, tỉnh Bà Rịa – Vũng Tàu.</p>
-                </div>
-                <div>
-                    <p><strong>Quy mô:</strong> Khoảng 1.000 ha, chia làm 10 phân kỳ (Tropicana, Wonderland, Morito, Habana Island, v.v.).</p>
-                    <p><strong>Loại hình:</strong> Biệt thự nghỉ dưỡng, Shophouse, Nhà phố ven biển.</p>
-                    <p><strong>Tình trạng:</strong> Đã bàn giao một số phân khu, đang tái cấu trúc.</p>
-                </div>
+        <!-- Hero Section -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl mb-6">BÁO CÁO ĐẦU TƯ BẤT ĐỘNG SẢN: <br><span class="text-[#c5a059]">NOVAWORLD HỒ TRÀM</span></h1>
+            <div class="inline-flex items-center justify-center p-6 border-2 border-[#c5a059] rounded-full w-32 h-32 bg-[#1a2b3c] shadow-lg">
+                <span class="text-white text-3xl font-bold">4.2<span class="text-sm">/10</span></span>
             </div>
+            <p class="mt-6 text-xl italic max-w-2xl mx-auto">"Tiềm năng vị trí chiến lược bị lu mờ bởi rủi ro pháp lý và thanh khoản cao trong ngắn hạn."</p>
         </section>
 
-        <!-- 2 & 3. Điểm đánh giá -->
-        <section class="report-section p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-slate-900 pl-4">2 & 3. ĐIỂM ĐÁNH GIÁ & BẢNG CHI TIẾT</h2>
-            <div class="text-center mb-8">
-                <div class="text-6xl font-bold text-slate-900 mb-2">6.8<span class="text-2xl text-slate-400">/10</span></div>
-                <p class="italic text-slate-600">Dự án sở hữu tiềm năng vị trí xuất sắc và quy mô hàng đầu, tuy nhiên đang đối mặt với những thách thức lớn về dòng tiền.</p>
-            </div>
+        <!-- Project Overview -->
+        <section class="mb-16">
+            <h2 class="text-2xl border-l-4 border-[#c5a059] pl-4 mb-6">I. TỔNG QUAN DỰ ÁN</h2>
+            <p class="justify-text text-lg">NovaWorld Hồ Tràm là tổ hợp du lịch nghỉ dưỡng và giải trí quy mô lớn lên đến 1.000 ha, do Tập đoàn Novaland làm chủ đầu tư. Dự án cung cấp ra thị trường nguồn cung khổng lồ về dòng sản phẩm "second-home" cao cấp, được chia thành 10 phân kỳ với các chủ đề đa dạng như The Tropicana, Wonderland, Morito, Habana Island và Long Island.</p>
+        </section>
+
+        <!-- Deep Analysis Grid -->
+        <section class="mb-16">
+            <h2 class="text-2xl border-l-4 border-[#c5a059] pl-4 mb-8">II. PHÂN TÍCH CHUYÊN SÂU</h2>
             
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm table-border">
-                    <thead>
-                        <tr class="bg-slate-100">
-                            <th class="p-4 text-left">Chỉ số phân tích</th>
-                            <th class="p-4 text-center">Điểm (1-10)</th>
-                            <th class="p-4 text-left">Nhận xét chính</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200">
-                        <tr><td class="p-4">Pháp lý (Legal)</td><td class="p-4 text-center font-bold">6.0</td><td class="p-4">Đã có 1/500; đất TMDV 50 năm.</td></tr>
-                        <tr><td class="p-4">Tài chính (Financial)</td><td class="p-4 text-center font-bold">5.5</td><td class="p-4">Áp lực nợ vay lớn; dòng tiền chưa tối ưu.</td></tr>
-                        <tr><td class="p-4">Vị trí (Location)</td><td class="p-4 text-center font-bold">9.0</td><td class="p-4">Đắc địa, kết nối nhanh TP.HCM/Sân bay.</td></tr>
-                        <tr><td class="p-4">Thị trường (Market)</td><td class="p-4 text-center font-bold">7.0</td><td class="p-4">Nguồn cung đang dư thừa ngắn hạn.</td></tr>
-                        <tr><td class="p-4">Phong thủy (Feng Shui)</td><td class="p-4 text-center font-bold">8.5</td><td class="p-4">Thế đất "Tựa sơn hướng thủy".</td></tr>
-                        <tr><td class="p-4">Quản trị rủi ro (Risk)</td><td class="p-4 text-center font-bold">5.0</td><td class="p-4">Phụ thuộc lớn vào sức khỏe Novaland.</td></tr>
-                    </tbody>
-                </table>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Analysis Card 1 -->
+                <div class="premium-card p-6">
+                    <h3 class="text-xl mb-3">1. Vị trí & Kết nối</h3>
+                    <p class="justify-text text-sm">Tọa lạc trên tuyến đường ven biển Lộc An - Bình Châu. Tiềm năng đột phá từ cao tốc Biên Hòa - Vũng Tàu và Sân bay Long Thành.</p>
+                </div>
+                <!-- Analysis Card 2 -->
+                <div class="premium-card p-6">
+                    <h3 class="text-xl mb-3">2. Pháp lý</h3>
+                    <p class="justify-text text-sm">Đang đối mặt với nút thắt quy hoạch và chậm trễ Sổ hồng. <img src='https://opal.google/board/blobs/3b0a9074-51bf-4832-9c75-b0ababc83c22' alt='Tình trạng pháp lý' class="mt-2 w-full h-auto rounded opacity-80" /></p>
+                </div>
+                <!-- Analysis Card 3 -->
+                <div class="premium-card p-6">
+                    <h3 class="text-xl mb-3">3. Tài chính & Giá bán</h3>
+                    <p class="justify-text text-sm">Giá từ 107-135 triệu/m2. ROI từ cho thuê hiện chưa đạt kỳ vọng do hệ sinh thái chưa hoàn thiện.</p>
+                </div>
+                <!-- Analysis Card 4 -->
+                <div class="premium-card p-6">
+                    <h3 class="text-xl mb-3">4. Thị trường</h3>
+                    <p class="justify-text text-sm">Tâm lý nhà đầu tư thận trọng. Áp lực cạnh tranh từ Ixora, Charm Resort.</p>
+                </div>
+                <!-- Analysis Card 5 -->
+                <div class="premium-card p-6">
+                    <h3 class="text-xl mb-3">5. Phong thủy</h3>
+                    <p class="justify-text text-sm">Địa thế "Tựa sơn hướng thủy", đặc biệt tại Habana Island mang thế "Thủy tụ" tài lộc.</p>
+                </div>
+                <!-- Analysis Card 6 -->
+                <div class="premium-card p-6">
+                    <h3 class="text-xl mb-3">6. Rủi ro</h3>
+                    <p class="justify-text text-sm">Rủi ro chôn vốn, tranh chấp hạ tầng và chậm tiến độ bàn giao.</p>
+                </div>
             </div>
         </section>
 
-        <!-- 4. Phân tích chuyên sâu -->
-        <section class="report-section p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-6 text-slate-900 border-l-4 border-slate-900 pl-4">4. PHÂN TÍCH CHUYÊN SÂU</h2>
-            <div class="space-y-6">
-                <div><h3 class="font-bold text-lg underline">PHÁP LÝ (LEGAL)</h3><p>Dự án cơ bản đầy đủ các hồ sơ quy hoạch chi tiết 1/500. Rào cản lớn nhất là việc hoàn tất nghĩa vụ tài chính và thủ tục cấp sổ cho khách hàng. Quyền sở hữu 50 năm.</p></div>
-                <div><h3 class="font-bold text-lg underline">TÀI CHÍNH (FINANCIAL)</h3><p>Mô hình dựa trên kỳ vọng du lịch nghỉ dưỡng. Các nhà đầu tư sử dụng đòn bẩy đang chịu áp lực lớn từ lãi vay khi lợi nhuận khai thác chưa tối ưu.</p></div>
-                <div><h3 class="font-bold text-lg underline">VỊ TRÍ (LOCATION)</h3><p>Khoảng cách 2 giờ từ TP.HCM, 60 phút từ sân bay Long Thành. Hạ tầng (Cao tốc Biên Hòa - Vũng Tàu, đường ven biển) là động cơ tăng giá trung hạn.</p></div>
-                <div><h3 class="font-bold text-lg underline">THỊ TRƯỜNG (MARKET)</h3><p>Tiện ích khổng lồ nhưng phân khúc nghỉ dưỡng hạng sang chững lại, dẫn đến nhiều hàng "cắt lỗ" 20-40% trên thị trường thứ cấp.</p></div>
-                <div><h3 class="font-bold text-lg underline">PHONG THỦY (FENG SHUI)</h3><p>Hài hòa rừng và biển. Các dòng nước nhân tạo (lagoon) tạo sự cân bằng âm dương, đặc biệt là phân kỳ Habana Island.</p></div>
-                <div><h3 class="font-bold text-lg underline">RỦI RO (RISK)</h3><p>Trì trệ trong hoàn thiện tiện ích do thiếu dòng tiền. Rủi ro thanh khoản cao là thực tế nhà đầu tư phải đối mặt.</p></div>
+        <!-- Scenarios -->
+        <section class="mb-16">
+            <h2 class="text-2xl border-l-4 border-[#c5a059] pl-4 mb-8">III. KỊCH BẢN ĐẦU TƯ</h2>
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="premium-card p-6 flex-1 hover:bg-green-50">
+                    <h4 class="font-bold text-green-700 mb-2">Lạc quan</h4>
+                    <p class="text-xs justify-text">Hạ tầng Long Thành đẩy mạnh, pháp lý hoàn tất, du lịch bùng nổ.</p>
+                </div>
+                <div class="premium-card p-6 flex-1 hover:bg-yellow-50">
+                    <h4 class="font-bold text-yellow-600 mb-2">Cơ sở</h4>
+                    <p class="text-xs justify-text">Thanh khoản chậm, chờ đợi sự đồng bộ tiện ích trong 2-3 năm tới.</p>
+                </div>
+                <div class="premium-card p-6 flex-1 hover:bg-red-50">
+                    <h4 class="font-bold text-red-600 mb-2">Bi quan</h4>
+                    <p class="text-xs justify-text">Rào cản pháp lý kéo dài, dòng tiền cho thuê tiếp tục âm.</p>
+                </div>
             </div>
         </section>
 
-        <!-- 5, 6, 7 -->
-        <div class="grid md:grid-cols-2 gap-8 mb-8">
-            <section class="report-section p-8">
-                <h2 class="text-xl font-bold mb-4">5. MA TRẬN RỦI RO</h2>
-                <ul class="list-disc pl-5 space-y-2">
-                    <li>Chủ đầu tư: Trung bình</li>
-                    <li>Thanh khoản: Cao</li>
-                    <li>Hạ tầng: Thấp</li>
-                </ul>
-            </section>
-            <section class="report-section p-8">
-                <h2 class="text-xl font-bold mb-4">6. KỊCH BẢN ĐẦU TƯ</h2>
-                <p><strong>Lạc quan:</strong> Phục hồi 2025-2026, giá trị tăng 30-50%.</p>
-                <p><strong>Bi quan:</strong> Tái cấu trúc kéo dài, chôn vốn dài hạn.</p>
-            </section>
-        </div>
-
-        <section class="report-section p-8 bg-slate-900 text-white">
-            <h2 class="text-2xl font-bold mb-6">7. KHUYẾN NGHỊ NHÀ ĐẦU TƯ</h2>
-            <p class="mb-4">Đối với nhà đầu tư đang có hàng: Ưu tiên giữ tài sản, tránh bán tháo. Đối với nhà đầu tư mới: Đây là thời điểm săn hàng cắt lỗ sâu từ người ngộp tài chính, dùng vốn tự có (không đòn bẩy).</p>
+        <!-- Recommendations -->
+        <section class="bg-slate-50 p-8 rounded-lg border border-slate-200">
+            <h2 class="text-2xl border-l-4 border-[#c5a059] pl-4 mb-6">IV. KHUYẾN NGHỊ CHIẾN LƯỢC</h2>
+            <ul class="list-disc pl-5 space-y-4">
+                <li class="justify-text"><strong>Mua mới:</strong> Không khuyến nghị thị trường sơ cấp. Chỉ săn hàng "cắt lỗ" thứ cấp đã có sổ.</li>
+                <li class="justify-text"><strong>Nắm giữ:</strong> Duy trì nếu tài chính mạnh, chờ đợi điểm rơi hạ tầng Sân bay Long Thành.</li>
+                <li class="justify-text"><strong>Thoát hàng:</strong> Cần ưu tiên cắt lỗ nếu đang chịu áp lực lãi vay lớn từ đòn bẩy ngân hàng.</li>
+            </ul>
         </section>
 
-        <section class="mt-8 p-8 border-t border-slate-300">
-            <h2 class="text-2xl font-bold mb-4">8. KẾT LUẬN</h2>
-            <p>NovaWorld Hồ Tràm là dự án "High Risk - High Reward". Không phải khoản đầu tư lướt sóng, mà là tài sản tích lũy dài hạn. Nhà đầu tư cần tầm nhìn từ 3-5 năm.</p>
-        </section>
-    </main>
+        <footer class="mt-16 pt-8 border-t border-slate-200 text-center">
+            <p class="text-sm text-slate-500 uppercase italic">Cần tư vấn Due Diligence chuyên sâu? Liên hệ đội ngũ chuyên gia của chúng tôi ngay hôm nay.</p>
+            <button class="mt-4 px-8 py-3 bg-[#1a2b3c] text-white hover:bg-[#c5a059] transition-colors">YÊU CẦU TƯ VẤN</button>
+        </footer>
+    </div>
 
 </body>
 </html>
