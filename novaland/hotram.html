@@ -1,1 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Phân tích Đầu tư | AI Đầu Tư</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
 
+        .justify-text {
+            text-align: justify;
+        }
+
+        .section-divider {
+            border-bottom: 2px solid #002147;
+            width: 50px;
+            margin: 20px 0;
+        }
+
+        .executive-gold {
+            color: #C5A059;
+        }
+
+        .bg-navy {
+            background-color: #002147;
+        }
+
+        .text-navy {
+            color: #002147;
+        }
+
+        /* Styling the report sections */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #002147;
+        }
+    </style>
+</head>
+<body class="py-10 px-4 md:px-8">
+
+    <!-- Back to Top Button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-8 right-8 bg-[#002147] text-white p-3 rounded-full shadow-lg hover:bg-[#C5A059] transition-all z-50 hidden md:block">
+        ↑
+    </button>
+
+    <div class="max-w-[900px] mx-auto bg-white shadow-2xl p-8 md:p-16 border border-gray-200">
+        
+        <!-- Header -->
+        <header class="text-center mb-16 border-b-4 border-[#002147] pb-8">
+            <h3 class="text-sm tracking-[0.3em] uppercase executive-gold mb-2">AI Software Development</h3>
+            <h1 class="text-4xl md:text-5xl font-bold text-[#002147] mb-4">AI ĐẦU TƯ - MASTER AI EXECUTOR</h1>
+            <div class="inline-block bg-[#002147] text-white px-6 py-2 text-sm uppercase tracking-widest mb-6">
+                Báo cáo Phân tích Đầu tư: Dự án Novaworld Hồ Tràm
+            </div>
+            <div class="text-sm italic text-gray-600">
+                <p><strong>Người thực hiện:</strong> AI Đầu Tư (Master AI Executor)</p>
+                <p><strong>Đối tượng:</strong> CEO Phạm Hoàng Anh</p>
+                <p><strong>Ngày báo cáo:</strong> 05/06/2026</p>
+            </div>
+        </header>
+
+        <!-- Table of Contents -->
+        <nav class="bg-gray-50 p-6 mb-12 border-l-4 border-[#C5A059]">
+            <h4 class="font-bold text-[#002147] mb-2 uppercase text-lg">Mục lục</h4>
+            <ul class="space-y-1 text-sm">
+                <li><a href="#section-1" class="hover:text-[#C5A059]">1. Tóm tắt điều hành</a></li>
+                <li><a href="#section-2" class="hover:text-[#C5A059]">2. Phân tích tình hình hiện tại</a></li>
+                <li><a href="#section-3" class="hover:text-[#C5A059]">3. Thông tin chi tiết & Lợi thế</a></li>
+                <li><a href="#section-4" class="hover:text-[#C5A059]">4. Phân tích kịch bản</a></li>
+                <li><a href="#section-5" class="hover:text-[#C5A059]">5. Khuyến nghị</a></li>
+                <li><a href="#section-6" class="hover:text-[#C5A059]">6. Đánh giá rủi ro</a></li>
+                <li><a href="#section-7" class="hover:text-[#C5A059]">7. Hành động tiếp theo</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <section id="section-1" class="bg-gray-50 p-8 rounded-sm">
+                <h2 class="text-2xl font-bold mb-4">1. Tóm tắt điều hành (Executive Summary)</h2>
+                <p class="justify-text">NovaWorld Hồ Tràm (1.000ha) là dự án trọng điểm của Tập đoàn Novaland tại Bà Rịa – Vũng Tàu, đang ở giai đoạn "bản lề" của quá trình hồi phục sau khủng hoảng 2022-2024. Mặc dù các nút thắt pháp lý lớn đã được tháo gỡ thành công vào đầu năm 2026, dự án vẫn đối mặt với thách thức lớn về dòng tiền thi công và niềm tin thị trường. Báo cáo này xác định: Cơ hội nằm ở giá trị hạ tầng dài hạn, nhưng rủi ro thanh khoản ngắn hạn vẫn ở mức cao. Chiến lược đề xuất là "Phân hóa danh mục", ưu tiên quản trị dòng tiền thay vì kỳ vọng lợi nhuận đột biến trong 12 tháng tới.</p>
+            </section>
+
+            <section id="section-2">
+                <h2 class="text-2xl font-bold mb-4">2. Phân tích tình hình hiện tại</h2>
+                <ul class="space-y-4 list-disc pl-5">
+                    <li><strong>Pháp lý:</strong> Đã đạt bước tiến quan trọng với việc hoàn thành quy hoạch 1/500, nghĩa vụ tài chính đất đai và giấy phép xây dựng toàn diện. Mục tiêu hoàn tất bàn giao sổ hồng dự kiến vào quý III/2026.</li>
+                    <li><strong>Tiến độ:</strong> Tốc độ xây dựng thực tế vẫn khá chậm. Kế hoạch bàn giao năm 2026 chỉ khoảng 104 căn.</li>
+                    <li><strong>Tài chính:</strong> Lợi nhuận dương trong quý I/2026 (860 tỷ đồng), nhưng áp lực nợ trái phiếu và yêu cầu gia hạn nợ quốc tế cho thấy tính thanh khoản chưa hoàn toàn ổn định.</li>
+                    <li><strong>Tâm lý:</strong> Nhà đầu tư trong trạng thái "mắc kẹt" tài chính, dẫn đến áp lực bán tháo cắt lỗ.</li>
+                </ul>
+            </section>
+
+            <section id="section-3">
+                <h2 class="text-2xl font-bold mb-4">3. Thông tin chi tiết & Xác định lợi thế</h2>
+                <div class="justify-text space-y-4">
+                    <p><strong>Lợi thế Hạ tầng:</strong> Tuyến đường ven biển ĐT 994 đang mở rộng và cao tốc Biên Hòa - Vũng Tàu sắp hoàn thiện là "ngòi nổ" cho giá trị bất động sản.</p>
+                    <p><strong>Lợi thế Vị trí:</strong> Sự khan hiếm quỹ đất ven biển quy mô lớn kết hợp hệ sinh thái nghỉ dưỡng đã hình thành.</p>
+                    <p><strong>Điểm trũng giá:</strong> Thị trường thứ cấp ghi nhận mức cắt lỗ 30-40%. Đây là "điểm vào" hấp dẫn với biên an toàn cao hơn so với giá đỉnh 2022.</p>
+                </div>
+            </section>
+
+            <section id="section-4">
+                <h2 class="text-2xl font-bold mb-4">4. Phân tích các phương án và Kịch bản</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-4 border-l-4 border-green-600 bg-gray-50">
+                        <h3 class="font-bold text-green-700">Lạc quan</h3>
+                        <p class="text-sm">Tăng vốn thành công, hạ tầng đồng bộ. Giá tăng 20-30% giai đoạn 2027-2028.</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-yellow-600 bg-gray-50">
+                        <h3 class="font-bold text-yellow-700">Cơ sở</h3>
+                        <p class="text-sm">Phục hồi chậm, bàn giao nhỏ giọt. Giá đi ngang hoặc tăng nhẹ.</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-red-600 bg-gray-50">
+                        <h3 class="font-bold text-red-700">Tiêu cực</h3>
+                        <p class="text-sm">Khó khăn huy động vốn, kéo dài tiến độ 2-3 năm. Áp lực bán tháo tiếp tục.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-5">
+                <h2 class="text-2xl font-bold mb-4">5. Khuyến nghị</h2>
+                <p class="justify-text italic mb-4 text-gray-700">AI Đầu Tư đề xuất chiến lược "Phân hóa danh mục" dựa trên vị thế tài chính:</p>
+                <div class="space-y-4">
+                    <p>• <strong>Đang sở hữu:</strong> Nếu không áp lực nợ vay, hãy <strong>HOLD</strong> chờ hạ tầng 2027. Nếu kiệt quệ, hãy <strong>EXIT</strong> sớm.</p>
+                    <p>• <strong>Mua mới:</strong> Khuyến nghị <strong>BUY</strong> tại thị trường thứ cấp. Chỉ chọn sản phẩm đã hoàn thiện hoặc sắp ra sổ.</p>
+                    <p>• <strong>Nguyên tắc:</strong> 100% vốn tự có, không đòn bẩy, tầm nhìn 3-5 năm.</p>
+                </div>
+            </section>
+
+            <section id="section-6">
+                <h2 class="text-2xl font-bold mb-4">6. Đánh giá và Giảm thiểu rủi ro</h2>
+                <table class="w-full border-collapse border border-gray-300 text-sm">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border p-2">Rủi ro</th>
+                            <th class="border p-2">Biện pháp giảm thiểu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border p-2 font-bold">Chủ đầu tư</td>
+                            <td class="border p-2">Chỉ giải ngân khi có tín hiệu dòng tiền mới.</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2 font-bold">Thanh khoản</td>
+                            <td class="border p-2">Phân bổ không quá 20% danh mục vào BĐS nghỉ dưỡng.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="section-7" class="border-t border-gray-300 pt-8">
+                <h2 class="text-2xl font-bold mb-4">7. Các hành động tiếp theo</h2>
+                <div class="bg-[#002147] text-white p-6 rounded-lg">
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li><strong>Rà soát danh mục (Ngay lập tức):</strong> Kiểm tra pháp lý từng mã căn hộ.</li>
+                        <li><strong>Khảo sát giá (Tháng 6/2026):</strong> Xác định vùng giá đáy thực tế.</li>
+                        <li><strong>Cơ cấu nợ:</strong> Làm việc với ngân hàng để giãn nợ (đối với nhà đầu tư cũ).</li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 border-t border-gray-300 text-center text-xs text-gray-500">
+            <p>Official Information Portal: www.phamhoanganhtokens.com</p>
+            <p class="font-bold mt-2">STRICTLY CONFIDENTIAL / INTERNAL USE ONLY</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
