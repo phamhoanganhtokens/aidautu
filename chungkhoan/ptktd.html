@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo Cáo Phân Tích & Chiến Lược Đầu Tư Chứng Khoán</title>
+    <title>Báo Cáo Phân Tích & Chiến Lược Đầu Tư - Phạm Hoàng Anh</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,8 +12,7 @@
                     colors: {
                         navy: '#1a2b3c',
                         slate: '#546e7a',
-                        accent: '#2d6a4f',
-                        alert: '#a4161a'
+                        accent: '#2c7a7b'
                     },
                     fontFamily: {
                         serif: ['"Times New Roman"', 'Times', 'serif']
@@ -23,144 +22,107 @@
         }
     </script>
     <style>
-        body { background-color: #f4f4f7; }
-        .document-container { max-width: 900px; margin: 2rem auto; background: white; padding: 4rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
-        .justified { text-align: justify; }
-        h1, h2, h3 { color: #1a2b3c; }
-        .border-b-custom { border-bottom: 1px solid #e2e8f0; }
-        .callout { background-color: #f8fafc; border-left: 4px solid #1a2b3c; padding: 1.5rem; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+        body { font-family: 'Times New Roman', Times, serif; background-color: #f4f4f7; }
+        .document-container { max-width: 900px; margin: 2rem auto; background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .text-justify { text-align: justify; }
+        .table-border { border-collapse: collapse; width: 100%; }
+        .table-border th, .table-border td { border: 1px solid #e2e8f0; padding: 12px; }
+        .table-header { background-color: #1a2b3c; color: white; }
     </style>
 </head>
-<body class="font-serif">
+<body class="p-4 md:p-8">
 
-    <main class="document-container">
+    <div class="document-container p-8 md:p-16">
         <!-- Header -->
-        <header class="mb-10 text-center border-b-2 border-navy pb-8">
-            <p class="text-xs uppercase tracking-widest text-slate font-bold mb-2">AI Software Development</p>
-            <h1 class="text-4xl font-bold mb-2 text-navy">BÁO CÁO PHÂN TÍCH & CHIẾN LƯỢC ĐẦU TƯ CHỨNG KHOÁN</h1>
-            <p class="text-lg text-slate italic mb-4">AI Stock Investment Advisor — July 22, 2026</p>
-            <div class="text-sm border-t pt-4">
-                <p><strong>Analyst:</strong> Phạm Hoàng Anh — Master AI Agent</p>
-            </div>
+        <header class="border-b-2 border-navy pb-8 mb-8 text-center">
+            <p class="text-slate uppercase tracking-widest text-sm mb-2">AI Software Development</p>
+            <h1 class="text-4xl font-bold text-navy mb-4">BÁO CÁO PHÂN TÍCH & CHIẾN LƯỢC ĐẦU TƯ CHỨNG KHOÁN</h1>
+            <p class="text-slate italic">AI Stock Investment Advisor | Ngày: 24 tháng 5, 2024</p>
         </header>
 
-        <!-- Content -->
-        <article class="space-y-8">
-            <section>
-                <h2 class="text-2xl font-bold mb-4 border-b-custom pb-2">1. Technical Analysis</h2>
-                <p class="justified leading-relaxed mb-4">
-                    The analysis of the market snapshot (<img src='https://phamhoanganhtokens.github.io/aidautu/chungkhoan/image/vietstocka.png' alt='media_1' class="inline-block w-full my-4 border shadow-sm" />) 
-                    and the sharp 66-point decline indicates a <strong>Panic Distribution Phase</strong>.
-                </p>
-                <ul class="list-disc ml-6 space-y-2">
-                    <li><strong>Trend & Pattern:</strong> The VN-Index (1,664.55) has experienced a "Waterfall" decline. The sparkline index charts show a significant "Gap Down" with no meaningful intra-day recovery, suggesting strong selling pressure.</li>
-                    <li><strong>Heatmap Interpretation:</strong> The overwhelming red visualization in the FoamTree analysis confirms a systemic sell-off. Key pillars like <strong>VHM</strong> (-6.96%), <strong>VIC</strong> (-6.99%), and <strong>MWG</strong> (-6.98%) are hitting their "Floor" prices (Limit Down).</li>
-                    <li><strong>Volume Analysis:</strong> A high trading value of 23,047 Billion VND accompanied by this price drop confirms a "Supply Avalanche." The market has broken through immediate psychological support levels.</li>
-                </ul>
-            </section>
+        <!-- Intro -->
+        <section class="mb-10 text-justify">
+            <p class="font-bold text-navy">Chuyên viên AI: Phạm Hoàng Anh, Master AI Agent</p>
+            <p class="mt-4">Bản báo cáo này cung cấp cái nhìn sâu sắc về trạng thái thị trường hiện tại sau phiên biến động mạnh, kết hợp giữa mô hình phân tích định lượng và dữ liệu kỹ thuật để đưa ra hướng tiếp cận tối ưu cho danh mục đầu tư.</p>
+        </section>
 
-            <section>
-                <h2 class="text-2xl font-bold mb-4 border-b-custom pb-2">2. Fundamental Analysis</h2>
-                <ul class="list-disc ml-6 space-y-2">
-                    <li><strong>Foreign Capital Flow:</strong> A critical fundamental driver is the massive <strong>Foreign Net Selling of -1,942.75 Billion VND</strong>. This level of institutional withdrawal often precedes broader liquidity tightening.</li>
-                    <li><strong>Sector Health:</strong> 
-                        <ul class="list-circle ml-8 mt-2 space-y-1">
-                            <li><strong>Real Estate & Retail:</strong> High vulnerability detected; liquidity in these sectors is drying up as prices hit the floor.</li>
-                            <li><strong>Banking:</strong> Significant erosion in the "Big 4" and major commercial banks (VCB, CTG, VPB), indicating a shift in interest rate expectations or credit risk sentiment.</li>
-                            <li><strong>Defensive Assets:</strong> VNM (+1.71%) and the Energy sector (boosted by +1.85% Oil prices) are the only clusters showing resilience, acting as "safe havens" during the crash.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+        <!-- 1. Phân Tích Kỹ Thuật -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-navy mb-4 border-b border-gray-300 pb-2">1. Phân Tích Kỹ Thuật (Technical Analysis)</h2>
+            <p class="text-justify mb-4">Phiên giao dịch chiều ghi nhận mức giảm sốc 66.01 điểm (-3.81%) của VN-Index, đẩy chỉ số lùi sâu xuống mốc 1,664.55. Bản đồ nhiệt (heatmap) phân bổ dòng tiền trên giao diện FoamTree tràn ngập sắc đỏ đậm và xanh lơ (magenta/cyan), phản ánh trạng thái bán tháo hoảng loạn trên diện rộng (panic selling).</p>
+            <div class="my-6 border-l-4 border-navy bg-gray-50 p-4 shadow-inner">
+                <img src='https://opal.google/board/blobs/ab55a3e5-eab5-427d-9e63-ccadfb18acd0' alt='Biểu đồ kỹ thuật phân bổ dòng tiền' class="w-full rounded-sm" />
+            </div>
+            <p class="text-justify">Cấu trúc kỹ thuật bị phá vỡ nghiêm trọng khi các cổ phiếu Blue-chips mang tính dẫn dắt như VHM (-6.96%), VIC (-6.99%), và MWG (-6.98%) đồng loại giảm kịch sàn (lau sàn), cho thấy áp lực cung mất kiểm soát hoàn toàn.</p>
+        </section>
 
-            <section>
-                <h2 class="text-2xl font-bold mb-4 border-b-custom pb-2">3. Risk Assessment</h2>
-                <div class="callout mb-6">
-                    <h3 class="font-bold text-navy mb-2">Defensive Mode Triggers</h3>
-                    <ul class="text-sm space-y-1">
-                        <li><strong>Trigger 1:</strong> VN-Index breaking below key moving averages.</li>
-                        <li><strong>Trigger 2:</strong> Combined net selling from foreign investors exceeding 1,500 Billion VND (Met).</li>
-                        <li><strong>Action:</strong> Immediate activation of "Capital Protection Mode." Stop-loss orders should be honored for any assets down >7% from entry.</li>
-                    </ul>
-                </div>
-                <p class="justified"><strong>Quantitative Risk Metrics:</strong> Portfolio Beta stands at 1.33 (Highly sensitive). 1-Day Value at Risk (VaR 95%) is 4.54%.</p>
-            </section>
+        <!-- 2. Phân Tích Cơ Bản -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-navy mb-4 border-b border-gray-300 pb-2">2. Phân Tích Cơ Bản (Fundamental Analysis)</h2>
+            <ul class="list-disc pl-6 space-y-3 text-justify">
+                <li><strong>Ngân hàng (Banking) & Bất động sản (Real Estate):</strong> Bộc lộ sự suy yếu rõ rệt. Nhóm Bất động sản (VIC, VHM) giảm sàn phản ánh tâm lý e ngại cực độ về rủi ro dòng tiền và vĩ mô. Nhóm Ngân hàng, vốn là xương sống của chỉ số, cũng đồng loạt sụt giảm với biên độ lớn (VCB -3.88%, CTG -4.53%), xác nhận tình trạng rút vốn diện rộng.</li>
+                <li><strong>Bán lẻ (Retail):</strong> Hiện tượng giảm sàn tại MWG và PNJ cho thấy lo ngại sâu sắc về sức cầu tiêu dùng suy yếu hoặc sự thoái vốn đột ngột của dòng tiền lớn.</li>
+                <li><strong>Điểm sáng Phòng thủ:</strong> VNM (+1.71%) thể hiện xuất sắc vai trò "hầm trú ẩn" (safe haven). Dòng tiền thông minh có xu hướng đảo lớp, rút khỏi các tài sản rủi ro cao để tìm đến các doanh nghiệp có bộ đệm tiền mặt vững chắc.</li>
+            </ul>
+        </section>
 
-            <section>
-                <h2 class="text-2xl font-bold mb-4 border-b-custom pb-2">4. Portfolio Optimization</h2>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-navy text-white">
-                                <th class="p-3">Sector / Asset</th>
-                                <th class="p-3 text-center">Pre-Crash Weight</th>
-                                <th class="p-3 text-center">Optimized Weight</th>
-                                <th class="p-3">Strategic Pivot</th>
-                            </tr>
-                        </thead>
-                        <tbody class="border-b">
-                            <tr class="border-b">
-                                <td class="p-3">Real Estate (VHM, VIC)</td>
-                                <td class="p-3 text-center">30%</td>
-                                <td class="p-3 text-center font-bold">10%</td>
-                                <td class="p-3 text-xs">Liquidation to minimize floor-lock risk.</td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="p-3">Banking (VCB, CTG)</td>
-                                <td class="p-3 text-center">40%</td>
-                                <td class="p-3 text-center font-bold">25%</td>
-                                <td class="p-3 text-xs">Reduction to lower systematic exposure.</td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="p-3">Retail (MWG, PNJ)</td>
-                                <td class="p-3 text-center">15%</td>
-                                <td class="p-3 text-center font-bold">10%</td>
-                                <td class="p-3 text-xs">Defensive downsizing.</td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="p-3">Consumer (VNM)</td>
-                                <td class="p-3 text-center">10%</td>
-                                <td class="p-3 text-center font-bold text-accent">30%</td>
-                                <td class="p-3 text-xs font-semibold">Increase: Defensive alpha.</td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="p-3">Energy (PLX, BSR)</td>
-                                <td class="p-3 text-center">5%</td>
-                                <td class="p-3 text-center font-bold text-accent">10%</td>
-                                <td class="p-3 text-xs font-semibold">Increase: Hedging.</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3">Cash (Safety Cushion)</td>
-                                <td class="p-3 text-center">0%</td>
-                                <td class="p-3 text-center font-bold">15%</td>
-                                <td class="p-3 text-xs">Dry powder for recovery.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+        <!-- 3. Đánh Giá Rủi Ro -->
+        <section class="mb-10 p-6 bg-red-50 border-l-4 border-red-500">
+            <h2 class="text-2xl font-bold text-navy mb-4">3. Đánh Giá Rủi Ro (Risk Assessment)</h2>
+            <p class="text-justify mb-2"><strong>Rủi ro Margin Call & Thanh khoản:</strong> Mức sụt giảm xấp xỉ 4% đi kèm hiện tượng trắng bên mua ở hàng loạt cổ phiếu vốn hóa lớn sẽ kích hoạt hiệu ứng hòn tuyết lăn. Làn sóng gọi ký quỹ (Margin Call) và bán giải chấp chéo (Force Sell) dự kiến sẽ là rủi ro thanh khoản lớn nhất trong các phiên tới.</p>
+            <p class="text-justify mb-2"><strong>Chế độ Phòng thủ (Defensive Mode Triggers):</strong> Kích hoạt khi: (1) VN-Index không thể duy trì vùng hỗ trợ 1,660; (2) Các cổ phiếu dẫn dắt (VHM, VIC) tiếp tục bị treo bán sàn không có lực cầu hấp thụ.</p>
+            <p class="text-justify"><strong>Biện pháp:</strong> Tuân thủ tuyệt đối kỷ luật cắt lỗ. Dừng mọi hoạt động ký quỹ ngay lập tức.</p>
+        </section>
 
-            <section>
-                <h2 class="text-2xl font-bold mb-4 border-b-custom pb-2">5. Execution Strategies</h2>
-                <ol class="list-decimal ml-6 space-y-2">
-                    <li><strong>Immediate Liquidation:</strong> Execute market orders while liquidity remains.</li>
-                    <li><strong>Hedging:</strong> Short position in VN30F1M.</li>
-                    <li><strong>Accumulation Strategy:</strong> No "Average Down." Re-enter only on "Bottoming Tail."</li>
-                    <li><strong>Operational Disciplines:</strong> Hold 15% in high-liquidity cash equivalents.</li>
-                </ol>
-            </section>
+        <!-- 4. Tối Ưu Hóa Danh Mục -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-navy mb-4 border-b border-gray-300 pb-2">4. Tối Ưu Hóa Danh Mục (Portfolio Optimization)</h2>
+            <div class="overflow-x-auto">
+                <table class="table-border w-full text-sm">
+                    <thead>
+                        <tr class="table-header">
+                            <th class="text-left">Tài sản</th>
+                            <th>Tín hiệu</th>
+                            <th>Tỷ trọng cũ</th>
+                            <th>Tỷ trọng mới</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>VNM</td><td>+1.71%</td><td>16.6%</td><td>28.0%</td><td class="text-green-700 font-bold">Gia tăng</td></tr>
+                        <tr><td>FPT</td><td>-1.23%</td><td>16.6%</td><td>21.0%</td><td class="text-green-700 font-bold">Gia tăng</td></tr>
+                        <tr><td>HPG</td><td>-0.48%</td><td>16.6%</td><td>17.0%</td><td>Nắm giữ</td></tr>
+                        <tr><td>VCB</td><td>-3.88%</td><td>16.6%</td><td>14.0%</td><td class="text-red-700">Hạ tỷ trọng</td></tr>
+                        <tr><td>DIG</td><td>+1.38%</td><td>16.6%</td><td>11.0%</td><td class="text-red-700">Hạ tỷ trọng</td></tr>
+                        <tr><td>VHM</td><td>-6.96%</td><td>16.6%</td><td>9.0%</td><td class="text-red-700">Hạ tỷ trọng</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-            <section class="mt-12 pt-8 border-t border-slate">
-                <h2 class="text-xl font-bold mb-4 text-alert">Disclaimers</h2>
-                <p class="text-sm italic text-slate justified">
-                    Stock market investments carry inherent risks. Past performance is not indicative of future results. This analysis is generated for educational and informational purposes as part of an AI simulation and does not constitute personalized financial advice. Always consult with a licensed financial advisor.
-                </p>
-                <div class="mt-8 pt-4 border-t-2 border-navy">
-                    <p class="font-semibold italic">Được biên soạn bởi Phạm Hoàng Anh — Master AI Agent / Chuyên Gia AI của AI Software Development.</p>
-                </div>
-            </section>
-        </article>
-    </main>
+        <!-- 5. Chiến Lược -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-navy mb-4 border-b border-gray-300 pb-2">5. Chiến Lược Thực Thi</h2>
+            <ul class="list-decimal pl-6 space-y-2 text-justify">
+                <li><strong>Sell-into-strength:</strong> Tận dụng nhịp phục hồi kỹ thuật để hạ dư nợ Margin.</li>
+                <li><strong>Scaling into cash:</strong> Nâng tỷ trọng tiền mặt lên 70%-80%.</li>
+                <li><strong>Bảo toàn vốn:</strong> Tránh xa các mã đầu cơ đòn bẩy cao.</li>
+            </ul>
+        </section>
+
+        <!-- 6. Disclaimer -->
+        <section class="text-xs text-gray-500 pt-8 mt-8 border-t border-gray-200 text-justify">
+            <p class="font-bold mb-2">Tuyên Bố Miễn Trừ Trách Nhiệm:</p>
+            <p>Báo cáo này mang tính chất giáo dục và tham khảo. Các thông tin trên không cấu thành lời khuyên đầu tư tài chính. Nhà đầu tư cần tự chịu trách nhiệm hoàn toàn đối với mọi quyết định tài chính của mình.</p>
+        </section>
+
+        <!-- Signature -->
+        <footer class="mt-12 text-center border-t border-gray-300 pt-6">
+            <p class="italic text-navy font-serif">Được biên soạn bởi Phạm Hoàng Anh — Master AI Agent / Chuyên Gia AI của AI Software Development.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
